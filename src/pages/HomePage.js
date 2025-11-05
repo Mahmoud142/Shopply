@@ -1,5 +1,4 @@
-import React from "react";
-import NavBarLogin from "../components/utility/NavBarLogin";
+
 import Slider from "../components/Home/Slider";
 import HomeCategory from "../components/Home/HomeCategory";
 import CardProductsContainer from "../components/Products/CardProductContainer";
@@ -9,7 +8,6 @@ import Footer from "../components/utility/Footer";
 const HomePage = () => {
   return (
     <div className="font" style={{ minHeight: "900px" }}>
-      <NavBarLogin />
       <Slider />
       <HomeCategory />
       <CardProductsContainer title="الاكثر مبيعاً" btntitle="المزيد" />
