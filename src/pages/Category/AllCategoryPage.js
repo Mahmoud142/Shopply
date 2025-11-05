@@ -1,10 +1,10 @@
 import CategoryContainer from "../../components/Category/CategoryContainer";
-
+import Pagination from "../../components/utility/Pagination";
 const AllCategoryPage = () => {
   return (
     <div>
-      <h1>التصنيفات</h1>
       <CategoryContainer />
+      <Pagination />
     </div>
   );
 };

@@ -9,6 +9,7 @@ import img5 from "../../images/cat2.png";
 const CategoryContainer = () => {
   return (
     <Container>
+      <div className="admin-content-text mt-3 ">كل التصنيفات</div>
       <Row className="my-2 d-flex justify-content-between">
         <CategoryCard title="الإكسسوارات" background="#f8f9fa" img={img3} />
         <CategoryCard title="الأحذية" background="#f8f9fa" img={img2} />
