@@ -4,6 +4,9 @@ import NavBarLogin from "./components/utility/NavBarLogin";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
 import AllCategoryPage from "./pages/Category/AllCategoryPage";
+import AllBrandPage from "./pages/Brand/AllBrandPage";
+import ShopProductPage from "./pages/Products/ShopProductPage";
+
 function App() {
   return (
     <div className="font">
@@ -14,6 +17,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/allcategory" element={<AllCategoryPage />} />
+          <Route path="/allbrand" element={<AllBrandPage />} />
+          <Route path="/products" element={<ShopProductPage />} />
         </Routes>
       </BrowserRouter>
     </div>
