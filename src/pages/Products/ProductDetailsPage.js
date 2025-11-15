@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from 'react-bootstrap'
 import CategoryHeader from '../../components/Category/CategoryHeader'
 import CardProductContainer from '../../components/Products/CardProductContainer'
-import ProductDetails from '../../components/Products/ProductDetails'
+import ProductDetails from '../../components/Products/ProductDetalis'
 import RateContainer from '../../components/Rate/RateContainer'
 
 const ProductDetailsPage = () => {

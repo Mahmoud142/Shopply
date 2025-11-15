@@ -8,7 +8,7 @@ import AllBrandPage from "./pages/Brand/AllBrandPage";
 import ShopProductPage from "./pages/Products/ShopProductPage";
 import Footer from "./components/utility/Footer";
 import ProductDetailsPage from "./pages/Products/ProductDetailsPage";
-
+import CartPage from "./pages/Cart/CartPage";
 function App() {
   return (
     <div className="font">
@@ -22,6 +22,7 @@ function App() {
           <Route path="/allbrand" element={<AllBrandPage />} />
           <Route path="/products" element={<ShopProductPage />} />
           <Route path="/products/:id" element={<ProductDetailsPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
