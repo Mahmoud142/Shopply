@@ -12,7 +12,7 @@ const HomePage = () => {
       <CardProductsContainer title="الاكثر مبيعاً" btntitle="المزيد" path="/products" />
       <DiscountSection />
       <CardProductsContainer title="الاعلي تقييما" btntitle="المزيد" path="/products" />
-      <BrandFeatured />
+      <BrandFeatured title="اشهر العلامات التجارية" btntitle="المزيد" />
       <Footer />
     </div>
   );

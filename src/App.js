@@ -6,6 +6,7 @@ import RegisterPage from "./pages/Auth/RegisterPage";
 import AllCategoryPage from "./pages/Category/AllCategoryPage";
 import AllBrandPage from "./pages/Brand/AllBrandPage";
 import ShopProductPage from "./pages/Products/ShopProductPage";
+import Footer from "./components/utility/Footer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/products" element={<ShopProductPage />} />
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

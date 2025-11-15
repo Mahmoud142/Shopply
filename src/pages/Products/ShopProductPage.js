@@ -1,8 +1,10 @@
 import React from 'react'
-
+import CategoryHeader from '../../components/Category/CategoryHeader'
 const ShopProductPage = () => {
   return (
-    <div>ShopProductPage</div>
+    <div>
+      <CategoryHeader />
+    </div>
   )
 }
 
