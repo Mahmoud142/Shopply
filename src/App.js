@@ -9,6 +9,7 @@ import ShopProductPage from "./pages/Products/ShopProductPage";
 import Footer from "./components/utility/Footer";
 import ProductDetailsPage from "./pages/Products/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
+import ChoosePayMethoudPage from "./pages/Checkout/ChoosePayMethoudPage";
 function App() {
   return (
     <div className="font">
@@ -23,6 +24,7 @@ function App() {
           <Route path="/products" element={<ShopProductPage />} />
           <Route path="/products/:id" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/order/paymethoud" element={<ChoosePayMethoudPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
