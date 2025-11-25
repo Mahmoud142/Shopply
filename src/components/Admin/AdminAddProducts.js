@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import Multiselect from 'multiselect-react-dropdown';
+import Select from 'react-select';
 import avatar from '../../images/avatar.png'
 import add from '../../images/add.png'
 const AdminAddProducts = () => {
@@ -56,7 +56,7 @@ const AdminAddProducts = () => {
                         <option value="val2">التصنيف الرابع</option>
                     </select>
 
-                    <Multiselect
+                    <Select
                         className="mt-2 text-end"
                         placeholder="التصنيف الفرعي"
                         options={options}
