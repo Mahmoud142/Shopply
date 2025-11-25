@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
-import mobile from '../../images/mobile.png'
+// import mobile from '../../images/mobile.png'
 import UserAllOrderCard from './UserAllOrderCard'
 const UserAllOrderItem = () => {
     return (

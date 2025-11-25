@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import AdminSideBar from '../../components/Admin/AdminSideBar'
-import AdminAllProducts from '../../components/Admin/AdminAllProducts'
-import Pagination from '../../components/utility/Pagination'
-import AdminOrderDetails from '../../components/Admin/AdminOrderDetails'
+// import AdminAllProducts from '../../components/Admin/AdminAllProducts'
+// import Pagination from '../../components/utility/Pagination'
+// import AdminOrderDetails from '../../components/Admin/AdminOrderDetails'
 import AdminAddBrand from '../../components/Admin/AdminAddBrand'
 const AdminAddBrandPage = () => {
     return (
