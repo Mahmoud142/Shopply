@@ -1,4 +1,4 @@
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/Home/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarLogin from "./components/utility/NavBarLogin";
 import LoginPage from "./pages/Auth/LoginPage";
@@ -6,7 +6,6 @@ import RegisterPage from "./pages/Auth/RegisterPage";
 import AllCategoryPage from "./pages/Category/AllCategoryPage";
 import AllBrandPage from "./pages/Brand/AllBrandPage";
 import ShopProductPage from "./pages/Products/ShopProductPage";
-import Footer from "./components/utility/Footer";
 import ProductDetailsPage from "./pages/Products/ProductDetailsPage";
 import CartPage from "./pages/Cart/CartPage";
 import ChoosePayMethoudPage from "./pages/Checkout/ChoosePayMethoudPage";
@@ -25,6 +24,8 @@ import UserAllAddresPage from "./pages/User/UserAllAddresPage";
 import UserAddAddressPage from "./pages/User/UserAddAddressPage";
 import UserEditAddressPage from "./pages/User/UserEditAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
+
+import Footer from "./components/utility/Footer";
 
 function App() {
   return (
