@@ -1,14 +1,15 @@
 import React from "react";
 import BrandContainer from "../../components/Brand/BrandContainer";
 import Pagination from "../../components/utility/Pagination";
-
-const AllBrandPage = () => {
+import AllBrandHook from "../../hook/brand/all-brand-page-hook";
+const AllBrand = () => {
+  const [brand, loading, pageCount, getPage] = AllBrandHook();
   return (
-    <div>
-      <BrandContainer />
-      <Pagination />
+    <div style={{ minHeight: "670px" }}>
+      <BrandContainer data={brand.data} loading={loading} />
+      <Pagination pageCount={pageCount} onPress={getPage} />
     </div>
   );
 };
 
-export default AllBrandPage;
+export default AllBrand;
