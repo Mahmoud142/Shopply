@@ -1,3 +1,4 @@
+import "./App.css";
 import HomePage from "./pages/Home/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBarLogin from "./components/utility/NavBarLogin";
