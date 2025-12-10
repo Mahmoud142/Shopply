@@ -1,6 +1,4 @@
-import React from "react";
 import { Card, Col } from "react-bootstrap";
-import prod1 from "../../images/prod1.png";
 import favoff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import { Link } from "react-router-dom";
