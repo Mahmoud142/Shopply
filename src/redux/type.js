@@ -4,10 +4,12 @@ export const GET_ERROR = "GET_ERROR";
 // Category Action Types
 export const GET_ALL_CATEGORY = "GET_ALL_CATEGORY";
 export const CREATE_CATEGORY = "CREATE_CATEGORY";
+export const GET_ONE_CATEGORY = "GET_ONE_CATEGORY";
 
 // Brand Action Types
 export const GET_ALL_BRAND = "GET_ALL_BRAND";
 export const CREATE_BRAND = "CREATE_BRAND";
+export const GET_ONE_BRAND = "GET_ONE_BRAND";
 
 //SubCategory Action Types
 export const GET_ALL_SUBCATEGORY = "GET_ALL_SUBCATEGORY";
