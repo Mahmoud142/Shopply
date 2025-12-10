@@ -5,7 +5,6 @@ import DiscountSection from "../../components/Home/DiscountSection";
 import BrandFeatured from "../../components/Brand/BrandFeatured";
 import ViewHomeProductsHook from "../../hook/product/view-home-products-hook";
 const HomePage = () => {
-  
   const [homeProduct] = ViewHomeProductsHook();
 
   return (
@@ -13,17 +12,17 @@ const HomePage = () => {
       <Slider />
       <HomeCategory />
       <CardProductsContainer
+        products={homeProduct}
         title="الاكثر مبيعاً"
         btntitle="المزيد"
-        path="/products"
-        products={homeProduct}
+        pathText="/products"
       />
       <DiscountSection />
       <CardProductsContainer
+        products={homeProduct}
         title="الاعلي تقييما"
         btntitle="المزيد"
-        path="/products"
-        products={homeProduct}
+        pathText="/products"
       />
       <BrandFeatured title="اشهر العلامات التجارية" btntitle="المزيد" />
     </div>
