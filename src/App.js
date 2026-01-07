@@ -18,6 +18,7 @@ import AdminAddBrandPage from "./pages/Admin/AdminAddBrandPage";
 import AdminAddCategoryPage from "./pages/Admin/AdminAddCategoryPage";
 import AdminAddSubCategoryPage from "./pages/Admin/AdminAddSubCategoryPage";
 import AdminOrderDetailsPage from "./pages/Admin/AdminOrderDetailsPage";
+import AdminEditProductsPage from "./pages/Admin/AdminEditProductsPage";
 // user pages
 import UserAllOrdersPage from "./pages/User/UserAllOrdersPage";
 import UserFavoriteProductsPage from "./pages/User/UserFavoriteProductsPage";
@@ -46,16 +47,26 @@ function App() {
           <Route path="/admin/allproducts" element={<AdminAllProductsPage />} />
           <Route path="/admin/allorders" element={<AdminAllOrdersPage />} />
           <Route path="/admin/addproduct" element={<AdminAddProductsPage />} />
+          <Route
+            path="/admin/editproduct/:id"
+            element={<AdminEditProductsPage />}
+          />
           <Route path="/admin/addbrand" element={<AdminAddBrandPage />} />
           <Route path="/admin/addcategory" element={<AdminAddCategoryPage />} />
-          <Route path="/admin/addsubcategory" element={<AdminAddSubCategoryPage />}/>
+          <Route
+            path="/admin/addsubcategory"
+            element={<AdminAddSubCategoryPage />}
+          />
           <Route path="/admin/orders/:id" element={<AdminOrderDetailsPage />} />
           <Route path="/user/allorders" element={<UserAllOrdersPage />} />
-          <Route path="/user/favoriteproducts" element={<UserFavoriteProductsPage />} />
+          <Route
+            path="/user/favoriteproducts"
+            element={<UserFavoriteProductsPage />}
+          />
           <Route path="/user/addresses" element={<UserAllAddresPage />} />
           <Route path="/user/add-address" element={<UserAddAddressPage />} />
-          <Route path="/user/edit-address" element={<UserEditAddressPage />} />  
-          <Route path="/user/profile" element={<UserProfilePage />} />  
+          <Route path="/user/edit-address" element={<UserEditAddressPage />} />
+          <Route path="/user/profile" element={<UserProfilePage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
