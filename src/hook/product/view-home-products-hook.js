@@ -4,8 +4,9 @@ import { getAllProducts } from "./../../redux/actions/productAction";
 
 const ViewHomeProductsHook = () => {
   const dispatch = useDispatch();
+  let limit = 4;
   useEffect(() => {
-    dispatch(getAllProducts());
+    dispatch(getAllProducts(limit));
   }, []);
 
   const Products = useSelector((state) => state.allProducts.allProducts);
@@ -13,7 +14,7 @@ const ViewHomeProductsHook = () => {
   let homeProducts = [];
 
   if (Products.data) {
-    homeProducts = Products.data.slice(0, 5);
+    homeProducts = Products.data.slice(0, limit);
   } else {
     homeProducts = [];
   }
