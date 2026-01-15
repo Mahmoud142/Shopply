@@ -29,9 +29,9 @@ export const createProduct = (formData) => async (dispatch) => {
   }
 };
 // get all products action
-export const getAllProducts = () => async (dispatch) => {
+export const getAllProducts = (limit) => async (dispatch) => {
   try {
-    const res = await useGetData("/api/v1/products");
+    const res = await useGetData(`/api/v1/products?limit=${limit}`);
     dispatch({
       type: GET_ALL_PRODUCTS,
       payload: res,
@@ -44,7 +44,21 @@ export const getAllProducts = () => async (dispatch) => {
     });
   }
 };
-
+export const getAllProductsSearch = (queryString) => async (dispatch) => {
+  try {
+    const res = await useGetData(`/api/v1/products?${queryString}`);
+    dispatch({
+      type: GET_ALL_PRODUCTS,
+      payload: res,
+      loading: true,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ERROR,
+      payload: "Error  " + error,
+    });
+  }
+};
 // get all products with page number action
 export const getAllProductsPage = (page, limit) => async (dispatch) => {
   try {
