@@ -7,15 +7,20 @@ import CardProductsContainer from "../../components/Products/CardProductContaine
 import Pagination from "../../components/utility/Pagination";
 import ViewSearchProductsHook from "../../hook/product/view-search-products-hook";
 const ShopProductPage = () => {
-  const [products, pagination, onPress] = ViewSearchProductsHook();
+
+  const [products, pagination, onPress,getProducts, results] = ViewSearchProductsHook();
   let pageCount = 0;
   if (pagination) pageCount = pagination;
+
 
   return (
     <div>
       <CategoryHeader />
       <Container>
-        <SearchCountResult title={`هناك ${products.length} نتيجة بحث`} />
+        <SearchCountResult
+          title={`هناك ${results} نتيجة بحث`}
+          onClick={getProducts}
+        />
         <Row className="d-flex flex-row">
           <Col sm="2" xs="2" md="1" className="d-flex">
             <SideFilter />
