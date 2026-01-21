@@ -8,7 +8,7 @@ import {
   GET_PRODUCT_DETAILS,
   GET_ERROR,
 } from "../type";
-import useGetData from "./../../hooks/useGetData";
+import {useGetData} from "./../../hooks/useGetData";
 import useDeleteData from "./../../hooks/useDeleteData";
 import { useUpdateDataWithImage } from "../../hooks/useUpdateData";
 

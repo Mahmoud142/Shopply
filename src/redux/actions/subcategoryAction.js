@@ -1,6 +1,6 @@
 import { CREATE_SUBCATEGORY, GET_SUB_CATEGORY, GET_ERROR } from "../type";
 import { useInsertData } from "../../hooks/useInsertData";
-import  useGetData from "../../hooks/useGetData";
+import { useGetData } from "../../hooks/useGetData";
 // Create SubCategory Action
 export const createSubCategory = (formData) => async (dispatch) => {
   try {
