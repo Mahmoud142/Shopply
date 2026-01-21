@@ -3,10 +3,12 @@ import categoryReducer from "./categoryReducer";
 import brandReducer from "./brandReducer";
 import subcategoryReducer from "./subcategoryReducer";
 import productsReducer from "./productReducer";
+import authReducer from "./authReducer";
 
 export default combineReducers({
   allCategory: categoryReducer,
   allBrand: brandReducer,
   allSubCategory: subcategoryReducer,
   allProducts: productsReducer,
+  authReducer: authReducer,
 });
