@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LoginHook from "../../hook/auth/login-hook";
@@ -39,6 +39,16 @@ const LoginPage = () => {
               </span>
             </Link>
           </label>
+
+          <label className="mx-auto my-4">
+            <Link
+              to="/user/forget-password"
+              style={{ textDecoration: "none", color: "red" }}
+            >
+              هل نسيت كلمه السر
+            </Link>
+          </label>
+
           {loading ? (
             loading === true ? (
               <Spinner animation="border" role="status">
