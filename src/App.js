@@ -26,6 +26,9 @@ import UserAllAddresPage from "./pages/User/UserAllAddresPage";
 import UserAddAddressPage from "./pages/User/UserAddAddressPage";
 import UserEditAddressPage from "./pages/User/UserEditAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
+import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
+import VerifyPasswordPage from "./pages/Auth/VerifyPasswordPage";
+import ResetPasswordPage from "./pages/Auth/ResetPasswordPage";
 
 import Footer from "./components/utility/Footer";
 
@@ -67,6 +70,9 @@ function App() {
           <Route path="/user/add-address" element={<UserAddAddressPage />} />
           <Route path="/user/edit-address" element={<UserEditAddressPage />} />
           <Route path="/user/profile" element={<UserProfilePage />} />
+          <Route path="/user/forget-password" element={<ForgetPasswordPage />} />
+          <Route path="/user/verify-code" element={<VerifyPasswordPage />} />
+          <Route path="/user/reset-password" element={<ResetPasswordPage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
