@@ -1,7 +1,11 @@
-import React from "react";
-import { Navbar, Container, FormControl, Nav,
-  NavDropdown
- } from "react-bootstrap";
+
+import {
+  Navbar,
+  Container,
+  FormControl,
+  Nav,
+  NavDropdown,
+} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import logo from "../../images/logo.png";
 import login from "../../images/login.png";
@@ -14,18 +18,39 @@ const NavBarLogin = () => {
     word = localStorage.getItem("searchWord");
   }
 
+  const getStoredUser = () => {
+    const raw = localStorage.getItem("user");
+    return raw ? JSON.parse(raw) : "";
+  };
 
-      const [user, setUser] = useState("");
-      useEffect(() => {
-        if (localStorage.getItem("user") != null)
-          setUser(JSON.parse(localStorage.getItem("user")));
-      }, []);
+  const [user, setUser] = useState("");
 
-      const logOut = () => {
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        setUser("");
-      };
+  useEffect(() => {
+    const syncUser = () => setUser(getStoredUser());
+
+    syncUser();
+
+    const handleStorage = (e) => {
+      if (!e || e.key === "user" || e.key === "token") syncUser();
+    };
+
+    window.addEventListener("storage", handleStorage);
+    window.addEventListener("focus", syncUser);
+
+    const intervalId = setInterval(syncUser, 1000);
+
+    return () => {
+      window.removeEventListener("storage", handleStorage);
+      window.removeEventListener("focus", syncUser);
+      clearInterval(intervalId);
+    };
+  }, []);
+
+  const logOut = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    setUser("");
+  };
 
   return (
     <Navbar className="sticky-top" bg="dark" variant="dark" expand="sm">
