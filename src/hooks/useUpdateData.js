@@ -4,8 +4,10 @@ const useUpdateDataWithImage = async (endpoint, params) => {
   try {
     const config = {
       headers: { "Content-Type": "multipart/form-data" },
+      Authorization: `Bearer ${localStorage.getItem("token")}`
     };
     const res = await baseUrl.put(endpoint, params, config);
+
     return res;
   } catch (err) {
     console.error("Error updating data:", err);
@@ -15,7 +17,10 @@ const useUpdateDataWithImage = async (endpoint, params) => {
 
 const useUpdateData = async (endpoint, params) => {
   try {
-    const res = await baseUrl.put(endpoint, params);
+   const config = {
+     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+   };
+    const res = await baseUrl.put(endpoint, params, config);
     return res;
   } catch (err) {
     console.error("Error updating data:", err);
