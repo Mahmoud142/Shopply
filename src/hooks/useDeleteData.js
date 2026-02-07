@@ -1,11 +1,16 @@
 import baseURL from "./../Api/baseURL";
 
-
-
 const useDeleteData = async (endpoint, params) => {
   try {
-    const res = await baseURL.delete(endpoint, { data: params });
-    return res;
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      }
+    }
+    const res = await baseURL.delete(endpoint,{ data: params }, config);
+
+    return res.data;
+    
   } catch (err) {
     console.error("Error deleting data:", err);
     throw err;
