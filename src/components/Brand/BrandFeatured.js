@@ -12,7 +12,7 @@ const BrandFeatured = ({ title, btntitle }) => {
       <SubTiltle title={title} btntitle={btntitle} pathText="/allbrand" />
       <Row className="my-1 d-flex justify-content-between">
         {loading === false ? (
-          brand.data ? (
+          brand && brand.data && brand.data.length > 0 ? (
             brand.data.slice(0, 5).map((item, index) => {
               return <BrandCard key={index} img={item.image} />;
             })
