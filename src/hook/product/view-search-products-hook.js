@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  getAllProducts,
-  getAllProductsPage,
   getAllProductsSearch,
 } from "../../redux/actions/productAction";
 
@@ -11,57 +9,7 @@ const ViewSearchProductsHook = () => {
   let limit = 8;
   const dispatch = useDispatch();
 
-  const getProducts = async () => {
-    getStorge();
-    sortData();
-    await dispatch(
-      getAllProductsSearch(
-        `sort=${sort}&limit=${limit}&keyword=${word}&${queryCat}&${brandCat}${pricefromString}${priceToString}`
-      )
-    );
-  };
-
-  useEffect(() => {
-    getProducts();
-  }, [dispatch, limit]);
-
-  // get products from redux
-  const products = useSelector((state) => state.allProducts.allProducts);
-
-  let items = [];
-  let pagination = [];
-  let results = 0;
-  try {
-    if (products.data) {
-      items = products.data;
-    }
-  } catch (e) {
-    console.log(e);
-  }
-
-  try {
-    if (products.paginationResult) {
-      pagination = products.paginationResult.numberOfPages;
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  try {
-    if (products.results) {
-      results = products.results;
-    }
-  } catch (e) {
-    console.log(e);
-  }
-  // change page
-  const onPress = async (page) => {
-    getStorge();
-    sortData();
-    await dispatch(
-      getAllProductsSearch(`sort=${sort}&limit=${limit}&page=${page}&keyword=${word}&${queryCat}&${brandCat}${pricefromString}${priceToString}`)
-    );
-  };
-
+  // Declare variables at the top to avoid scoping issues
   let pricefromString = "",
     priceToString = "";
   let word = "",
@@ -69,6 +17,9 @@ const ViewSearchProductsHook = () => {
     brandCat = "",
     priceTo = "",
     priceFrom = "";
+  let sortType = "",
+    sort = "";
+
   const getStorge = () => {
     if (localStorage.getItem("searchWord") != null)
       word = localStorage.getItem("searchWord");
@@ -94,8 +45,6 @@ const ViewSearchProductsHook = () => {
     }
   };
 
-  let sortType = "",
-    sort;
   const sortData = () => {
     if (localStorage.getItem("sortType") !== null) {
       sortType = localStorage.getItem("sortType");
@@ -107,6 +56,38 @@ const ViewSearchProductsHook = () => {
     else if (sortType === "") sort = "";
     else if (sortType === "الاكثر مبيعا") sort = "-sold";
     else if (sortType === "الاعلي تقييما") sort = "-quantity";
+  };
+
+  const getProducts = async () => {
+    getStorge();
+    sortData();
+    const keywordString = word ? `&keyword=${word}` : "";
+    await dispatch(
+      getAllProductsSearch(
+        `sort=${sort}&limit=${limit}${keywordString}${queryCat}&${brandCat}${pricefromString}${priceToString}`
+      )
+    );
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, [dispatch, limit]);
+  
+  // get products from redux
+  const products = useSelector((state) => state.allProducts.allProductsSearch);
+
+  const items = products?.data || [];
+  const pagination = products?.paginationResult?.numberOfPages || [];
+  const results = products?.results || 0;
+
+  // change page
+  const onPress = async (page) => {
+    getStorge();
+    sortData();
+    const keywordString = word ? `&keyword=${word}` : "";
+    await dispatch(
+      getAllProductsSearch(`sort=${sort}&limit=${limit}&page=${page}${keywordString}${queryCat}&${brandCat}${pricefromString}${priceToString}`)
+    );
   };
 
   return [items, pagination, onPress, getProducts, results];
