@@ -5,20 +5,15 @@ import { getAllProducts } from "./../../redux/actions/productAction";
 const ViewHomeProductsHook = () => {
   const dispatch = useDispatch();
   let limit = 4;
+
   useEffect(() => {
     dispatch(getAllProducts(limit));
-  }, []);
+  },[dispatch,limit]);
 
-  const Products = useSelector((state) => state.allProducts.allProducts);
+  const Products = useSelector((state) => state.allProducts.allHomeProducts);
 
-  let homeProducts = [];
+  const homeProducts = Products?.data ?? [];
 
-  if (Products.data) {
-    homeProducts = Products.data.slice(0, limit);
-  } else {
-    homeProducts = [];
-  }
-  console.log(homeProducts);
   return [homeProducts];
 };
 
