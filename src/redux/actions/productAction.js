@@ -6,6 +6,7 @@ import {
   GET_PRODUCT_LIKE,
   GET_ALL_PRODUCTS,
   GET_PRODUCT_DETAILS,
+  GET_ALL_PRODUCTS_SEARCH,
   GET_ERROR,
 } from "../type";
 import {useGetData} from "./../../hooks/useGetData";
@@ -46,9 +47,10 @@ export const getAllProducts = (limit) => async (dispatch) => {
 };
 export const getAllProductsSearch = (queryString) => async (dispatch) => {
   try {
+    console.log("log from getAllProductsSearch action");
     const res = await useGetData(`/api/v1/products?${queryString}`);
     dispatch({
-      type: GET_ALL_PRODUCTS,
+      type: GET_ALL_PRODUCTS_SEARCH,
       payload: res,
       loading: true,
     });
@@ -66,7 +68,7 @@ export const getAllProductsPage = (page, limit) => async (dispatch) => {
       `/api/v1/products?page=${page}&limit=${limit}`
     );
     dispatch({
-      type: GET_ALL_PRODUCTS,
+      type: GET_ALL_PRODUCTS_SEARCH,
       payload: res,
       loading: true,
     });
