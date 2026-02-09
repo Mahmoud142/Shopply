@@ -47,7 +47,6 @@ export const getAllProducts = (limit) => async (dispatch) => {
 };
 export const getAllProductsSearch = (queryString) => async (dispatch) => {
   try {
-    console.log("log from getAllProductsSearch action");
     const res = await useGetData(`/api/v1/products?${queryString}`);
     dispatch({
       type: GET_ALL_PRODUCTS_SEARCH,
