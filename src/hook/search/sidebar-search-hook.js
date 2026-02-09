@@ -4,8 +4,7 @@ import { getAllCategory } from "../../redux/actions/categoryAction";
 import { getAllBrand } from "../../redux/actions/brandAction";
 import ViewSearchProductsHook from "../product/view-search-products-hook";
 const SidebarSearchHook = () => {
-  const [items, pagination, onPress, getProduct, results] =
-    ViewSearchProductsHook();
+  const [, , , getProduct] = ViewSearchProductsHook();
 
   const dispatch = useDispatch();
 
@@ -20,15 +19,8 @@ const SidebarSearchHook = () => {
   const allcategory = useSelector((state) => state.allCategory.category);
   const allbrand = useSelector((state) => state.allBrand.brand);
 
-  let category = [];
-  if (allcategory.data) {
-    category = allcategory.data;
-  }
-
-  let brand = [];
-  if (allbrand.data) {
-    brand = allbrand.data;
-  }
+  const category = allcategory?.data || [];
+  const brand = allbrand?.data || [];
 
   let queryCat = "";
   let queryBrand = "";
