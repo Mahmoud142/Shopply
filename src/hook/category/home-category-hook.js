@@ -7,12 +7,12 @@ const HomeCategoryHook = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCategory());
-  }, []);
+  }, [dispatch]);
   //get last catgeory state from redux
   const category = useSelector((state) => state.allCategory.category);
   //get last loading state from redux
   const loading = useSelector((state) => state.allCategory.loading);
-  console.log(loading);
+
   const colors = [
     "#FFD3E8",
     "#F4DBA5",
