@@ -1,0 +1,81 @@
+import {
+  CREATE_REVIEW,
+  UPDATE_REVIEW,
+  DELETE_REVIEW,
+  ALL_REVIEW_PRODUCT,
+} from "./../type";
+
+import { useInsertData } from "../../hooks/useInsertData";
+import  useDeleteData  from "../../hooks/useDeleteData";
+import { useUpdateData } from "../../hooks/useUpdateData";
+import { useGetDataToken } from "../../hooks/useGetData";
+
+// Create Review
+export const createReview = (prodID, body) => async (dispatch) => {
+  try {
+    const response = await useInsertData(
+      `/api/v1/products/${prodID}/reviews`,
+      body,
+    );
+
+    dispatch({
+      type: CREATE_REVIEW,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: CREATE_REVIEW,
+      payload: e.response,
+    });
+  }
+};
+
+// Update Review
+export const updateReviewOnProduct = (reviewID, body) => async (dispatch) => {
+  try {
+    const response = await useUpdateData(`/api/v1/reviews/${reviewID}`, body);
+    dispatch({
+      type: UPDATE_REVIEW,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: UPDATE_REVIEW,
+      payload: e.response,
+    });
+  }
+};
+
+// Delete Review
+export const deleteReviewOnProduct = (reviewID) => async (dispatch) => {
+  try {
+    const response = await useDeleteData(`/api/v1/reviews/${reviewID}`);
+    dispatch({
+      type: DELETE_REVIEW,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: DELETE_REVIEW,
+      payload: e.response,
+    });
+  }
+};
+
+// Get All Reviews of a Product
+export const allReviewProduct = (prodID, page, limit) => async (dispatch) => {
+  try {
+    const response = await useGetDataToken(
+      `/api/v1/products/${prodID}/reviews?page=${page}&limit=${limit}`,
+    );
+    dispatch({
+      type: ALL_REVIEW_PRODUCT,
+      payload: response,
+    });
+  } catch (e) {
+    dispatch({
+      type: ALL_REVIEW_PRODUCT,
+      payload: e.response,
+    });
+  }
+};
