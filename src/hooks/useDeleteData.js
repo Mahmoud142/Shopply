@@ -7,7 +7,7 @@ const useDeleteData = async (endpoint, params) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       }
     }
-    const res = await baseURL.delete(endpoint,{ data: params }, config);
+    const res = await baseURL.delete(endpoint, config, params);
 
     return res.data;
     
