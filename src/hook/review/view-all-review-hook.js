@@ -11,7 +11,7 @@ const ViewAllReviewHook = (id) => {
   const allReview = useSelector(
     (state) => state.reviewReducer?.allReviewProduct,
   );
-  console.log("allReview in hook:", allReview);
+  
   useEffect(() => {
     setLoading(true);
     dispatch(allReviewProduct(id, 1, 5));

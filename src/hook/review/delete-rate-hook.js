@@ -40,7 +40,7 @@ const DeleteRateHook = (review) => {
         }, 1000);
       } else{
         notify("هناك مشكله فى عملية المسح", "error");
-        console.log(res);
+        
       }
     }
   }, [loading, res]);
