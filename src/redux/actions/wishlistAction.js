@@ -1,0 +1,54 @@
+import { ADD_TO_WISHLIST, REMOVE_FROM_WISHLIST, USER_WISHLIST } from "../type";
+
+import { useInsertData } from "../../hooks/useInsertData";
+import useDeleteData from "./../../hooks/useDeleteData";
+import { useGetDataToken } from "../../hooks/useGetData";
+
+// Add Product To WishList
+export const addProductToWishList = (body) => async (dispatch) => {
+    try {
+        const response = await useInsertData("/api/v1/wishlist", body);
+        dispatch({
+            type: ADD_TO_WISHLIST,
+            payload: response.data,
+        });
+    } catch (e) {
+        dispatch({
+            type: ADD_TO_WISHLIST,
+            payload: e.response.data,
+        });
+    }
+};
+
+// Delete Product From WishList
+export const removeProductFromWishList = (id) => async (dispatch) => {
+    try {
+        const response = await useDeleteData(`/api/v1/wishlist/${id}`);
+        dispatch({
+            type: REMOVE_FROM_WISHLIST,
+            payload: response.data,
+            loading: true,
+        });
+    } catch (e) {
+        dispatch({
+            type: REMOVE_FROM_WISHLIST,
+            payload: e.response.data,
+        });
+    }
+};
+
+// Get User WishList
+export const getUserWishList = () => async (dispatch) => {
+    try {
+        const response = await useGetDataToken("/api/v1/wishlist");
+        dispatch({
+            type: USER_WISHLIST,
+            payload: response.data,
+        });
+    } catch (e) {
+        dispatch({
+            type: USER_WISHLIST,
+            payload: e.response.data,
+        });
+    }
+};
