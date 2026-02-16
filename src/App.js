@@ -29,54 +29,109 @@ import UserProfilePage from "./pages/User/UserProfilePage";
 import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
 import VerifyPasswordPage from "./pages/Auth/VerifyPasswordPage";
 import ResetPasswordPage from "./pages/Auth/ResetPasswordPage";
+import AdminEditCouponPage from "./pages/Admin/AdminEditCouponPage";
+import AdminAddCouponPage from "./pages/Admin/AdminAddCouponPage";
 
 import Footer from "./components/utility/Footer";
 
 function App() {
   return (
-    <div className="font">
-      <NavBarLogin />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/allcategory" element={<AllCategoryPage />} />
-          <Route path="/allbrand" element={<AllBrandPage />} />
-          <Route path="/products" element={<ShopProductPage />} />
-          <Route path="/products/:id" element={<ProductDetailsPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/order/paymethoud" element={<ChoosePayMethoudPage />} />
-          <Route path="/admin/allproducts" element={<AdminAllProductsPage />} />
-          <Route path="/admin/allorders" element={<AdminAllOrdersPage />} />
-          <Route path="/admin/addproduct" element={<AdminAddProductsPage />} />
-          <Route
-            path="/admin/editproduct/:id"
-            element={<AdminEditProductsPage />}
-          />
-          <Route path="/admin/addbrand" element={<AdminAddBrandPage />} />
-          <Route path="/admin/addcategory" element={<AdminAddCategoryPage />} />
-          <Route
-            path="/admin/addsubcategory"
-            element={<AdminAddSubCategoryPage />}
-          />
-          <Route path="/admin/orders/:id" element={<AdminOrderDetailsPage />} />
-          <Route path="/user/allorders" element={<UserAllOrdersPage />} />
-          <Route
-            path="/user/favoriteproducts"
-            element={<UserFavoriteProductsPage />}
-          />
-          <Route path="/user/addresses" element={<UserAllAddresPage />} />
-          <Route path="/user/add-address" element={<UserAddAddressPage />} />
-          <Route path="/user/edit-address" element={<UserEditAddressPage />} />
-          <Route path="/user/profile" element={<UserProfilePage />} />
-          <Route path="/user/forget-password" element={<ForgetPasswordPage />} />
-          <Route path="/user/verify-code" element={<VerifyPasswordPage />} />
-          <Route path="/user/reset-password" element={<ResetPasswordPage />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+      <div className="font">
+          <NavBarLogin />
+          <BrowserRouter>
+              <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/allcategory" element={<AllCategoryPage />} />
+                  <Route path="/allbrand" element={<AllBrandPage />} />
+                  <Route path="/products" element={<ShopProductPage />} />
+                  <Route
+                      path="/products/:id"
+                      element={<ProductDetailsPage />}
+                  />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route
+                      path="/order/paymethoud"
+                      element={<ChoosePayMethoudPage />}
+                  />
+                  <Route
+                      path="/admin/allproducts"
+                      element={<AdminAllProductsPage />}
+                  />
+                  <Route
+                      path="/admin/allorders"
+                      element={<AdminAllOrdersPage />}
+                  />
+                  <Route
+                      path="/admin/addproduct"
+                      element={<AdminAddProductsPage />}
+                  />
+                  <Route
+                      path="/admin/editproduct/:id"
+                      element={<AdminEditProductsPage />}
+                  />
+                  <Route
+                      path="/admin/addbrand"
+                      element={<AdminAddBrandPage />}
+                  />
+                  <Route
+                      path="/admin/addcategory"
+                      element={<AdminAddCategoryPage />}
+                  />
+                  <Route
+                      path="/admin/addsubcategory"
+                      element={<AdminAddSubCategoryPage />}
+                  />
+                  <Route
+                      path="/admin/orders/:id"
+                      element={<AdminOrderDetailsPage />}
+                  />
+                  <Route
+                      path="/user/allorders"
+                      element={<UserAllOrdersPage />}
+                  />
+                  <Route
+                      path="/user/favoriteproducts"
+                      element={<UserFavoriteProductsPage />}
+                  />
+                  <Route
+                      path="/admin/addcoupon"
+                      element={<AdminAddCouponPage />}
+                  />
+                  <Route
+                      path="/admin/editcoupon/:id"
+                      element={<AdminEditCouponPage />}
+                  />
+                  <Route
+                      path="/user/addresses"
+                      element={<UserAllAddresPage />}
+                  />
+                  <Route
+                      path="/user/add-address"
+                      element={<UserAddAddressPage />}
+                  />
+                  <Route
+                      path="/user/edit-address"
+                      element={<UserEditAddressPage />}
+                  />
+                  <Route path="/user/profile" element={<UserProfilePage />} />
+                  <Route
+                      path="/user/forget-password"
+                      element={<ForgetPasswordPage />}
+                  />
+                  <Route
+                      path="/user/verify-code"
+                      element={<VerifyPasswordPage />}
+                  />
+                  <Route
+                      path="/user/reset-password"
+                      element={<ResetPasswordPage />}
+                  />
+              </Routes>
+          </BrowserRouter>
+          <Footer />
+      </div>
   );
 }
 
