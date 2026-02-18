@@ -15,21 +15,21 @@ const DeleteRateHook = (review) => {
   const handleClose = () => setShowDelete(false);
   const handleShow = () => setShowDelete(true);
 
-  let user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    if (review.user._id === user._id) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && review.user?._id === user._id) {
       setIsUser(true);
     }
-  }, [review.user._id, user._id]);
+  }, [review.user?._id]);
 
   const handelDelete = async () => {
     setLoading(true);
-    await dispatch(deleteReviewOnProduct(review._id));
+    await dispatch(deleteReviewOnProduct(review?._id));
     setLoading(false);
     handleClose();
   };
-  const res = useSelector((state) => state.reviewReducer.deleteReview);
+  const res = useSelector((state) => state.reviewReducer?.deleteReview);
 
   useEffect(() => {
     if (loading === false) {
