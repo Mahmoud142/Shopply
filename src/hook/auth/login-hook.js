@@ -74,11 +74,9 @@ const LoginHook = () => {
       lastProcessedRes.current = res;
       hasSubmitted.current = false;
       setLoading(false);
-      console.log("Response received:", res);
       try {
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);
-          // console.log("User data:", res.data.data);
           localStorage.setItem("user", JSON.stringify(res.data.data));
           notify("تم تسجيل الدخول بنجاح", "success");
           navigate("/");
@@ -88,7 +86,7 @@ const LoginHook = () => {
           notify(res.data.message, "error");
         }
       } catch (err) {
-        console.log(err);
+            notify("حدث خطأ غير متوقع", "error");
       }
     }
   }, [loading, res]);
