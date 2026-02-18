@@ -15,12 +15,13 @@ const HomeCategory = () => {
           category && category.data && category.data.length > 0 ? (
             category.data.slice(0, 5).map((item, index) => {
               return (
-                <CategoryCard
-                  key={item.id || item._id}
-                  title={item.name}
-                  img={item.image}
-                  background={colors?.[index] || "#fff"}
-                />
+                  <CategoryCard
+                      key={index}
+                      id={item._id}
+                      title={item.name}
+                      img={item.image}
+                      background={colors[index]}
+                  />
               );
             })
           ) : (
