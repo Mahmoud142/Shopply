@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Spinner, Row } from "react-bootstrap";
 import SubTiltle from "../utility/SubTitle";
 import BrandCard from "./BrandCard";
@@ -14,7 +13,7 @@ const BrandFeatured = ({ title, btntitle }) => {
         {loading === false ? (
           brand && brand.data && brand.data.length > 0 ? (
             brand.data.slice(0, 5).map((item, index) => {
-              return <BrandCard key={index} img={item.image} />;
+              return <BrandCard id={item._id} key={index} img={item.image} />;
             })
           ) : (
             <h4>لا يوجد ماركات</h4>
