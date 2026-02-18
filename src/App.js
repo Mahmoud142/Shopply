@@ -31,108 +31,127 @@ import VerifyPasswordPage from "./pages/Auth/VerifyPasswordPage";
 import ResetPasswordPage from "./pages/Auth/ResetPasswordPage";
 import AdminEditCouponPage from "./pages/Admin/AdminEditCouponPage";
 import AdminAddCouponPage from "./pages/Admin/AdminAddCouponPage";
-
+import ProtectedRouteHook from "./hook/auth/protected-route-hook";
+import ProtectedRoute from "./components/utility/ProtectedRoute";
 import Footer from "./components/utility/Footer";
-
+import ProductsByCategory from "./pages/Products/ProductsByCategory";
+import ProductsByBrand from "./pages/Products/ProductsByBrand";
 function App() {
-  return (
-      <div className="font">
-          <NavBarLogin />
-          <BrowserRouter>
-              <Routes>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/register" element={<RegisterPage />} />
-                  <Route path="/allcategory" element={<AllCategoryPage />} />
-                  <Route path="/allbrand" element={<AllBrandPage />} />
-                  <Route path="/products" element={<ShopProductPage />} />
-                  <Route
-                      path="/products/:id"
-                      element={<ProductDetailsPage />}
-                  />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route
-                      path="/order/paymethoud"
-                      element={<ChoosePayMethoudPage />}
-                  />
-                  <Route
-                      path="/admin/allproducts"
-                      element={<AdminAllProductsPage />}
-                  />
-                  <Route
-                      path="/admin/allorders"
-                      element={<AdminAllOrdersPage />}
-                  />
-                  <Route
-                      path="/admin/addproduct"
-                      element={<AdminAddProductsPage />}
-                  />
-                  <Route
-                      path="/admin/editproduct/:id"
-                      element={<AdminEditProductsPage />}
-                  />
-                  <Route
-                      path="/admin/addbrand"
-                      element={<AdminAddBrandPage />}
-                  />
-                  <Route
-                      path="/admin/addcategory"
-                      element={<AdminAddCategoryPage />}
-                  />
-                  <Route
-                      path="/admin/addsubcategory"
-                      element={<AdminAddSubCategoryPage />}
-                  />
-                  <Route
-                      path="/admin/orders/:id"
-                      element={<AdminOrderDetailsPage />}
-                  />
-                  <Route
-                      path="/user/allorders"
-                      element={<UserAllOrdersPage />}
-                  />
-                  <Route
-                      path="/user/favoriteproducts"
-                      element={<UserFavoriteProductsPage />}
-                  />
-                  <Route
-                      path="/admin/addcoupon"
-                      element={<AdminAddCouponPage />}
-                  />
-                  <Route
-                      path="/admin/editcoupon/:id"
-                      element={<AdminEditCouponPage />}
-                  />
-                  <Route
-                      path="/user/addresses"
-                      element={<UserAllAddresPage />}
-                  />
-                  <Route
-                      path="/user/add-address"
-                      element={<UserAddAddressPage />}
-                  />
-                  <Route
-                      path="/user/edit-address/:id"
-                      element={<UserEditAddressPage />}
-                  />
-                  <Route path="/user/profile" element={<UserProfilePage />} />
-                  <Route
-                      path="/user/forget-password"
-                      element={<ForgetPasswordPage />}
-                  />
-                  <Route
-                      path="/user/verify-code"
-                      element={<VerifyPasswordPage />}
-                  />
-                  <Route
-                      path="/user/reset-password"
-                      element={<ResetPasswordPage />}
-                  />
-              </Routes>
-          </BrowserRouter>
-          <Footer />
-      </div>
-  );
+    const [isUser, isAdmin, userData] = ProtectedRouteHook();
+
+    return (
+        <div className="font">
+            <NavBarLogin />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/allcategory" element={<AllCategoryPage />} />
+                    <Route path="/allbrand" element={<AllBrandPage />} />
+                    <Route path="/products" element={<ShopProductPage />} />
+                    <Route
+                        path="/products/:id"
+                        element={<ProductDetailsPage />}
+                    />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route
+                        path="/user/forget-password"
+                        element={<ForgetPasswordPage />}
+                    />
+                    <Route
+                        path="/user/verify-code"
+                        element={<VerifyPasswordPage />}
+                    />
+                    <Route
+                        path="/user/reset-password"
+                        element={<ResetPasswordPage />}
+                    />
+                    <Route
+                        path="/order/paymethoud"
+                        element={<ChoosePayMethoudPage />}
+                    />
+                    <Route
+                        path="/products/category/:id"
+                        element={<ProductsByCategory />}
+                    />
+                    <Route
+                        path="/products/brand/:id"
+                        element={<ProductsByBrand />}
+                    />
+                    <Route element={<ProtectedRoute isAdmin={isAdmin} isUser={isUser} />}>
+                        <Route
+                            path="/admin/allproducts"
+                            element={<AdminAllProductsPage />}
+                        />
+                        <Route
+                            path="/admin/allorders"
+                            element={<AdminAllOrdersPage />}
+                        />
+                        <Route
+                            path="/admin/addproduct"
+                            element={<AdminAddProductsPage />}
+                        />
+                        <Route
+                            path="/admin/editproduct/:id"
+                            element={<AdminEditProductsPage />}
+                        />
+                        <Route
+                            path="/admin/addbrand"
+                            element={<AdminAddBrandPage />}
+                        />
+                        <Route
+                            path="/admin/addcategory"
+                            element={<AdminAddCategoryPage />}
+                        />
+                        <Route
+                            path="/admin/addsubcategory"
+                            element={<AdminAddSubCategoryPage />}
+                        />
+                        <Route
+                            path="/admin/orders/:id"
+                            element={<AdminOrderDetailsPage />}
+                        />
+                        <Route
+                            path="/admin/addcoupon"
+                            element={<AdminAddCouponPage />}
+                        />
+                        <Route
+                            path="/admin/editcoupon/:id"
+                            element={<AdminEditCouponPage />}
+                        />
+                    </Route>
+                    <Route element={<ProtectedRoute isAdmin={isAdmin} isUser={isUser} />}>
+                        <Route
+                            path="/user/allorders"
+                            element={<UserAllOrdersPage />}
+                        />
+                        <Route
+                            path="/user/favoriteproducts"
+                            element={<UserFavoriteProductsPage />}
+                        />
+                        <Route
+                            path="/user/addresses"
+                            element={<UserAllAddresPage />}
+                        />
+                        <Route
+                            path="/user/add-address"
+                            element={<UserAddAddressPage />}
+                        />
+                        <Route
+                            path="/user/edit-address/:id"
+                            element={<UserEditAddressPage />}
+                        />
+                        <Route
+                            path="/user/profile"
+                            element={<UserProfilePage />}
+                        />
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;
