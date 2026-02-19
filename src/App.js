@@ -79,7 +79,7 @@ function App() {
                         path="/products/brand/:id"
                         element={<ProductsByBrand />}
                     />
-                    <Route element={<ProtectedRoute isAdmin={isAdmin} isUser={isUser} />}>
+                    <Route element={<ProtectedRoute auth={isAdmin} />}>
                         <Route
                             path="/admin/allproducts"
                             element={<AdminAllProductsPage />}
@@ -121,7 +121,7 @@ function App() {
                             element={<AdminEditCouponPage />}
                         />
                     </Route>
-                    <Route element={<ProtectedRoute isAdmin={isAdmin} isUser={isUser} />}>
+                    <Route element={<ProtectedRoute auth={isUser} />}>
                         <Route
                             path="/user/allorders"
                             element={<UserAllOrdersPage />}
