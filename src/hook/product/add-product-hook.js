@@ -134,7 +134,8 @@ const AdminAddProductHook = () => {
       prodName === "" ||
       prodDesc === "" ||
       images.length <= 0 ||
-      prodPriceBefore <= 0
+      prodPriceBefore <= 0 ||
+      prodPriceAfter <= 0
     ) {
       notify("من فضلك اكمل البيانات", "warn");
       return;
@@ -164,6 +165,7 @@ const AdminAddProductHook = () => {
     formData.append("description", prodDesc);
     formData.append("quantity", qty);
     formData.append("price", prodPriceBefore);
+    formData.append("priceAfterDiscount", prodPriceAfter);
     formData.append("imageCover", imgCover);
     formData.append("category", CatID);
     formData.append("brand", BrandID);
