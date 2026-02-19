@@ -1,14 +1,15 @@
 import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectedRoute = ({ isAdmin, isUser, children }) => {
-    if (isAdmin === false && isUser === false) {
+let user = localStorage.getItem("user");
+user = JSON.parse(user);
+
+const ProtectedRoute = ({ auth, children }) => {
+    if(user == null){
         return <Navigate to="/login" replace />;
-    }else if (isAdmin === true) {
-        return <Navigate to="/admin/allproducts" replace />;
-    }else if (isUser === true) {
+    }
+    if (auth === false) {
         return <Navigate to="/" replace />;
     }
-
     return children ? children : <Outlet />;
 };
 
