@@ -1,6 +1,8 @@
 import {
     GET_ALL_ORDER,
     GET_ONE_ORDER,
+    UPDATE_ORDER_PAY,
+    UPDATE_ORDER_DELIVER,
 } from "../type";
 
 const intial = {
@@ -20,6 +22,16 @@ const orderReducer = (state = intial, action) => {
             return {
                 ...state,
                 getOneOrder: action.payload,
+            };
+        case UPDATE_ORDER_PAY:
+            return {
+                ...state,
+                changePay: action.payload,
+            };
+        case UPDATE_ORDER_DELIVER:
+            return {
+                ...state,
+                changeDeliver: action.payload,
             };
         default:
             return state;
