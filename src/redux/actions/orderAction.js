@@ -1,5 +1,11 @@
-import { GET_ALL_ORDER, GET_ONE_ORDER } from "../type";
+import {
+    GET_ALL_ORDER,
+    GET_ONE_ORDER,
+    UPDATE_ORDER_PAY,
+    UPDATE_ORDER_DELIVER,
+} from "../type";
 import { useGetDataToken } from "../../hooks/useGetData";
+import { useUpdateData } from "../../hooks/useUpdateData";
 
 export const getAllOrders = (page, limit) => async (dispatch) => {
     try {
@@ -29,6 +35,38 @@ export const getOneOrders = (id) => async (dispatch) => {
     } catch (e) {
         dispatch({
             type: GET_ONE_ORDER,
+            payload: e.response,
+        });
+    }
+};
+
+export const changeOrderPay = (id) => async (dispatch) => {
+    try {
+        const response = await useUpdateData(`/api/v1/orders/${id}/pay`);
+
+        dispatch({
+            type: UPDATE_ORDER_PAY,
+            payload: response,
+        });
+    } catch (e) {
+        dispatch({
+            type: UPDATE_ORDER_PAY,
+            payload: e.response,
+        });
+    }
+};
+
+export const changeOrderDeliver = (id) => async (dispatch) => {
+    try {
+        const response = await useUpdateData(`/api/v1/orders/${id}/deliver`);
+
+        dispatch({
+            type: UPDATE_ORDER_DELIVER,
+            payload: response,
+        });
+    } catch (e) {
+        dispatch({
+            type: UPDATE_ORDER_DELIVER,
             payload: e.response,
         });
     }
