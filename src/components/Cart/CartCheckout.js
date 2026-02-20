@@ -6,11 +6,13 @@ import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 const CartCheckout = ({
     totalCartPrice,
+    cartItems,
     totalCartPriceAfterDiscount,
     couponNameRes,
 }) => {
     const [handleDeleteCart] = DeleteCartHook();
-    const [couponName, onChangeCoupon, handleSubmitCoupon] = ApplyCouponHook();
+    const [couponName, onChangeCoupon, handleSubmitCoupon, handleCheckout] =
+        ApplyCouponHook();
 
     useEffect(() => {
         if (couponNameRes) {
@@ -42,11 +44,14 @@ const CartCheckout = ({
                         : `${totalCartPrice} جنيه`}
                 </div>
                 <Link
-                    to="/order/paymethoud"
+                    to="/order/paymentMethod"
                     style={{ textDecoration: "none" }}
                     className="product-cart-add  d-inline "
                 >
-                    <button className="product-cart-add w-100 px-2">
+                    <button
+                        onClick={handleCheckout}
+                        className="product-cart-add w-100 px-2"
+                    >
                         {" "}
                         اتمام الشراء
                     </button>
