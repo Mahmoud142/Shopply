@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import "react-toastify/dist/ReactToastify.css";
 import notify from "../../hook/useNotifaction";
 import { applyCouponCart } from "../../redux/actions/cartAction";
-
-const ApplyCouponHook = () => {
+import { useNavigate } from "react-router-dom";
+const ApplyCouponHook = (cartItems) => {
     const dispatch = useDispatch();
 
     const [couponName, setCouponName] = useState("");
@@ -46,7 +46,16 @@ const ApplyCouponHook = () => {
         }
     }, [loading]);
 
-    return [couponName, onChangeCoupon, handleSubmitCoupon];
+        const navigate = useNavigate();
+        const handleCheckout = () => {
+            if (cartItems?.length >= 1) {
+                navigate("/order/paymentMethod");
+            } else {
+                notify("من فضلك اضف منتجات للعربة اولا", "warn");
+            }
+        };
+
+    return [couponName, onChangeCoupon, handleSubmitCoupon, handleCheckout];
 };
 
 export default ApplyCouponHook;
