@@ -68,10 +68,6 @@ function App() {
                         element={<ResetPasswordPage />}
                     />
                     <Route
-                        path="/order/paymethoud"
-                        element={<ChoosePayMethoudPage />}
-                    />
-                    <Route
                         path="/products/category/:id"
                         element={<ProductsByCategory />}
                     />
@@ -125,6 +121,10 @@ function App() {
                         <Route
                             path="/user/allorders"
                             element={<UserAllOrdersPage />}
+                        />
+                        <Route
+                            path="/order/paymentMethod"
+                            element={<ChoosePayMethoudPage />}
                         />
                         <Route
                             path="/user/favoriteproducts"
