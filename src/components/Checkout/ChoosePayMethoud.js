@@ -1,13 +1,37 @@
-import { Row,Col } from 'react-bootstrap'
-import ViewAddressesHook from "./../../hook/user/view-addresses-hook";
-import OrderPayCashHook from "./../../hook/checkout/order-pay-cash-hook";
+import { useState } from "react";
+import { Row, Col } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 
+import ViewAddressesHook from "./../../hook/user/view-addresses-hook";
+import OrderPayCashHook from "./../../hook/checkout/order-pay-cash-hook";
+import notify from "./../../hook/useNotifaction";
+import OrderPayCardHook from "./../../hook/checkout/order-pay-card-hook";
+import GetAllUserCartHook from "./../../hook/cart/get-all-user-cart-hook";
+
 const ChoosePayMethoud = () => {
-        const [res] = ViewAddressesHook();
-        const [handleChooseAddress, addressDetails, handleCreateOrderCash] =
-            OrderPayCashHook();
-    console.log('res: in pay methoud: ', res);
+    const [res] = ViewAddressesHook();
+    const [handelChooseAddress, addressDetalis, handelCreateOrderCash] =
+        OrderPayCashHook();
+    const [handelCreateOrderCARD] = OrderPayCardHook(addressDetalis);
+    const [, , totalCartPrice, , totalCartPriceAfterDiscount] =
+        GetAllUserCartHook();
+
+    const [type, setType] = useState("");
+    const changeMathoud = (e) => {
+        setType(e.target.value);
+    };
+
+    const handelPay = () => {
+        if (type === "CARD") {
+            console.log("order card");
+            handelCreateOrderCARD();
+        } else if (type === "CASH") {
+            console.log("order cash");
+            handelCreateOrderCash();
+        } else {
+            notify("من فضلك اختر طريقة دفع", "warn");
+        }
+    };
     return (
         <div>
             <div className="admin-content-text pt-5">اختر طريقة الدفع</div>
@@ -15,11 +39,12 @@ const ChoosePayMethoud = () => {
                 <Row className="d-flex justify-content-between ">
                     <Col xs="12" className="my-2">
                         <input
+                            onChange={changeMathoud}
                             style={{ cursor: "pointer" }}
                             name="group"
                             id="group1"
                             type="radio"
-                            value="الدفع عن طريق الفيزا"
+                            value="CARD"
                             className="mt-2"
                         />
                         <label
@@ -36,10 +61,11 @@ const ChoosePayMethoud = () => {
                     <Col xs="12" className="d-flex">
                         <input
                             style={{ cursor: "pointer" }}
+                            onChange={changeMathoud}
                             name="group"
                             id="group2"
                             type="radio"
-                            value="الدفع عند الاستلام"
+                            value="CASH"
                             className="mt-2"
                         />
                         <label
@@ -58,7 +84,7 @@ const ChoosePayMethoud = () => {
                             name="address"
                             id="address"
                             className="select mt-1 px-2 "
-                            onChange={handleChooseAddress}
+                            onChange={handelChooseAddress}
                         >
                             <option value="0">اختر عنوان للشحن</option>
                             {res.data ? (
@@ -82,10 +108,12 @@ const ChoosePayMethoud = () => {
             <Row>
                 <Col xs="12" className="d-flex justify-content-end">
                     <div className="product-price d-inline   border">
-                        34000 جنية
+                        {totalCartPriceAfterDiscount >= 1
+                            ? `${totalCartPrice} جنيه ... بعد الخصم ${totalCartPriceAfterDiscount} `
+                            : `${totalCartPrice} جنيه`}
                     </div>
                     <div
-                        onClick={handleCreateOrderCash}
+                        onClick={handelPay}
                         className="product-cart-add px-3 pt-2 d-inline me-2"
                     >
                         {" "}
@@ -96,6 +124,6 @@ const ChoosePayMethoud = () => {
             <ToastContainer />
         </div>
     );
-}
+};
 
-export default ChoosePayMethoud
+export default ChoosePayMethoud;
