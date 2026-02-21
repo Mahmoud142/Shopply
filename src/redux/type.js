@@ -70,6 +70,7 @@ export const APPLY_COUPON_CART = "APPLY_COUPON_CART";
 
 // Order 
 export const CREATE_ORDER_CASH = "CREATE_ORDER_CASH";
+export const CREATE_ORDER_CARD = "CREATE_ORDER_CARD";
 export const GET_ALL_ORDER = "GET_ALL_ORDER";
 export const GET_ONE_ORDER = "GET_ONE_ORDER";
 export const UPDATE_ORDER_PAY = "UPDATE_ORDER_PAY";
