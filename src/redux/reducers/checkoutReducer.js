@@ -1,7 +1,8 @@
-import { CREATE_ORDER_CASH } from "../type";
+import { CREATE_ORDER_CASH, CREATE_ORDER_CARD} from "../type";
 
 const initial = {
     createOrderCash: [],
+    createOrderCard: [],
 };
 const checkoutReducer = (state = initial, action) => {
     switch (action.type) {
@@ -9,6 +10,11 @@ const checkoutReducer = (state = initial, action) => {
             return {
                 ...state,
                 createOrderCash: action.payload,
+            };
+        case CREATE_ORDER_CARD:
+            return {
+                ...state,
+                createOrderCard: action.payload,
             };
         default:
             return state;
