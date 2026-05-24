@@ -16,6 +16,7 @@ const GetOrderDetailsHook = (id) => {
 
     useEffect(() => {
         get();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //get address detalis for user
@@ -26,7 +27,7 @@ const GetOrderDetailsHook = (id) => {
             if (resOneOrder.data.cartItems)
                 setCartItems(resOneOrder.data.cartItems);
         }
-    }, [loading]);
+    }, [loading, resOneOrder]);
 
     return [orderData, cartItems];
 };

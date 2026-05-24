@@ -7,7 +7,7 @@ const AllBrandPageHook = () => {
   //when first load
   useEffect(() => {
     dispatch(getAllBrand(6));
-  }, []);
+  }, [dispatch]);
 
   //to get state from redux
   const brand = useSelector((state) => state.allBrand.brand);

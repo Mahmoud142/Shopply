@@ -44,7 +44,7 @@ const ApplyCouponHook = (cartItems) => {
                 }, 1000);
             }
         }
-    }, [loading]);
+    }, [loading, res]);
 
         const navigate = useNavigate();
         const handleCheckout = () => {

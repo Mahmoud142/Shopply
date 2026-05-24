@@ -49,7 +49,7 @@ const AddToCartHook = (prdID, item) => {
                 notify("قم بتسجيل الدخول اولا", "warn");
             }
         }
-    }, [loading]);
+    }, [loading, res]);
 
     return [colorClick, indexColor, addToCartHandel];
 };

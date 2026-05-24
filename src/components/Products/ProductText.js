@@ -5,7 +5,7 @@ import AddToCartHook from "../../hook/cart/add-to-cart-hook";
 import { ToastContainer } from "react-toastify";
 const ProductText = () => {
     const { id } = useParams();
-    const [item, images, cat, brand] = ViewProductDetailsHook(id);
+    const [item, , cat, brand] = ViewProductDetailsHook(id);
     const [colorClick, indexColor, addToCartHandel] = AddToCartHook(id, item);
 
     return (

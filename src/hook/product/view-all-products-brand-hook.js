@@ -12,6 +12,7 @@ const ViewAllProductsBrandHook = (brandID) => {
     };
     useEffect(() => {
         getProduct();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     //when click pagination

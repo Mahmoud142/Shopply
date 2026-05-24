@@ -17,7 +17,7 @@ const CardContainerHook = () => {
         };
 
         get();
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (loading === false) {
@@ -25,7 +25,7 @@ const CardContainerHook = () => {
                 setFavProd(res.map((item) => item?._id));
             } else setFavProd([]);
         }
-    }, [loading]);
+    }, [loading, res]);
 
     return [favProd];
 };

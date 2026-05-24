@@ -3,7 +3,7 @@ import AllCategoryHook from "./../../hook/category/all-category-page-hook";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const CategoryHeader = () => {
-    const [category, loading, pageCount, getPage] = AllCategoryHook();
+    const [category] = AllCategoryHook();
 
     const [items, setItems] = useState([]);
     useEffect(() => {

@@ -89,7 +89,7 @@ const LoginHook = () => {
             notify("حدث خطأ غير متوقع", "error");
       }
     }
-  }, [loading, res]);
+  }, [loading, res, navigate]);
 
   return [email, password, loading, onChangeEmail, onChangePassword, onSubmit];
 };

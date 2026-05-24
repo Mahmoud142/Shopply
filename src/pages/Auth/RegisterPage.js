@@ -10,13 +10,13 @@ const RegisterPage = () => {
     phone,
     password,
     confirmPassword,
-    loading,
+    ,
     onChangeName,
     onChangeEmail,
     onChangePhone,
     onChangePassword,
     onChangeConfirmPassword,
-    setLoading,
+    ,
     onSubmit,
   ] = SignupHook();
   return (

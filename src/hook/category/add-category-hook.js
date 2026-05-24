@@ -61,7 +61,7 @@ const AddCategoryHook = () => {
         notify("هناك مشكله فى عملية الاضافة", "error");
       }
     }
-  }, [loading]);
+  }, [loading, res]);
 
   return [
     img,

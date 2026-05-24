@@ -22,7 +22,7 @@ const DeleteCartHook = (item) => {
     };
     useEffect(() => {
         if (item) setItemCount(item.count);
-    }, []);
+    }, [item]);
     const res = useSelector((state) => state.cartReducer.clearCart);
     useEffect(() => {
         if (loading === false) {
@@ -34,7 +34,7 @@ const DeleteCartHook = (item) => {
             } else {
             }
         }
-    }, [loading]);
+    }, [loading, res]);
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);

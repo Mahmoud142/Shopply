@@ -46,7 +46,7 @@ const ChangeOrderStatusHook = (id) => {
                 notify("هناك مشكله فى عملية التغير", "error");
             }
         }
-    }, [loading]);
+    }, [loading, resOneOrder]);
 
     //get order deliver change
     const resDeliverOrder = useSelector(
@@ -63,7 +63,7 @@ const ChangeOrderStatusHook = (id) => {
                 notify("هناك مشكله فى عملية التغير", "error");
             }
         }
-    }, [loadingDeliver]);
+    }, [loadingDeliver, resDeliverOrder]);
 
     const formatDate = (dateString) => {
         const options = { year: "numeric", month: "numeric", day: "numeric" };

@@ -7,10 +7,10 @@ import { ToastContainer } from 'react-toastify';
 
 const AdminOrderDetalis = () => {
      const { id } = useParams();
-     const [orderData, cartItems] = GetOrderDetalisHook(id);
+     const [orderData] = GetOrderDetalisHook(id);
 
      const [
-         formatDate,
+         ,
          onChangePaid,
          changePayOrder,
          onChangeDeliver,

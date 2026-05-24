@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { createOrderCARD } from "../../redux/actions/checkoutAction";
 import notify from "../useNotifaction";
 import GetAllUserCartHook from "./../cart/get-all-user-cart-hook";
 
 const OrderPayCardHook = (addressDetails) => {
     const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [, , , , , cartID] = GetAllUserCartHook();
 
@@ -51,7 +49,7 @@ const OrderPayCardHook = (addressDetails) => {
                 notify("فشل فى اكمال الطلب من فضلك حاول مره اخرى", "warn");
             }
         }
-    }, [loading]);
+    }, [loading, resOrderCard]);
 
     return [handelCreateOrderCARD];
 };
