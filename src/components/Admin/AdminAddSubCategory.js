@@ -4,11 +4,11 @@ import { ToastContainer } from "react-toastify";
 import AddSubCategoryHook from "./../../hook/subcategory/add-subcategory-hook";
 const AdminAddSubCategory = () => {
   const [
-    id,
+    ,
     name,
-    loading,
+    ,
     category,
-    subcategory,
+    ,
     onChangeCategoryId,
     handleSubmit,
     onChangeName,

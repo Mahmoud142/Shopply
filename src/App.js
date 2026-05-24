@@ -37,7 +37,7 @@ import Footer from "./components/utility/Footer";
 import ProductsByCategory from "./pages/Products/ProductsByCategory";
 import ProductsByBrand from "./pages/Products/ProductsByBrand";
 function App() {
-    const [isUser, isAdmin, userData] = ProtectedRouteHook();
+    const [isUser, isAdmin] = ProtectedRouteHook();
 
     return (
         <div className="font">

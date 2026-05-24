@@ -4,7 +4,7 @@ import UserGetAllOrderHook from "./../../hook/user/user-get-all-order-hook";
 import Pagination from '../utility/Pagination';
 
 const AdminAllOrders = () => {
-    const [userName, results, paginate, orderData, onPress] =
+    const [, , paginate, orderData, onPress] =
         UserGetAllOrderHook();
 
     return (

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import ViewSearchProductsHook from "../product/view-search-products-hook";
 const NavbarSearchHook = () => {
-  const [items, pagination, onPress, getProducts] = ViewSearchProductsHook();
+  const [, , , getProducts] = ViewSearchProductsHook();
 
   const [searchWord, setSearchWord] = useState("");
   const onChangeSearchWord = (e) => {
@@ -18,6 +18,7 @@ const NavbarSearchHook = () => {
     setTimeout(() => {
       getProducts();
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchWord]);
   return [onChangeSearchWord, searchWord];
 };

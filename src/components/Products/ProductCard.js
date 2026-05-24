@@ -1,12 +1,11 @@
 import { Card, Col } from "react-bootstrap";
-import favoff from "../../images/fav-off.png";
 import rate from "../../images/rate.png";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import ProductCardHook from "../../hook/product/product-card-hook";
 
 const ProductCard = ({ product, favProd }) => {
-    const [removeToWishListData, addToWishListData, handleFav, favImg] =
+    const [, , handleFav, favImg] =
         ProductCardHook(product, favProd);
 
     let imageCoverUrl = product?.imageCover || "";

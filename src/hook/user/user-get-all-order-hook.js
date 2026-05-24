@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { getAllOrders } from "../../redux/actions/orderAction";
 
 const UserGetAllOrderHook = () => {
@@ -8,7 +7,6 @@ const UserGetAllOrderHook = () => {
     const [results, setResult] = useState(0);
     const [paginate, setPaginate] = useState({});
     const [orderData, setOrderData] = useState([]);
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const user = JSON.parse(localStorage.getItem("user"));
@@ -23,6 +21,7 @@ const UserGetAllOrderHook = () => {
 
     useEffect(() => {
         get();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const onPress = async (page) => {
@@ -39,7 +38,7 @@ const UserGetAllOrderHook = () => {
                 setPaginate(resAllOrder.paginationResult);
             if (resAllOrder.data) setOrderData(resAllOrder.data);
         }
-    }, [loading]);
+    }, [loading, resAllOrder]);
 
     return [userName, results, paginate, orderData, onPress];
 };

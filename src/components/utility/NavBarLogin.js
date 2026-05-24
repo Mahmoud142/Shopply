@@ -12,7 +12,7 @@ import cart from "../../images/cart.png";
 import NavbarSearchHook from "../../hook/search/navbar-search-hook";
 import GetAllUserCartHook from "../../hook/cart/get-all-user-cart-hook";
 const NavBarLogin = () => {
-    const [onChangeSearchWord, searchWord] = NavbarSearchHook();
+    const [onChangeSearchWord] = NavbarSearchHook();
     let word = "";
     if (localStorage.getItem("searchWord") != null) {
       word = localStorage.getItem("searchWord");

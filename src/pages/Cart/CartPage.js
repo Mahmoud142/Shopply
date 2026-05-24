@@ -5,7 +5,7 @@ import GetAllUserCartHook from "./../../hook/cart/get-all-user-cart-hook";
 
 const CartPage = () => {
     const [
-        itemsNum,
+        ,
         cartItems,
         totalCartPrice,
         couponNameRes,

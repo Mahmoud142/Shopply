@@ -10,12 +10,12 @@ export const addProductToWishList = (body) => async (dispatch) => {
         const response = await useInsertData("/api/v1/wishlist", body);
         dispatch({
             type: ADD_TO_WISHLIST,
-            payload: response.data,
+            payload: response?.data,
         });
     } catch (e) {
         dispatch({
             type: ADD_TO_WISHLIST,
-            payload: e.response.data,
+            payload: e.response?.data,
         });
     }
 };
@@ -26,13 +26,13 @@ export const removeProductFromWishList = (id) => async (dispatch) => {
         const response = await useDeleteData(`/api/v1/wishlist/${id}`);
         dispatch({
             type: REMOVE_FROM_WISHLIST,
-            payload: response.data,
+            payload: response?.data,
             loading: true,
         });
     } catch (e) {
         dispatch({
             type: REMOVE_FROM_WISHLIST,
-            payload: e.response.data,
+            payload: e.response?.data,
         });
     }
 };
@@ -43,12 +43,12 @@ export const getUserWishList = () => async (dispatch) => {
         const response = await useGetDataToken("/api/v1/wishlist");
         dispatch({
             type: USER_WISHLIST,
-            payload: response.data,
+            payload: response?.data,
         });
     } catch (e) {
         dispatch({
             type: USER_WISHLIST,
-            payload: e.response.data,
+            payload: e.response?.data,
         });
     }
 };

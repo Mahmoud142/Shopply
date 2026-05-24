@@ -21,7 +21,7 @@ const GetAllUserCartHook = () => {
             setLoading(false);
         };
         get();
-    }, []);
+    }, [dispatch]);
     const res = useSelector((state) => state.cartReducer.getAllUserCart);
     useEffect(() => {
         if (loading === false) {
@@ -49,7 +49,7 @@ const GetAllUserCartHook = () => {
                 setCartID('0');
             }
         }
-    }, [loading]);
+    }, [loading, res]);
 
     return [
         itemsNum,

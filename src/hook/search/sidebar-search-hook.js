@@ -22,8 +22,6 @@ const SidebarSearchHook = () => {
   const category = allcategory?.data || [];
   const brand = allbrand?.data || [];
 
-  let queryCat = "";
-  let queryBrand = "";
   const [catChecked, setCatChecked] = useState([]);
   const [brandChecked, setBrandChecked] = useState([]);
 
@@ -43,11 +41,12 @@ const SidebarSearchHook = () => {
   };
 
   useEffect(() => {
-    queryCat = catChecked.map((val) => "category[in][]=" + val).join("&");
+    const queryCat = catChecked.map((val) => "category[in][]=" + val).join("&");
     localStorage.setItem("catChecked", queryCat);
     setTimeout(() => {
       getProduct();
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [catChecked]);
 
   const clickBrand = (e) => {
@@ -65,11 +64,12 @@ const SidebarSearchHook = () => {
   };
 
   useEffect(() => {
-    queryBrand = brandChecked.map((val) => "brand[in][]=" + val).join("&");
+    const queryBrand = brandChecked.map((val) => "brand[in][]=" + val).join("&");
     localStorage.setItem("brandChecked", queryBrand);
     setTimeout(() => {
       getProduct();
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [brandChecked]);
 
   const [From, setPriceFrom] = useState(0);
@@ -89,6 +89,7 @@ const SidebarSearchHook = () => {
     setTimeout(() => {
       getProduct();
     }, 1000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [From, To]);
 
   return [category, brand, clickCategory, clickBrand, priceFrom, priceTo];

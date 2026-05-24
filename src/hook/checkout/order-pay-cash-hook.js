@@ -36,7 +36,7 @@ const OrderPayCashHook = () => {
                 setAddressDetails(resAddress.data);
             } else setAddressDetails([]);
         }
-    }, [loading]);
+    }, [loading, resAddress]);
 
     //when user click
     const handleCreateOrderCash = async () => {
@@ -78,7 +78,7 @@ const OrderPayCashHook = () => {
                 notify("فشل فى اكمال الطلب من فضلك حاول مره اخرى", "warn");
             }
         }
-    }, [loadingCreate]);
+    }, [loadingCreate, navigate, resOrserCash]);
 
     return [handleChooseAddress, addressDetails, handleCreateOrderCash];
 };

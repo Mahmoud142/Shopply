@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const ProtectedRouteHook = () => {
-    const [userData, setUserData] = useState(
+    const [userData] = useState(
         JSON.parse(localStorage.getItem("user")),
     );
     const [isUser, setIsUser] = useState();

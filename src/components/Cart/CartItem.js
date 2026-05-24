@@ -5,7 +5,7 @@ import DeleteCartHook from "../../hook/cart/delete-cart-hook";
 
 const CartItem = ({ item }) => {
     const [
-        handleDeleteCart,
+        ,
         show,
         handleClose,
         handleShow,

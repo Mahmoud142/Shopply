@@ -12,7 +12,7 @@ const AddSubCategoryHook = () => {
       return;
     }
     dispatch(getAllCategory());
-  }, []);
+  }, [dispatch]);
   const [id, setID] = useState("0");
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(true);
@@ -68,7 +68,7 @@ const AddSubCategoryHook = () => {
       }
       setLoading(true);
     }
-  }, [loading]);
+  }, [loading, subcategory]);
 
   return [
     id,
