@@ -15,7 +15,7 @@ const CartPage = () => {
     return (
         <Container style={{ minHeight: "670px" }}>
             <Row>
-                <div className="cart-title mt-4">عربة التسوق</div>
+                <div className="cart-title mt-4">Shopping Cart</div>
             </Row>
             <Row className="d-flex justify-content-center">
                 <Col xs="12" md="9">
@@ -24,7 +24,7 @@ const CartPage = () => {
                             return <CartItem key={index} item={item} />;
                         })
                     ) : (
-                        <h6>لا يوجد منتجات فى العربة</h6>
+                        <h6>No products in cart</h6>
                     )}
                 </Col>
 
