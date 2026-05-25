@@ -12,7 +12,7 @@ const CategoryContainer = ({ data, loading }) => {
     ];
     return (
         <Container>
-            <div className="admin-content-text mt-2 ">كل التصنيفات</div>
+            <div className="admin-content-text mt-2 ">All Categories</div>
             <Row className="my-2 d-flex justify-content-between">
                 {loading === false ? (
                     data ? (
@@ -32,7 +32,7 @@ const CategoryContainer = ({ data, loading }) => {
                             );
                         })
                     ) : (
-                        <h4>لا يوجد تصنيفات</h4>
+                        <h4>No categories found</h4>
                     )
                 ) : (
                     <Spinner animation="border" variant="primary" />
