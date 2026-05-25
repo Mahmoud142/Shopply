@@ -24,7 +24,7 @@ const SearchCountResult = ({ title, onClick }) => {
                 src={sort}
                 alt=""
               />
-              ترتيب حسب
+              Sort By
             </p>
           }
           delay={0}
@@ -33,34 +33,34 @@ const SearchCountResult = ({ title, onClick }) => {
         >
           <div className="card-filter">
             <div
-              onClick={() => clickMe("الاكثر مبيعا")}
+              onClick={() => clickMe("Best Selling")}
               className="border-bottom card-filter-item"
             >
-              بدون ترتيب
+              Default Sorting
             </div>
             <div
-              onClick={() => clickMe("الاكثر مبيعا")}
+              onClick={() => clickMe("Best Selling")}
               className="border-bottom card-filter-item"
             >
-              الاكثر مبيعا
+              Best Selling
             </div>
             <div
-              onClick={() => clickMe("الاعلي تقييما")}
+              onClick={() => clickMe("Highest Rated")}
               className="border-bottom card-filter-item"
             >
-              الاعلي تقييما
+              Highest Rated
             </div>
             <div
-              onClick={() => clickMe("السعر من الاقل للاعلي")}
+              onClick={() => clickMe("Price: Low to High")}
               className="border-bottom card-filter-item"
             >
-              السعر من الاقل للاعلي
+              Price: Low to High
             </div>
             <div
-              onClick={() => clickMe("السعر من الاعلي للاقل")}
+              onClick={() => clickMe("Price: High to Low")}
               className=" card-filter-item"
             >
-              السعر من الاعلي للاقل
+              Price: High to Low
             </div>
           </div>
         </UnopDropdown>
