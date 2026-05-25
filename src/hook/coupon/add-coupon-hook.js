@@ -26,7 +26,7 @@ const AddCouponHook = () => {
 
     const onSubmit = async () => {
         if (couponName === "" || couponDate === "" || couponValue <= 0) {
-            notify("من فضلك اكمل البيانات", "warn");
+            notify("From Please complete the form data", "warn");
             return;
         }
 
@@ -46,12 +46,12 @@ const AddCouponHook = () => {
     useEffect(() => {
         if (loading === false) {
             if (res && res.status === 201) {
-                notify("تمت اضافة الكوبون بنجاح", "success");
+                notify("Coupon added successfully", "success");
                 window.location.reload(false);
             } else if (res && res.status === 400) {
-                notify("هذا الكوبون موجود من قبل ", "error");
+                notify("This coupon already exists ", "error");
             } else if (res && res.status === 403) {
-                notify("انتا غير مسموح لك بالاضافة", "error");
+                notify("You are not authorized to add", "error");
             }
         }
     }, [loading, res]);
