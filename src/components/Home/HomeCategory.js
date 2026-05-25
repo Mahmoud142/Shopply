@@ -9,7 +9,7 @@ const HomeCategory = () => {
 
   return (
     <Container>
-      <Subtitle title="التصنيفات" btntitle="المزيد" pathText="/allcategory" />
+      <Subtitle title="Categories" btntitle="More" pathText="/allcategory" />
       <Row className="my-2 d-flex justify-content-between">
         {loading === false ? (
           category && category.data && category.data.length > 0 ? (
@@ -25,10 +25,10 @@ const HomeCategory = () => {
               );
             })
           ) : (
-            <h4>لا يوجد تصنيفات</h4>
+            <h4>No categories found</h4>
           )
         ) : (
-          <Spinner animation="border" variant="primary" role="status" aria-label="جاري التحميل" />
+          <Spinner animation="border" variant="primary" role="status" aria-label="Loading..." />
         )}
       </Row>
     </Container>
