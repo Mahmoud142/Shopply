@@ -16,6 +16,11 @@ const GetAllUserCartHook = () => {
 
     useEffect(() => {
         const get = async () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                setLoading(false);
+                return;
+            }
             setLoading(true);
             await dispatch(getAllUserCartItems());
             setLoading(false);
