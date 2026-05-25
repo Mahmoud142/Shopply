@@ -13,18 +13,18 @@ const HomePage = () => {
       <HomeCategory />
       <CardProductsContainer
         products={homeProduct}
-        title="الاكثر مبيعاً"
-        btntitle="المزيد"
+        title="Best Sellers"
+        btntitle="More"
         pathText="/products"
       />
       <DiscountSection />
       <CardProductsContainer
         products={homeProduct}
-        title="الاعلي تقييما"
-        btntitle="المزيد"
+        title="Highest Rated"
+        btntitle="More"
         pathText="/products"
       />
-      <BrandFeatured title="اشهر العلامات التجارية" btntitle="المزيد" />
+      <BrandFeatured title="Popular Brands" btntitle="More" />
     </div>
   );
 };
