@@ -28,7 +28,7 @@ const ProductDetailsPage = () => {
                 <RateContainer rateAvg={rateAvg} rateQty={rateQty} />
                 <CardProductContainer
                     products={items}
-                    title="منتجات قد تعجبك"
+                    title="Products you may like"
                 />
             </Container>
         </div>
