@@ -69,7 +69,7 @@ const NavBarLogin = () => {
                       value={word}
                       onChange={onChangeSearchWord}
                       type="search"
-                      placeholder="ابحث..."
+                      placeholder="Search..."
                       className="me-2 w-100 text-center"
                       aria-label="Search"
                   />
@@ -81,16 +81,16 @@ const NavBarLogin = () => {
                           >
                               {user.role === "admin" ? (
                                   <NavDropdown.Item href="/admin/allproducts">
-                                      لوحة التحكم
+                                      Dashboard
                                   </NavDropdown.Item>
                               ) : (
                                   <NavDropdown.Item href="/user/profile">
-                                      الصفحه الشخصية
+                                      Personal Profile
                                   </NavDropdown.Item>
                               )}
                               <NavDropdown.Divider />
                               <NavDropdown.Item onClick={logOut} href="/">
-                                  تسجيل خروج
+                                  Logout
                               </NavDropdown.Item>
                           </NavDropdown>
                       ) : (
@@ -103,7 +103,7 @@ const NavBarLogin = () => {
                                   className="login-img"
                                   alt="Login"
                               />
-                              <p style={{ color: "white" }}>دخول</p>
+                              <p style={{ color: "white" }}>Login</p>
                           </Nav.Link>
                       )}
 
@@ -113,7 +113,7 @@ const NavBarLogin = () => {
                           style={{ color: "white" }}
                       >
                           <img src={cart} className="login-img" alt="sfvs" />
-                          <p style={{ color: "white" }}>العربه</p>
+                          <p style={{ color: "white" }}>Cart</p>
                           <span className="position-absolute top-10 start-0 translate-middle badge rounded-pill bg-danger">
                               {itemsNum || 0}
                           </span>
