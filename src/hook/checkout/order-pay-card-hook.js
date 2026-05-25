@@ -12,11 +12,11 @@ const OrderPayCardHook = (addressDetails) => {
     //when user click
     const handelCreateOrderCARD = async () => {
         if (cartID === "0") {
-            notify("من فضلك اضف منتجات الى العربه اولا", "warn");
+            notify("Please add products to your cart first", "warn");
             return;
         }
         if (addressDetails === null || addressDetails === undefined) {
-            notify("من فضلك اختر عنوان اولا", "warn");
+            notify("Please select an address first", "warn");
             return;
         }
         setLoading(true);
@@ -39,14 +39,14 @@ const OrderPayCardHook = (addressDetails) => {
     );
     useEffect(() => {
         if (loading === false) {
-            if (resOrderCard && resOrderCard.status === "success") {
-                //notify("تم انشاء طلبك بنجاح", "success")
+            if (resOrderCard && (resOrderCard.status === 200 || resOrderCard.data?.status === "success")) {
+                //notify("Your order has been created successfully", "success")
                 console.log(resOrderCard);
-                if (resOrderCard.session.url) {
-                    window.open(resOrderCard.session.url);
+                if (resOrderCard.data?.session?.url) {
+                    window.open(resOrderCard.data.session.url);
                 }
             } else {
-                notify("فشل فى اكمال الطلب من فضلك حاول مره اخرى", "warn");
+                notify("Failed to complete the order, please try again", "warn");
             }
         }
     }, [loading, resOrderCard]);
