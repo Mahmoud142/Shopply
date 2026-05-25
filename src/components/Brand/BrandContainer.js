@@ -6,7 +6,7 @@ import { Container, Row, Spinner } from "react-bootstrap";
 const BrandContainer = ({ data, loading }) => {
   return (
     <Container>
-      <div className="admin-content-text mt-2 ">كل الماركات</div>
+      <div className="admin-content-text mt-2 ">All Brands</div>
       <Row className="my-1 d-flex justify-content-between">
         {loading === false ? (
           data ? (
@@ -14,7 +14,7 @@ const BrandContainer = ({ data, loading }) => {
               return <BrandCard key={index} img={item.image} />;
             })
           ) : (
-            <h4>لا يوجد ماركات</h4>
+            <h4>No brands found</h4>
           )
         ) : (
           <Spinner animation="border" variant="primary" />
