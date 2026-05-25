@@ -15,12 +15,12 @@ const UserAddressCard = (item) => {
                 <Modal.Header>
                     <Modal.Title>
                         {" "}
-                        <div className="font">تاكيد الحذف</div>
+                        <div className="font">Confirm Delete</div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="font">
-                        هل انتا متاكد من عملية الحذف العنوان
+                        Are you sure you want to delete this address?
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -29,14 +29,14 @@ const UserAddressCard = (item) => {
                         variant="success"
                         onClick={handleClose}
                     >
-                        تراجع
+                        Cancel
                     </Button>
                     <Button
                         className="font"
                         variant="dark"
                         onClick={handelDelete}
                     >
-                        حذف
+                        Delete
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -59,7 +59,7 @@ const UserAddressCard = (item) => {
                                     height="17px"
                                     width="15px"
                                 />
-                                <p className="item-delete-edit"> تعديل</p>
+                                <p className="item-delete-edit"> Edit</p>
                             </div>
                         </Link>
                         <div onClick={handleShow} className="d-flex ">
@@ -70,7 +70,7 @@ const UserAddressCard = (item) => {
                                 height="17px"
                                 width="15px"
                             />
-                            <p className="item-delete-edit"> حذف</p>
+                            <p className="item-delete-edit"> Delete</p>
                         </div>
                     </div>
                 </Col>
@@ -99,7 +99,7 @@ const UserAddressCard = (item) => {
                             fontSize: "16px",
                         }}
                     >
-                        رقم الهاتف:
+                        No. Phone Number:
                     </div>
 
                     <div
