@@ -10,10 +10,10 @@ const SideFilter = () => {
     <div className="mt-3">
       <Row>
         <div className="d-flex flex-column mt-2">
-          <div className="filter-title">الفئة</div>
+          <div className="filter-title">Category</div>
           <div className="d-flex mt-3">
             <input type="checkbox" value="0" onChange={clickCategory} />
-            <div className="filter-sub me-2 ">الكل</div>
+            <div className="filter-sub me-2 ">All</div>
           </div>
           {category ? (
             category.map((cat) => (
@@ -27,15 +27,15 @@ const SideFilter = () => {
               </div>
             ))
           ) : (
-            <h5>لا توجد فئات</h5>
+            <h5>No categories found</h5>
           )}
         </div>
 
         <div className="d-flex flex-column mt-2">
-          <div className="filter-title mt-3">الماركة</div>
+          <div className="filter-title mt-3">Brand</div>
           <div className="d-flex mt-3">
             <input type="checkbox" value="0" onChange={clickBrand} />
-            <div className="filter-sub me-2 ">الكل</div>
+            <div className="filter-sub me-2 ">All</div>
           </div>
           {brand ? (
             brand.map((br) => (
@@ -45,13 +45,13 @@ const SideFilter = () => {
               </div>
             ))
           ) : (
-            <h5>لا توجد ماركات</h5>
+            <h5>No brands found</h5>
           )}
         </div>
 
-        <div className="filter-title my-3">السعر</div>
+        <div className="filter-title my-3">Price</div>
         <div className="d-flex">
-          <p className="filter-sub my-2">من:</p>
+          <p className="filter-sub my-2">From:</p>
           <input
             value={localFrom}
             onChange={priceFrom}
@@ -61,7 +61,7 @@ const SideFilter = () => {
           />
         </div>
         <div className="d-flex">
-          <p className="filter-sub my-2">الي:</p>
+          <p className="filter-sub my-2">To:</p>
           <input
             onChange={priceTo}
             value={localTo}
