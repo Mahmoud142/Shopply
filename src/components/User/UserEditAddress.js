@@ -16,14 +16,14 @@ const UserEditAddress = () => {
    return (
        <div>
            <Row className="justify-content-start ">
-               <div className="admin-content-text pb-2">تعديل العنوان </div>
+               <div className="admin-content-text pb-2">Edit Address </div>
                <Col sm="8">
                    <input
                        value={alias}
                        onChange={onChangeAlias}
                        type="text"
                        className="input-form d-block mt-3 px-3"
-                       placeholder="تسمية العنوان مثلا(المنزل - العمل)"
+                       placeholder="Address label, e.g.(Home - Work)"
                    />
                    <textarea
                        value={detalis}
@@ -31,14 +31,14 @@ const UserEditAddress = () => {
                        className="input-form-area p-2 mt-3"
                        rows="4"
                        cols="50"
-                       placeholder="العنوان بالتفصيل"
+                       placeholder="Detailed Address"
                    />
                    <input
                        value={phone}
                        onChange={onChangePhone}
                        type="text"
                        className="input-form d-block mt-3 px-3"
-                       placeholder="رقم الهاتف"
+                       placeholder="No. Phone Number"
                    />
                </Col>
            </Row>
@@ -48,7 +48,7 @@ const UserEditAddress = () => {
                        onClick={handleEdit}
                        className="btn-save d-inline mt-2 "
                    >
-                       حفظ تعديل العنوان
+                       Save Address Changes
                    </button>
                </Col>
            </Row>
