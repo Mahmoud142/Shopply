@@ -1,4 +1,4 @@
-import Slider from "../../components/Home/Slider";
+import HeroSection from "../../components/Home/HeroSection";
 import HomeCategory from "../../components/Home/HomeCategory";
 import CardProductsContainer from "../../components/Products/CardProductContainer";
 import DiscountSection from "../../components/Home/DiscountSection";
@@ -9,7 +9,7 @@ const HomePage = () => {
 
   return (
     <div className="font" style={{ minHeight: "900px" }}>
-      <Slider />
+      <HeroSection />
       <HomeCategory />
       <CardProductsContainer
         products={homeProduct}
