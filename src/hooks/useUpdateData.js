@@ -3,8 +3,10 @@ import baseUrl from "../Api/baseURL";
 const useUpdateDataWithImage = async (endpoint, params) => {
   try {
     const config = {
-      headers: { "Content-Type": "multipart/form-data" },
-      Authorization: `Bearer ${localStorage.getItem("token")}`
+      headers: { 
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
     };
     const res = await baseUrl.put(endpoint, params, config);
 
