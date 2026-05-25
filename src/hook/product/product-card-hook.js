@@ -76,14 +76,14 @@ const ProductCardHook = (item, favProd = []) => {
 
     useEffect(() => {
         if (loadingRemove === false) {
-            if (resRemove && resRemove.status === "success") {
+            if (resRemove && (resRemove.status === "success" || resRemove.success === "SUCCESS" || resRemove.success === "success")) {
                 notify("Product removed from wishlist successfully", "warn");
-            } else if (resRemove && resRemove.status === 401) {
+            } else if (resRemove && (resRemove.status === 401 || resRemove.message === "You are not logged in. Please login to get access")) {
                 notify("You are not logged in", "error");
             }
         }
     }, [loadingRemove, resRemove]);
 
-    return [removeToWishListData, addToWishListData, handelFav, favImg];
+    return [removeToWishListData, addToWishListData, handelFav, favImg, isFav];
 };
 export default ProductCardHook;
