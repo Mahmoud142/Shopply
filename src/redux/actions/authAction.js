@@ -4,6 +4,7 @@ import {
     GET_CURRENT_USER,
     FOREGT_PASSWORD,
     VERIFY_PASSWORD,
+    VERIFY_EMAIL,
     RESET_PASSWORD,
     UPDATE_USER_PROFILE,
     UPDATE_USER_PASSWORD,
@@ -95,6 +96,26 @@ export const verifyPassword = (data) => async (dispatch) => {
     } catch (e) {
         dispatch({
             type: VERIFY_PASSWORD,
+            payload: e.response,
+        });
+    }
+};
+
+// verify registration email
+export const verifyEmail = (data) => async (dispatch) => {
+    try {
+        const response = await useInsertData(
+            `/api/auth/verifyEmail`,
+            data,
+        );
+        dispatch({
+            type: VERIFY_EMAIL,
+            payload: response,
+            loading: true,
+        });
+    } catch (e) {
+        dispatch({
+            type: VERIFY_EMAIL,
             payload: e.response,
         });
     }
