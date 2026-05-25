@@ -8,7 +8,10 @@ const useUpdateDataWithImage = async (endpoint, params) => {
     };
     const res = await baseUrl.put(endpoint, params, config);
 
-    return res;
+    return {
+      status: res.status,
+      data: res.data
+    };
   } catch (err) {
     console.error("Error updating data:", err);
     throw err;
@@ -21,7 +24,10 @@ const useUpdateData = async (endpoint, params) => {
      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
    };
     const res = await baseUrl.put(endpoint, params, config);
-    return res;
+    return {
+      status: res.status,
+      data: res.data
+    };
   } catch (err) {
     console.error("Error updating data:", err);
     throw err;
