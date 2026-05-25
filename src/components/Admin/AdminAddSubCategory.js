@@ -17,14 +17,14 @@ const AdminAddSubCategory = () => {
   return (
     <div>
       <Row className="justify-content-start ">
-        <div className="admin-content-text pb-4">اضافه تصنيف فرعي جديد</div>
+        <div className="admin-content-text pb-4">Add New Subcategory</div>
         <Col sm="8">
           <input
             value={name}
             onChange={onChangeName}
             type="text"
             className="input-form d-block mt-3 px-3"
-            placeholder="اسم التصنيف الفرعي"
+            placeholder="Subcategory Name"
           />
           <select
             name="category"
@@ -32,7 +32,7 @@ const AdminAddSubCategory = () => {
             className="select mt-3 px-2 "
             onChange={onChangeCategoryId}
           >
-            <option value="0">اختر تصنيف رئيسي</option>
+            <option value="0">Select Main Category</option>
             {category.data
               ? category.data.map((item) => {
                   return (
@@ -48,7 +48,7 @@ const AdminAddSubCategory = () => {
       <Row>
         <Col sm="8" className="d-flex justify-content-end ">
           <button onClick={handleSubmit} className="btn-save d-inline mt-2 ">
-            حفظ التعديلات
+            Save Changes
           </button>
         </Col>
       </Row>
