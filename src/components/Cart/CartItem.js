@@ -16,7 +16,7 @@ const CartItem = ({ item }) => {
     ] = DeleteCartHook(item);
     let imageCoverUrl = item?.product?.imageCover || "";
     if (imageCoverUrl && !imageCoverUrl.includes("http")) {
-        imageCoverUrl = `http://127.0.0.1:8000/products/${imageCoverUrl}`;
+        imageCoverUrl = `http://localhost:3000/products/${imageCoverUrl}`;
     }
     return (
         <Col xs="12" className="cart-item-body my-2 d-flex px-2">
@@ -24,12 +24,12 @@ const CartItem = ({ item }) => {
                 <Modal.Header>
                     <Modal.Title>
                         {" "}
-                        <div className="font">تاكيد الحذف</div>
+                        <div className="font">Confirm Delete</div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="font">
-                        هل انتا متاكد من حذف المنتج من العربة
+                        Are you sure you want to delete this product from the cart?
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -38,14 +38,14 @@ const CartItem = ({ item }) => {
                         variant="success"
                         onClick={handleClose}
                     >
-                        تراجع
+                        Cancel
                     </Button>
                     <Button
                         className="font"
                         variant="dark"
                         onClick={handleDeleteItem}
                     >
-                        حذف
+                        Delete
                     </Button>
                 </Modal.Footer>
             </Modal>
@@ -76,7 +76,7 @@ const CartItem = ({ item }) => {
                                 width="20px"
                                 height="24px"
                             />
-                            <div className="cat-text d-inline me-2">ازاله</div>
+                            <div className="cat-text d-inline me-2">Remove</div>
                         </div>
                     </Col>
                 </Row>
@@ -95,7 +95,7 @@ const CartItem = ({ item }) => {
                 </Row>
                 <Row>
                     <Col sm="12" className="mt-1">
-                        <div className="cat-text d-inline">الماركة :</div>
+                        <div className="cat-text d-inline">Brand :</div>
                         <div className="barnd-text d-inline mx-1">
                             {item.product.brand.name || ""}{" "}
                         </div>
@@ -119,7 +119,7 @@ const CartItem = ({ item }) => {
                     >
                         <div className="d-inline pt-2 d-flex">
                             <div className="cat-text mt-2  d-inline">
-                                الكميه
+                                Quantity
                             </div>
                             <input
                                 value={itemCount}
@@ -132,11 +132,11 @@ const CartItem = ({ item }) => {
                                 onClick={handleUpdateCart}
                                 className="btn btn-dark"
                             >
-                                تطبيق
+                                Apply
                             </Button>
                         </div>
                         <div className="d-inline pt-2 barnd-text">
-                            {item.price || 0} جنية
+                            {item.price || 0} EGP
                         </div>
                     </Col>
                 </Row>
