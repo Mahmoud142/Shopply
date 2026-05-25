@@ -23,48 +23,48 @@ const RegisterPage = () => {
     <Container style={{ minHeight: "680px" }}>
       <Row className="py-5 d-flex justify-content-center hieght-search">
         <Col sm="12" className="d-flex flex-column ">
-          <label className="mx-auto title-login">تسجيل حساب جديد</label>
+          <label className="mx-auto title-login">Register New Account</label>
           <input
             value ={name}
             onChange={onChangeName}
-            placeholder="اسم المستخدم..."
+            placeholder="Username..."
             type="text"
             className="user-input mt-3 text-center mx-auto"
           />
           <input
             value={email}
             onChange={onChangeEmail}
-            placeholder="الايميل..."
+            placeholder="Email..."
             type="text"
             className="user-input my-3 text-center mx-auto"
           />
           <input
             value={phone}
             onChange={onChangePhone}
-            placeholder="رقم الهاتف..."
+            placeholder="No. Phone Number..."
             type="text"
             className="user-input my-3 text-center mx-auto"
           />
           <input
             value={password}
             onChange={onChangePassword}
-            placeholder="كلمه السر..."
+            placeholder="Password..."
             type="password"
             className="user-input my-3 text-center mx-auto"
           />
           <input
             value={confirmPassword}
             onChange={onChangeConfirmPassword}
-            placeholder="تأكيد كلمه السر..."
+            placeholder="Confirm Password..."
             type="password"
             className="user-input my-3 text-center mx-auto"
           />
-          <button onClick={onSubmit} className="btn-login mx-auto mt-4">تسجيل الحساب</button>
+          <button onClick={onSubmit} className="btn-login mx-auto mt-4">Create Account</button>
           <label className="mx-auto my-4">
-            لديك حساب بالفعل؟{" "}
+            Already have an account?{" "}
             <Link to="/login" style={{ textDecoration: "none" }}>
               <span style={{ cursor: "pointer" }} className="text-danger">
-                اضغط هنا
+                Click here
               </span>
             </Link>
           </label>
