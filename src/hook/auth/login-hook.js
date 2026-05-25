@@ -35,10 +35,10 @@ const LoginHook = () => {
     let message = "";
     if (!validateEmail(email)) {
       isValid = false;
-      message = "الايميل غير صحيح";
+      message = "Email is invalid";
     } else if (password.length < 6) {
       isValid = false;
-      message = "كلمه السر يجب ان تكون اكثر من 5 احرف";
+      message = "Password must be at least 5 characters";
     }
 
     return [isValid, message];
@@ -76,9 +76,9 @@ const LoginHook = () => {
       setLoading(false);
       try {
         if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", JSON.stringify(res.data.data));
-          notify("تم تسجيل الدخول بنجاح", "success");
+          localStorage.setItem("token", res.data.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.data.user));
+          notify("Logged in successfully", "success");
           navigate("/");
         } else if (res.data?.message) {
           localStorage.removeItem("token");
@@ -86,7 +86,7 @@ const LoginHook = () => {
           notify(res.data.message, "error");
         }
       } catch (err) {
-            notify("حدث خطأ غير متوقع", "error");
+            notify("An unexpected error occurred", "error");
       }
     }
   }, [loading, res, navigate]);
