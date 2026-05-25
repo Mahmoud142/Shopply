@@ -33,8 +33,8 @@ const AddBrandHook = () => {
   const handelSubmit = async (event) => {
     event.preventDefault();
     if (name === "" || selectedFile === null) {
-      console.log("من فضلك اكمل البيانات");
-      notify("من فضلك اكمل البيانات", "warn");
+      console.log("From Please complete the form data");
+      notify("From Please complete the form data", "warn");
       return;
     }
     const formData = new FormData();
@@ -51,14 +51,14 @@ const AddBrandHook = () => {
       setImg(avatar);
       setName("");
       setSelectedFile(null);
-      console.log("تم الانتهاء");
+      console.log("Done Expiry");
       setLoading(true);
       setTimeout(() => setIsPress(false), 1000);
       
       if (res.status === 201) {
-        notify("تمت عملية الاضافة بنجاح", "success");
+        notify("Added successfully", "success");
       } else {
-        notify("هناك مشكله فى عملية الاضافة", "error");
+        notify("There was a problem during addition", "error");
       }
     }
   }, [loading, res.status]);
