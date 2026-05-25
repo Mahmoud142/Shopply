@@ -4,14 +4,14 @@ import AdminAllProductsCard from "./AdminAllProductsCard";
 const AdminAllProducts = ({ products }) => {
   return (
     <div>
-      <div className="admin-content-text">ادارة جميع المنتجات</div>
+      <div className="admin-content-text">Manage All Products</div>
       <Row className="justify-content-start">
         {products && products.length >= 1 ? (
           products.map((product, index) => {
             return <AdminAllProductsCard key={index} product={product} />;
           })
         ) : (
-          <p>لا يوجد منتجات لعرضها</p>
+          <p>No products to display</p>
         )}
       </Row>
     </div>
