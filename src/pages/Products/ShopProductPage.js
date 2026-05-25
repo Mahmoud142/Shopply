@@ -18,7 +18,7 @@ const ShopProductPage = () => {
       <CategoryHeader />
       <Container>
         <SearchCountResult
-          title={`هناك ${results} نتيجة بحث`}
+          title={`There is ${results} Search Results`}
           onClick={getProducts}
         />
         <Row className="d-flex flex-row">
