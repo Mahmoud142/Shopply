@@ -7,7 +7,7 @@ import { useGetDataToken } from "../../hooks/useGetData";
 // Add Product To WishList
 export const addProductToWishList = (body) => async (dispatch) => {
     try {
-        const response = await useInsertData("/api/v1/wishlist", body);
+        const response = await useInsertData("/api/wishlist", body);
         dispatch({
             type: ADD_TO_WISHLIST,
             payload: response?.data,
@@ -23,7 +23,7 @@ export const addProductToWishList = (body) => async (dispatch) => {
 // Delete Product From WishList
 export const removeProductFromWishList = (id) => async (dispatch) => {
     try {
-        const response = await useDeleteData(`/api/v1/wishlist/${id}`);
+        const response = await useDeleteData(`/api/wishlist/${id}`);
         dispatch({
             type: REMOVE_FROM_WISHLIST,
             payload: response?.data,
@@ -38,12 +38,27 @@ export const removeProductFromWishList = (id) => async (dispatch) => {
 };
 
 // Get User WishList
+// Get User WishList
 export const getUserWishList = () => async (dispatch) => {
     try {
-        const response = await useGetDataToken("/api/v1/wishlist");
+        if (!localStorage.getItem("token")) {
+            dispatch({
+                type: USER_WISHLIST,
+                payload: [],
+            });
+            return;
+        }
+        const response = await useGetDataToken("/api/wishlist");
+        let payloadData = response?.data;
+        if (payloadData && payloadData.wishlist) {
+            payloadData = payloadData.wishlist;
+            payloadData.forEach(p => {
+                if (p && p.name && !p.title) p.title = p.name;
+            });
+        }
         dispatch({
             type: USER_WISHLIST,
-            payload: response?.data,
+            payload: payloadData,
         });
     } catch (e) {
         dispatch({
