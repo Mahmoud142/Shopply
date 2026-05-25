@@ -15,24 +15,24 @@ const RsetPasswordPage = () => {
     <Container style={{ minHeight: "690px" }}>
       <Row className="py-5 d-flex justify-content-center ">
         <Col sm="12" className="d-flex flex-column ">
-          <label className="mx-auto title-login">ادخل كلمه السر الجديده</label>
+          <label className="mx-auto title-login">Enter New Password</label>
           <input
             value={password}
             onChange={OnChangePassword}
-            placeholder="ادخل كلمه السر الجديدة"
+            placeholder="Enter New Password"
             type="password"
             className="user-input my-3 text-center mx-auto"
           />
           <input
             value={confirmPassword}
             onChange={OnChangeConfirmPassword}
-            placeholder="تاكيد كلمه السر الجديدة"
+            placeholder="Confirm New Password"
             type="password"
             className="user-input my-3 text-center mx-auto"
           />
 
           <button onClick={onSubmit} className="btn-login mx-auto mt-2">
-            حفظ
+            Save
           </button>
         </Col>
       </Row>
