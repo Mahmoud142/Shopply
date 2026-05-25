@@ -1,10 +1,9 @@
 import { CREATE_ORDER_CASH, CREATE_ORDER_CARD } from "../type";
 import { useInsertData } from "../../hooks/useInsertData";
-import { useGetDataToken } from "../../hooks/useGetData";
 //create order cash for user
 export const createOrderCash = (id, body) => async (dispatch) => {
     try {
-        const response = await useInsertData(`/api/v1/orders/${id}`, body);
+        const response = await useInsertData(`/api/orders/${id}`, body);
         
         dispatch({
             type: CREATE_ORDER_CASH,
@@ -21,7 +20,7 @@ export const createOrderCash = (id, body) => async (dispatch) => {
 //create order by card for user
 export const createOrderCARD = (id, body) => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/orders/checkout-session/${id}`, body);
+        const response = await useInsertData(`/api/orders/checkout-session/${id}`, body);
         console.log(response)
         dispatch({
             type: CREATE_ORDER_CARD,

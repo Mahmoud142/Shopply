@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const UserAllOrderCard = ({item}) => {
         let imageCoverUrl = item?.product?.imageCover || "";
         if (imageCoverUrl && !imageCoverUrl.includes("http")) {
-            imageCoverUrl = `http://127.0.0.1:8000/products/${imageCoverUrl}`;
+            imageCoverUrl = `http://localhost:3000/products/${imageCoverUrl}`;
         }
         
     return (
@@ -33,10 +33,10 @@ const UserAllOrderCard = ({item}) => {
                             : 0}
                     </div>
                     <div className="rate-count d-inline p-1 pt-2">
-                        ({`${item.product.ratingsQuantity || 0} تقييم`})
+                        ({`${item.product.ratingsQuantity || 0} Review`})
                     </div>
                     <div className="mt-3 d-flex">
-                        <div className="cat-text mt-1  d-inline">الكميه</div>
+                        <div className="cat-text mt-1  d-inline">Quantity</div>
                         <input
                             value={item.count}
                             className="mx-2 "

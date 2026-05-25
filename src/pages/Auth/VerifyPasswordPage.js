@@ -11,18 +11,18 @@ const VerifyPasswordPage = () => {
       <Row className="py-5 d-flex justify-content-center ">
         <Col sm="12" className="d-flex flex-column ">
           <label className="mx-auto title-login">
-            ادخل الكود المرسل فى الايميل
+            Enter the code sent to your email
           </label>
           <input
             value={code}
             onChange={OnChangeCode}
-            placeholder="ادخل الكود..."
+            placeholder="Enter Code..."
             type="email"
             className="user-input my-3 text-center mx-auto"
           />
 
           <button onClick={onSubmit} className="btn-login mx-auto mt-2">
-            تاكيد
+            Confirm
           </button>
         </Col>
       </Row>

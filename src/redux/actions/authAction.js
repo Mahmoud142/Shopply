@@ -13,7 +13,7 @@ import { useGetDataToken } from "../../hooks/useGetData";
 import { useUpdateData } from "../../hooks/useUpdateData";
 export const createNewUser = (formData) => async (dispatch) => {
     try {
-        const response = await useInsertData("/api/v1/auth/signup", formData);
+        const response = await useInsertData("/api/auth/register", formData);
         dispatch({
             type: CREATE_NEW_USER,
             payload: response,
@@ -29,7 +29,7 @@ export const createNewUser = (formData) => async (dispatch) => {
 
 export const loginUser = (formData) => async (dispatch) => {
     try {
-        const response = await useInsertData("/api/v1/auth/login", formData);
+        const response = await useInsertData("/api/auth/login", formData);
         dispatch({
             type: LOGIN_USER,
             payload: response,
@@ -46,7 +46,7 @@ export const loginUser = (formData) => async (dispatch) => {
 // get current user details
 export const getLoggedUser = () => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/users/getMe`);
+        const response = await useGetDataToken(`/api/users/getMe`);
         dispatch({
             type: GET_CURRENT_USER,
             payload: response,
@@ -64,7 +64,7 @@ export const getLoggedUser = () => async (dispatch) => {
 export const forgetPassword = (data) => async (dispatch) => {
     try {
         const response = await useInsertData(
-            `/api/v1/auth/forgotPasswords`,
+            `/api/auth/forgotPassword`,
             data,
         );
         dispatch({
@@ -84,7 +84,7 @@ export const forgetPassword = (data) => async (dispatch) => {
 export const verifyPassword = (data) => async (dispatch) => {
     try {
         const response = await useInsertData(
-            `/api/v1/auth/verifyResetCode`,
+            `/api/auth/verifyResetCode`,
             data,
         );
         dispatch({
@@ -104,7 +104,7 @@ export const verifyPassword = (data) => async (dispatch) => {
 export const resetPassword = (data) => async (dispatch) => {
     try {
         const response = await useUpdateData(
-            `/api/v1/auth/resetPassword`,
+            `/api/auth/resetPassword`,
             data,
         );
         dispatch({
@@ -122,7 +122,7 @@ export const resetPassword = (data) => async (dispatch) => {
 //update  user data
 export const updateUserProfileData = (body) => async (dispatch) => {
     try {
-        const response = await useUpdateData(`/api/v1/users/updateMe`, body);
+        const response = await useUpdateData(`/api/users/updateMe`, body);
         console.log(response);
         dispatch({
             type: UPDATE_USER_PROFILE,
@@ -141,7 +141,7 @@ export const updateUserProfileData = (body) => async (dispatch) => {
 export const updateUserPassword = (body) => async (dispatch) => {
     try {
         const response = await useUpdateData(
-            `/api/v1/users/changeMyPassword`,
+            `/api/users/changeMyPassword`,
             body,
         );
         console.log(response);

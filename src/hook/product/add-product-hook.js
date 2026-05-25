@@ -32,9 +32,9 @@ const AdminAddProductHook = () => {
   // values
   const [prodName, setProdName] = useState("");
   const [prodDesc, setProdDesc] = useState("");
-  const [prodPriceBefore, setProdPriceBefore] = useState("السعر قبل الخصم");
-  const [prodPriceAfter, setProdPriceAfter] = useState("السعر بعد الخصم");
-  const [qty, setQty] = useState("الكمية المتاحة");
+  const [prodPriceBefore, setProdPriceBefore] = useState("");
+  const [prodPriceAfter, setProdPriceAfter] = useState("");
+  const [qty, setQty] = useState("");
   const [CatID, setCatID] = useState("0");
   const [BrandID, setBrandID] = useState('');
   const [selectedSubID, setSelectedSubID] = useState([]);
@@ -137,14 +137,14 @@ const AdminAddProductHook = () => {
       prodPriceBefore <= 0 ||
       prodPriceAfter <= 0
     ) {
-      notify("من فضلك اكمل البيانات", "warn");
+      notify("From Please complete the form data", "warn");
       return;
     }
 
     //convert base 64 image to file
     const imgCover = dataURLtoFile(images[0]?.data_url, Math.random() + ".png");
     if (!imgCover) {
-      notify("حدث خطأ في معالجة الصور", "error");
+      notify("An error occurred while processing images", "error");
       return;
     }
     
@@ -156,12 +156,12 @@ const AdminAddProductHook = () => {
       .filter((img) => img !== null);
 
     if (itemImages.length === 0) {
-      notify("حدث خطأ في معالجة الصور", "error");
+      notify("An error occurred while processing images", "error");
       return;
     }
 
     const formData = new FormData();
-    formData.append("title", prodName);
+    formData.append("name", prodName);
     formData.append("description", prodDesc);
     formData.append("quantity", qty);
     formData.append("price", prodPriceBefore);
@@ -188,17 +188,17 @@ const AdminAddProductHook = () => {
       setImages([]);
       setProdName("");
       setProdDesc("");
-      setProdPriceBefore("السعر قبل الخصم");
-      setProdPriceAfter("السعر بعد الخصم");
-      setQty("الكمية المتاحة");
+      setProdPriceBefore("");
+      setProdPriceAfter("");
+      setQty("");
       setBrandID(0);
       setSelectedSubID([]);
       setTimeout(() => setLoading(true), 1500);
 
       if (product?.status === 201) {
-        notify("تم الاضافة بنجاح", "success");
+        notify("Added successfully", "success");
       } else if (product) {
-        notify("هناك مشكله", "error");
+        notify("There is a problem", "error");
       }
     }
   }, [loading, product]);

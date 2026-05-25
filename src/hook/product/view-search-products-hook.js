@@ -51,11 +51,11 @@ const ViewSearchProductsHook = () => {
     } else {
       sortType = "";
     }
-    if (sortType === "السعر من الاقل للاعلي") sort = "price";
-    else if (sortType === "السعر من الاعلي للاقل") sort = "-price";
+    if (sortType === "Price: Low to High") sort = "price";
+    else if (sortType === "Price: High to Low") sort = "-price";
     else if (sortType === "") sort = "";
-    else if (sortType === "الاكثر مبيعا") sort = "-sold";
-    else if (sortType === "الاعلي تقييما") sort = "-quantity";
+    else if (sortType === "Best Selling") sort = "-sold";
+    else if (sortType === "Highest Rated") sort = "-quantity";
   };
 
   const getProducts = async () => {

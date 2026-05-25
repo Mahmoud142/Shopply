@@ -9,17 +9,17 @@ const ForgetPasswordPage = () => {
     <Container style={{ minHeight: "690px" }}>
       <Row className="py-5 d-flex justify-content-center ">
         <Col sm="12" className="d-flex flex-column ">
-          <label className="mx-auto title-login">نسيت كلمة السر</label>
+          <label className="mx-auto title-login">Forgot Password?</label>
           <input
             value={email}
             onChange={OnChangeEmail}
-            placeholder="ادخل الايميل..."
+            placeholder="Enter Email Address..."
             type="email"
             className="user-input my-3 text-center mx-auto"
           />
 
           <button onClick={onSubmit} className="btn-login mx-auto mt-2">
-            ارسال الكود
+            Send Verification Code
           </button>
         </Col>
       </Row>

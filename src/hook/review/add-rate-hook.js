@@ -24,7 +24,7 @@ const AddRateHook = (id) => {
   ///when save rate
   const onSubmit = async () => {
     if (rateText === "") {
-      notify("من فضلك اكتب تعليق", "error");
+      notify("Please write a comment", "error");
       return;
     }
     setLoading(true);
@@ -43,14 +43,14 @@ const AddRateHook = (id) => {
       if (res) {
         
         if (res.status && res.status === 403) {
-          notify("غير مسموح للادمن بالتقييم", "error");
+          notify("Admins are not allowed to submit reviews", "error");
         } else if (
           res.data.errors &&
           res.data.errors[0].msg === "You already added review on this product"
         ) {
-          notify("لقد قمت باضافة تقييم لهذا المنتج مسبقا", "error");
+          notify("You have already reviewed this product", "error");
         } else if (res.status && res.status === 201) {
-          notify("تمت اضافة التقييم بنجاح", "success");
+          notify("Review added successfully", "success");
           setTimeout(() => {
             window.location.reload(false);
           }, 1000);

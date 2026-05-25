@@ -34,12 +34,12 @@ const DeleteRateHook = (review) => {
   useEffect(() => {
     if (loading === false) {
       if (res === "") {
-        notify("تم حذف التقييم بنجاح", "success");
+        notify("Review deleted successfully", "success");
         setTimeout(() => {
           window.location.reload(false);
         }, 1000);
       } else{
-        notify("هناك مشكله فى عملية المسح", "error");
+        notify("There was a problem during deletion", "error");
         
       }
     }

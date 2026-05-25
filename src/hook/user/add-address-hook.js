@@ -28,7 +28,7 @@ const AddAddressHook = () => {
     };
     const onSubmit = async () => {
         if (alias === "" || details === "" || phone === "") {
-            notify("من فضلك اكمل البيانات", "warn");
+            notify("From Please complete the form data", "warn");
             return;
         }
         setLoading(true);
@@ -50,12 +50,12 @@ const AddAddressHook = () => {
     useEffect(() => {
         if (loading === false) {
             if (res && res.status === 200) {
-                notify("تمت اضافة العنوان بنجاح", "success");
+                notify("Address added successfully", "success");
                 setTimeout(() => {
                     navigate("/user/addresses");
                 }, 1000);
             } else {
-                notify("هناك مشكله فى عملية الاضافة ", "error");
+                notify("There was a problem during addition ", "error");
             }
         }
     }, [loading, res, navigate]);

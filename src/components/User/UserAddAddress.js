@@ -15,14 +15,14 @@ const UserAddAddress = () => {
    return (
        <div>
            <Row className="justify-content-start ">
-               <div className="admin-content-text pb-2">اضافة عنوان جديد</div>
+               <div className="admin-content-text pb-2">Add New Address</div>
                <Col sm="8">
                    <input
                        value={alias}
                        onChange={onChangeAlias}
                        type="text"
                        className="input-form d-block mt-3 px-3"
-                       placeholder="تسمية العنوان مثلا(المنزل - العمل)"
+                       placeholder="Address label, e.g.(Home - Work)"
                    />
                    <textarea
                        value={details}
@@ -30,14 +30,14 @@ const UserAddAddress = () => {
                        className="input-form-area p-2 mt-3"
                        rows="4"
                        cols="50"
-                       placeholder="العنوان بالتفصيل"
+                       placeholder="Detailed Address"
                    />
                    <input
                        value={phone}
                        onChange={onChangePhone}
                        type="text"
                        className="input-form d-block mt-3 px-3"
-                       placeholder="رقم الهاتف"
+                       placeholder="No. Phone Number"
                    />
                </Col>
            </Row>
@@ -47,7 +47,7 @@ const UserAddAddress = () => {
                        onClick={onSubmit}
                        className="btn-save d-inline mt-2 "
                    >
-                       اضافة عنوان
+                       Add Address
                    </button>
                </Col>
            </Row>

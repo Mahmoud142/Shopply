@@ -8,7 +8,7 @@ const AddSubCategoryHook = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!navigator.onLine) {
-      notify("انت غير متصل بالانترنت", "error");
+      notify("You are offline", "error");
       return;
     }
     dispatch(getAllCategory());
@@ -37,15 +37,15 @@ const AddSubCategoryHook = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!navigator.onLine) {
-      notify("هناك مشكله فى الاتصال بالانترنت", "warn");
+      notify("Internet connection error", "warn");
       return;
     }
     if (id === "0") {
-      notify("من فضلك اختر تصنيف رئيسي", "warn");
+      notify("Please select a main category", "warn");
       return;
     }
     if (name === "") {
-      notify("من فضلك ادخل اسم التصنيف", "warn");
+      notify("Please enter category name", "warn");
       return;
     }
     setLoading(true);
@@ -58,13 +58,13 @@ const AddSubCategoryHook = () => {
       setName("");
       setID("0");       
       if (subcategory.status === 201) {
-        notify("تمت الاضافة بنجاح", "success");
+        notify("Added successfully", "success");
       } else if (
         subcategory === "Error Error: Request failed with status code 400"
       ) {
-        notify("هذا الاسم مكرر من فضلك اختر اسم اخر", "warn");
+        notify("This name already exists, please choose another name", "warn");
       } else {
-        notify("هناك مشكله فى عملية الاضافة", "warn");
+        notify("There was a problem during addition", "warn");
       }
       setLoading(true);
     }

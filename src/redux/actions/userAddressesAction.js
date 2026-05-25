@@ -13,7 +13,7 @@ import { useUpdateData } from "./../../hooks/useUpdateData";
 //add user Address
 export const addUserAddress = (body) => async (dispatch) => {
     try {
-        const response = await useInsertData("/api/v1/addresses", body);
+        const response = await useInsertData("/api/addresses", body);
         dispatch({
             type: ADD_USER_ADDRESS,
             payload: response,
@@ -29,7 +29,7 @@ export const addUserAddress = (body) => async (dispatch) => {
 //get all user Address
 export const getAllUserAddress = () => async (dispatch) => {
     try {
-        const response = await useGetDataToken("/api/v1/addresses");
+        const response = await useGetDataToken("/api/addresses");
 
         dispatch({
             type: GET_ALL_USER_ADDRESS,
@@ -46,7 +46,7 @@ export const getAllUserAddress = () => async (dispatch) => {
 //delete user Address
 export const deleteUserAddress = (id) => async (dispatch) => {
     try {
-        const response = await useDeleteData(`/api/v1/addresses/${id}`);
+        const response = await useDeleteData(`/api/addresses/${id}`);
 
         dispatch({
             type: DELETE_USER_ADDRESS,
@@ -63,7 +63,7 @@ export const deleteUserAddress = (id) => async (dispatch) => {
 //get one user Address
 export const getOneUserAddress = (id) => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/addresses/${id}`);
+        const response = await useGetDataToken(`/api/addresses/${id}`);
 
         dispatch({
             type: GET_ONE_USER_ADDRESS,
@@ -81,7 +81,7 @@ export const getOneUserAddress = (id) => async (dispatch) => {
 export const editUserAddress = (id, body) => async (dispatch) => {
     try {
         const response = await useUpdateData(
-            `/api/v1/addresses/${id}`,
+            `/api/addresses/${id}`,
             body,
         );
 

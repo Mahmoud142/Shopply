@@ -19,7 +19,7 @@ const AdminEditCoupon = () => {
         <div>
             <Row className="justify-content-start ">
                 <div className="admin-content-text pb-4">
-                    تعديل بيانات الكوبون
+                    Edit Coupon Details
                 </div>
                 <Col sm="8">
                     <input
@@ -27,12 +27,12 @@ const AdminEditCoupon = () => {
                         onChange={onChangeName}
                         type="text"
                         className="input-form d-block mt-3 px-3"
-                        placeholder="اسم الكوبون"
+                        placeholder="Coupon Name"
                     />
                     <input
                         type="text"
                         className="input-form d-block mt-3 px-3"
-                        placeholder="تاريخ الانتهاء"
+                        placeholder="Expiry Date"
                         onChange={onChangeDate}
                         value={couponDate}
                     />
@@ -41,7 +41,7 @@ const AdminEditCoupon = () => {
                         onChange={onChangeValue}
                         type="number"
                         className="input-form d-block mt-3 px-3"
-                        placeholder="نسبة خصم الكوبون"
+                        placeholder="Coupon Discount Percentage"
                     />
                 </Col>
             </Row>
@@ -51,7 +51,7 @@ const AdminEditCoupon = () => {
                         onClick={onSubmit}
                         className="btn-save d-inline mt-2 "
                     >
-                        حفظ التعديل
+                        Save Changes
                     </button>
                 </Col>
             </Row>

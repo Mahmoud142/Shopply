@@ -35,9 +35,9 @@ const AdminEditProductHook = (id) => {
   //values state
   const [prodName, setProdName] = useState("");
   const [prodDescription, setProdDescription] = useState("");
-  const [priceBefore, setPriceBefore] = useState("السعر قبل الخصم");
-  const [priceAfter, setPriceAfter] = useState("السعر بعد الخصم");
-  const [qty, setQty] = useState("الكمية المتاحة");
+  const [priceBefore, setPriceBefore] = useState("Price Before Discount");
+  const [priceAfter, setPriceAfter] = useState("Price After Discount");
+  const [qty, setQty] = useState("Available Quantity");
   const [catID, setCatID] = useState("0");
   const [brandID, setBrandID] = useState("0");
   const [selectedSubID, setSelectedSubID] = useState([]);
@@ -185,7 +185,7 @@ const AdminEditProductHook = (id) => {
       images.length <= 0 ||
       priceBefore <= 0
     ) {
-      notify("من فضلك اكمل البيانات", "warn");
+      notify("From Please complete the form data", "warn");
       return;
     }
 
@@ -208,7 +208,7 @@ const AdminEditProductHook = (id) => {
       // New images uploaded (base64 data)
       imgCover = dataURLtoFile(images[0].data_url, Math.random() + ".png");
       if (!imgCover) {
-        notify("حدث خطأ في معالجة الصور", "error");
+        notify("An error occurred while processing images", "error");
         return;
       }
 
@@ -218,7 +218,7 @@ const AdminEditProductHook = (id) => {
         .filter((img) => img !== null);
 
       if (itemImages.length === 0) {
-        notify("حدث خطأ في معالجة الصور", "error");
+        notify("An error occurred while processing images", "error");
         return;
       }
     }
@@ -253,18 +253,18 @@ const AdminEditProductHook = (id) => {
       setImages([]);
       setProdName("");
       setProdDescription("");
-      setPriceBefore("السعر قبل الخصم");
-      setPriceAfter("السعر بعد الخصم");
-      setQty("الكمية المتاحة");
+      setPriceBefore("Price Before Discount");
+      setPriceAfter("Price After Discount");
+      setQty("Available Quantity");
       setBrandID("0");
       setSelectedSubID([]);
       setTimeout(() => setLoading(true), 1500);
 
       if (product) {
         if (product.status === 200) {
-          notify("تم التعديل بنجاح", "success");
+          notify("Updated successfully", "success");
         } else {
-          notify("هناك مشكله", "error");
+          notify("There is a problem", "error");
         }
       }
     }

@@ -71,12 +71,12 @@ const EditAddressHook = (id) => {
     useEffect(() => {
         if (loadingEdit === false) {
             if (resEdit && resEdit.status === 200) {
-                notify("تمت عملية التعديل بنجاح", "success");
+                notify("Updated successfully", "success");
                 setTimeout(() => {
                     navigate("/user/addresses");
                 }, 1000);
             } else {
-                notify("فشل فى عملية التعديل", "error");
+                notify("Failed to update", "error");
             }
         }
     }, [loadingEdit, resEdit, navigate]);

@@ -16,7 +16,7 @@ const VerifyPasswordHook = () => {
 
   const onSubmit = async () => {
     if (code === "") {
-      notify("من فضلك ادخل الكود", "error");
+      notify("Please enter the code", "error");
       return;
     }
     setLoading(true);
@@ -34,14 +34,15 @@ const VerifyPasswordHook = () => {
     if (loading === false) {
       if (res) {
         console.log(res);
-        if (res.data.status === "Success") {
-          notify("كود التفعيل صحيح", "success");
+        if (res.data.status === "success") {
+          localStorage.setItem("resetToken", res.data.resetToken);
+          notify("Activation code is correct", "success");
           setTimeout(() => {
             navigate("/user/reset-password");
           }, 1500);
         }
         if (res.data.status === "fail") {
-          notify("الكود خاطئ او انتهت صلاحيته", "error");
+          notify("The code is incorrect or expired", "error");
         }
       }
     }

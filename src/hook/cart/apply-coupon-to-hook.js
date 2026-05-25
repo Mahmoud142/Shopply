@@ -16,7 +16,7 @@ const ApplyCouponHook = (cartItems) => {
 
     const handleSubmitCoupon = async () => {
         if (couponName === "") {
-            notify("من فضلك ادخل الكوبون", "warn");
+            notify("Please enter the coupon code", "warn");
             return;
         }
         setLoading(true);
@@ -33,12 +33,12 @@ const ApplyCouponHook = (cartItems) => {
     useEffect(() => {
         if (loading === false) {
             if (res && res.status === 200) {
-                notify("تم تطبيق الكوبون بنجاح", "success");
+                notify("Coupon applied successfully", "success");
                 setTimeout(() => {
                     window.location.reload(false);
                 }, 1000);
             } else {
-                notify("هذا الكوبون غير صحيح او منتهى الصلاحيه", "warn");
+                notify("This coupon is invalid or has expired", "warn");
                 setTimeout(() => {
                     window.location.reload(false);
                 }, 1000);
@@ -51,7 +51,7 @@ const ApplyCouponHook = (cartItems) => {
             if (cartItems?.length >= 1) {
                 navigate("/order/paymentMethod");
             } else {
-                notify("من فضلك اضف منتجات للعربة اولا", "warn");
+                notify("Please add products to the cart first", "warn");
             }
         };
 

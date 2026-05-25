@@ -14,9 +14,10 @@ const BrandCard = ({ img, id }) => {
                 style={{
                     width: "100%",
                     height: "151px",
-                    borderRadius: "8px",
+                    borderRadius: "40px",
                     border: "none",
                     backgroundColor: "#FFFFFF",
+                    overflow: "hidden"
                 }}
             >
                 <Link
@@ -24,7 +25,7 @@ const BrandCard = ({ img, id }) => {
                     style={{ textDecoration: "none" }}
                 >
                     <Card.Img
-                        style={{ width: "100%", height: "151px" }}
+                        style={{ width: "100%", height: "151px", borderRadius: "40px" }}
                         src={img}
                     />
                 </Link>

@@ -18,7 +18,7 @@ const CategoryCard = ({id, title, img, background }) => {
                     to={`/products/category/${id}`}
                     style={{ textDecoration: "none" }}
                 >
-                    <img alt="zcv" src={img} className="categoty-card-img" />
+                    <img alt="zcv" src={img} className="categoty-card-img" style={{ borderRadius: "40px" }} />
                     <p className="categoty-card-text my-2">{title}</p>
                 </Link>
             </div>

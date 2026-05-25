@@ -5,12 +5,11 @@ import { ToastContainer } from "react-toastify";
 import ProductCardHook from "../../hook/product/product-card-hook";
 
 const ProductCard = ({ product, favProd }) => {
-    const [, , handleFav, favImg] =
-        ProductCardHook(product, favProd);
+    const [, , handleFav, favImg] = ProductCardHook(product, favProd);
 
     let imageCoverUrl = product?.imageCover || "";
     if (imageCoverUrl && !imageCoverUrl.includes("http")) {
-        imageCoverUrl = `http://127.0.0.1:8000/products/${imageCoverUrl}`;
+        imageCoverUrl = `http://localhost:3000/products/${imageCoverUrl}`;
     }
 
     return (
@@ -20,10 +19,11 @@ const ProductCard = ({ product, favProd }) => {
                 style={{
                     width: "100%",
                     height: "345px",
-                    borderRadius: "8px",
+                    borderRadius: "40px",
                     border: "none",
                     backgroundColor: "#FFFFFF",
-                    boxShadow: "0 2px 2px 0 rgba(151,151,151,0.5)",
+                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.08)",
+                    overflow: "hidden"
                 }}
             >
                 <Link
@@ -31,7 +31,7 @@ const ProductCard = ({ product, favProd }) => {
                     style={{ textDecoration: "none" }}
                 >
                     <Card.Img
-                        style={{ height: "228px", width: "100%" }}
+                        style={{ height: "228px", width: "100%", borderRadius: "40px 40px 0 0" }}
                         src={imageCoverUrl}
                     />
                 </Link>
@@ -84,7 +84,7 @@ const ProductCard = ({ product, favProd }) => {
                                         product.price
                                     )}
                                 </div>
-                                <div className="card-currency mx-1">جنيه</div>
+                                <div className="card-currency mx-1">EGP</div>
                             </div>
                         </div>
                     </Card.Text>

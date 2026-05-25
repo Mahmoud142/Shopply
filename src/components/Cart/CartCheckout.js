@@ -28,20 +28,20 @@ const CartCheckout = ({
                         value={couponName}
                         onChange={(e) => onChangeCoupon(e.target.value)}
                         className="copon-input d-inline text-center "
-                        placeholder="كود الخصم"
+                        placeholder="Discount Code"
                     />
                     <button
                         className="copon-btn d-inline "
                         onClick={handleSubmitCoupon}
                     >
-                        تطبيق
+                        Apply
                     </button>
                 </div>
                 <div className="product-price d-inline w-100 my-3  border">
                     {" "}
                     {totalCartPriceAfterDiscount >= 1
-                        ? `${totalCartPrice} جنيه ... بعد الخصم ${totalCartPriceAfterDiscount} `
-                        : `${totalCartPrice} جنيه`}
+                        ? `${totalCartPrice} EGP ... After Discount ${totalCartPriceAfterDiscount} `
+                        : `${totalCartPrice} EGP`}
                 </div>
                 <Link
                     to="/order/paymentMethod"
@@ -53,7 +53,7 @@ const CartCheckout = ({
                         className="product-cart-add w-100 px-2"
                     >
                         {" "}
-                        اتمام الشراء
+                        Checkout
                     </button>
                 </Link>
                 <button
@@ -61,7 +61,7 @@ const CartCheckout = ({
                     className="product-cart-add w-100 px-2 my-1"
                 >
                     {" "}
-                    مسح العربة
+                    Clear Cart
                 </button>
             </Col>
             <ToastContainer />

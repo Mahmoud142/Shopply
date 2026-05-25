@@ -9,9 +9,27 @@ import { useUpdateData } from "../../hooks/useUpdateData";
 
 export const getAllOrders = (page, limit) => async (dispatch) => {
     try {
+        if (!localStorage.getItem("token")) {
+            dispatch({
+                type: GET_ALL_ORDER,
+                payload: [],
+            });
+            return;
+        }
         const response = await useGetDataToken(
-            `/api/v1/orders?limit=${limit}&page=${page}`,
+            `/api/orders?limit=${limit}&page=${page}`,
         );
+        if (response && response.data && Array.isArray(response.data)) {
+            response.data.forEach(order => {
+                if (order && order.cartItems) {
+                    order.cartItems.forEach(item => {
+                        if (item && item.product && item.product.name && !item.product.title) {
+                            item.product.title = item.product.name;
+                        }
+                    });
+                }
+            });
+        }
         dispatch({
             type: GET_ALL_ORDER,
             payload: response,
@@ -26,8 +44,17 @@ export const getAllOrders = (page, limit) => async (dispatch) => {
 
 export const getOneOrders = (id) => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/orders/${id}`);
-
+        const response = await useGetDataToken(`/api/orders/${id}`);
+        if (response && response.data) {
+            const order = response.data;
+            if (order && order.cartItems) {
+                order.cartItems.forEach(item => {
+                    if (item && item.product && item.product.name && !item.product.title) {
+                        item.product.title = item.product.name;
+                    }
+                });
+            }
+        }
         dispatch({
             type: GET_ONE_ORDER,
             payload: response,
@@ -42,7 +69,7 @@ export const getOneOrders = (id) => async (dispatch) => {
 
 export const changeOrderPay = (id) => async (dispatch) => {
     try {
-        const response = await useUpdateData(`/api/v1/orders/${id}/pay`);
+        const response = await useUpdateData(`/api/orders/${id}/pay`);
 
         dispatch({
             type: UPDATE_ORDER_PAY,
@@ -58,7 +85,7 @@ export const changeOrderPay = (id) => async (dispatch) => {
 
 export const changeOrderDeliver = (id) => async (dispatch) => {
     try {
-        const response = await useUpdateData(`/api/v1/orders/${id}/deliver`);
+        const response = await useUpdateData(`/api/orders/${id}/deliver`);
 
         dispatch({
             type: UPDATE_ORDER_DELIVER,

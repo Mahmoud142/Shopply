@@ -4,7 +4,7 @@ import { useGetData } from "../../hooks/useGetData";
 // Create SubCategory Action
 export const createSubCategory = (formData) => async (dispatch) => {
   try {
-    const response = await useInsertData("/api/v1/subcategories", formData);
+    const response = await useInsertData("/api/subcategories", formData);
     dispatch({
       type: CREATE_SUBCATEGORY,
       payload: response,
@@ -20,7 +20,10 @@ export const createSubCategory = (formData) => async (dispatch) => {
 //get sub category depend in cat id
 export const getOneCategory = (id) => async (dispatch) => {
   try {
-    const response = await useGetData(`/api/v1/categories/${id}/subcategories`);
+    const response = await useGetData(`/api/categories/${id}/subcategories`);
+    if (response && response.data && response.data.subCategories) {
+      response.data = response.data.subCategories;
+    }
 
     dispatch({
       type: GET_SUB_CATEGORY,

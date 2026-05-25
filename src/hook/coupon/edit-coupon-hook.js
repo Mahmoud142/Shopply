@@ -58,7 +58,7 @@ const EditCouponHook = (id) => {
 
     const onSubmit = async () => {
         if (coupnName === "" || couponDate === "" || couponValue <= 0) {
-            notify("من فضلك اكمل البيانات", "warn");
+            notify("From Please complete the form data", "warn");
             return;
         }
         setLoading(true);
@@ -77,12 +77,12 @@ const EditCouponHook = (id) => {
     useEffect(() => {
         if (loading === false) {
             if (res && res.status === 200) {
-                notify("تمت عملية التعديل بنجاح", "success");
+                notify("Updated successfully", "success");
                 setTimeout(() => {
                     navigate("/admin/addcoupon");
                 }, 1000);
             } else {
-                notify("فضل عملية التعديل ", "error");
+                notify("Failed to update ", "error");
             }
         }
     }, [loading, res, navigate]);

@@ -23,7 +23,7 @@ const AdminOrderDetalis = () => {
 
             <Row className="justify-content-center mt-4 user-data">
                 <Col xs="12" className=" d-flex">
-                    <div className="admin-content-text py-2">تفاصيل العميل</div>
+                    <div className="admin-content-text py-2">Customer Details</div>
                 </Col>
                 <Col xs="12" className="d-flex">
                     <div
@@ -33,7 +33,7 @@ const AdminOrderDetalis = () => {
                             fontSize: "16px",
                         }}
                     >
-                        الاسم:
+                        Name:
                     </div>
 
                     <div
@@ -60,7 +60,7 @@ const AdminOrderDetalis = () => {
                             fontSize: "16px",
                         }}
                     >
-                        رقم الهاتف:
+                        No. Phone Number:
                     </div>
 
                     <div
@@ -86,7 +86,7 @@ const AdminOrderDetalis = () => {
                             fontSize: "16px",
                         }}
                     >
-                        الايميل:
+                        Email:
                     </div>
 
                     <div
@@ -112,15 +112,15 @@ const AdminOrderDetalis = () => {
                             onChange={onChangePaid}
                             className="select input-form-area mt-1  text-center w-50"
                         >
-                            <option value="0">الدفع</option>
-                            <option value="true">تم</option>
-                            <option value="false">لم يتم</option>
+                            <option value="0">Payment</option>
+                            <option value="true">Done</option>
+                            <option value="false">Pending</option>
                         </select>
                         <button
                             onClick={changePayOrder}
                             className="btn-a px-2 d-inline mx-1 "
                         >
-                            حفظ{" "}
+                            Save{" "}
                         </button>
                     </div>
                     <div>
@@ -130,15 +130,15 @@ const AdminOrderDetalis = () => {
                             id="deliver"
                             className="select input-form-area mt-1  text-center  w-50"
                         >
-                            <option value="0">التوصيل</option>
-                            <option value="true">تم</option>
-                            <option value="false">لم يتم</option>
+                            <option value="0">Delivery</option>
+                            <option value="true">Done</option>
+                            <option value="false">Pending</option>
                         </select>
                         <button
                             onClick={changeDeliverOrder}
                             className="btn-a px-2 d-inline mx-1 "
                         >
-                            حفظ{" "}
+                            Save{" "}
                         </button>
                     </div>
                 </div>

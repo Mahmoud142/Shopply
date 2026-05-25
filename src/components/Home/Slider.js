@@ -22,8 +22,8 @@ const Silder = () => {
             alt="First slide"
           />
           <div className="">
-            <h3 className="slider-title">هناك خصم كبير</h3>
-            <p className="slider-text">خصم يصل ٥٠٪ عند شرائك</p>
+            <h3 className="slider-title">Huge Discount!</h3>
+            <p className="slider-text">Get up to 50% discount on purchase</p>
           </div>
         </div>
       </Carousel.Item>
@@ -36,8 +36,8 @@ const Silder = () => {
             alt="First slide"
           />
           <div className="">
-            <h3 className="slider-title">هناك خصم كبير</h3>
-            <p className="slider-text">خصم يصل ٥٠٪ عند شرائك</p>
+            <h3 className="slider-title">Huge Discount!</h3>
+            <p className="slider-text">Get up to 50% discount on purchase</p>
           </div>
         </div>
       </Carousel.Item>
@@ -51,8 +51,8 @@ const Silder = () => {
             alt="First slide"
           />
           <div className="">
-            <h3 className="slider-title">هناك خصم كبير</h3>
-            <p className="slider-text">خصم يصل ٥٠٪ عند شرائك</p>
+            <h3 className="slider-title">Huge Discount!</h3>
+            <p className="slider-text">Get up to 50% discount on purchase</p>
           </div>
         </div>
       </Carousel.Item>
@@ -66,8 +66,8 @@ const Silder = () => {
             alt="First slide"
           />
           <div className="">
-            <h3 className="slider-title">هناك خصم كبير</h3>
-            <p className="slider-text">خصم يصل ٥٠٪ عند شرائك</p>
+            <h3 className="slider-title">Huge Discount!</h3>
+            <p className="slider-text">Get up to 50% discount on purchase</p>
           </div>
         </div>
       </Carousel.Item>

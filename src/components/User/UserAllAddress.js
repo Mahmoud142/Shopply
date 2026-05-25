@@ -6,13 +6,13 @@ const UserAllAddress = () => {
     const [res] = ViewAddressesHook();
     return (
         <div>
-            <div className="admin-content-text pb-4">دفتر العنوانين</div>
+            <div className="admin-content-text pb-4">Address Book</div>
             {res.data ? (
                 res.data.map((item, index) => {
                     return <UserAddressCard key={index} item={item} />;
                 })
             ) : (
-                <h6>لا يوجد عنوانين حتى الان</h6>
+                <h6>No addresses added yet</h6>
             )}
 
             <Row className="justify-content-center">
@@ -22,7 +22,7 @@ const UserAllAddress = () => {
                         style={{ textDecoration: "none" }}
                     >
                         <button className="btn-add-address">
-                            اضافه عنوان جديد
+                            Add New Address
                         </button>
                     </Link>
                 </Col>
