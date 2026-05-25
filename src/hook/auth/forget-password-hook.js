@@ -21,7 +21,7 @@ const ForgetPasswordHook = () => {
 
   const onSubmit = async () => {
     if (email === "") {
-      notify("من فضلك ادخل الايميل", "error");
+      notify("Please enter the email", "error");
       return;
     }
 
@@ -41,14 +41,14 @@ const ForgetPasswordHook = () => {
     if (loading === false) {
       if (res) {
         
-        if (res.data.status === "Success") {
-          notify("تم ارسال الكود للايميل بنجاح", "success");
+        if (res.data.status === "success") {
+          notify("Code successfully sent to email", "success");
           setTimeout(() => {
             navigate("/user/verify-code");
           }, 1000);
         }
         else if (res.data.status === "fail") {
-          notify("هذا الحساب غير موجود لدينا", "error");
+          notify("This account does not exist", "error");
         }
         else {
           notify(res.data.message, "error");
