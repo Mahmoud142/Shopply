@@ -52,7 +52,7 @@ const AdminCoupnCard = ({ coupon }) => {
                 <Col xs="6" className="d-flex d-flex justify-content-end">
                     <div className="d-flex p-2">
                         <Link
-                            to={`/admin/editcoupon/${coupon._id}`}
+                            to={`/admin/edit-coupon/${coupon._id}`}
                             style={{ textDecoration: "none" }}
                         >
                             <div className="d-flex mx-2">
