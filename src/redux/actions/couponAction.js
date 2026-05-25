@@ -13,8 +13,10 @@ import { useUpdateData } from "../../hooks/useUpdateData";
 //add coupon
 export const addCoupon = (body) => async (dispatch) => {
     try {
-        const response = await useInsertData(`/api/v1/coupons`, body);
-        console.log(response);
+        const response = await useInsertData(`/api/coupons`, body);
+        if (response && response.data && response.data.data && response.data.data.coupon) {
+            response.data.data = response.data.data.coupon;
+        }
         dispatch({
             type: ADD_COUPON,
             payload: response,
@@ -29,7 +31,10 @@ export const addCoupon = (body) => async (dispatch) => {
 //get all coupon
 export const getAllCoupon = () => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/coupons`);
+        const response = await useGetDataToken(`/api/coupons`);
+        if (response && response.data && response.data.coupons) {
+            response.data = response.data.coupons;
+        }
         dispatch({
             type: GET_ALL_COUPON,
             payload: response,
@@ -45,7 +50,10 @@ export const getAllCoupon = () => async (dispatch) => {
 //get one coupon
 export const getOneCoupon = (id) => async (dispatch) => {
     try {
-        const response = await useGetDataToken(`/api/v1/coupons/${id}`);
+        const response = await useGetDataToken(`/api/coupons/${id}`);
+        if (response && response.data && response.data.coupon) {
+            response.data = response.data.coupon;
+        }
         dispatch({
             type: GET_ONE_COUPON,
             payload: response,
@@ -61,7 +69,7 @@ export const getOneCoupon = (id) => async (dispatch) => {
 //delete coupon
 export const deleteCoupon = (id) => async (dispatch) => {
     try {
-        const response = await useDeleteData(`/api/v1/coupons/${id}`);
+        const response = await useDeleteData(`/api/coupons/${id}`);
         dispatch({
             type: DELETE_COUPON,
             payload: response,
@@ -77,8 +85,10 @@ export const deleteCoupon = (id) => async (dispatch) => {
 //edit coupon
 export const editCoupon = (id, body) => async (dispatch) => {
     try {
-        const response = await useUpdateData(`/api/v1/coupons/${id}`, body);
-
+        const response = await useUpdateData(`/api/coupons/${id}`, body);
+        if (response && response.data && response.data.data && response.data.data.coupon) {
+            response.data.data = response.data.data.coupon;
+        }
         dispatch({
             type: EDIT_COUPON,
             payload: response,
