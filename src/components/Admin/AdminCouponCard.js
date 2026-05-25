@@ -19,12 +19,12 @@ const AdminCoupnCard = ({ coupon }) => {
                 <Modal.Header>
                     <Modal.Title>
                         {" "}
-                        <div className="font">تاكيد الحذف</div>
+                        <div className="font">Confirm Delete</div>
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="font">
-                        هل انتا متاكد من عملية الحذف للكوبون
+                        Are you sure you want to delete this coupon?
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
@@ -33,21 +33,21 @@ const AdminCoupnCard = ({ coupon }) => {
                         variant="success"
                         onClick={handleClose}
                     >
-                        تراجع
+                        Cancel
                     </Button>
                     <Button
                         className="font"
                         variant="dark"
                         onClick={handelDelete}
                     >
-                        حذف
+                        Delete
                     </Button>
                 </Modal.Footer>
             </Modal>
 
             <Row className="d-flex justify-content-between  ">
                 <Col xs="6">
-                    <div className="p-2">اسم الكوبون: {coupon.name}</div>
+                    <div className="p-2">Coupon Name: {coupon.name}</div>
                 </Col>
                 <Col xs="6" className="d-flex d-flex justify-content-end">
                     <div className="d-flex p-2">
@@ -63,7 +63,7 @@ const AdminCoupnCard = ({ coupon }) => {
                                     height="17px"
                                     width="15px"
                                 />
-                                <p className="item-delete-edit"> تعديل</p>
+                                <p className="item-delete-edit"> Edit</p>
                             </div>
                         </Link>
                         <div onClick={handleShow} className="d-flex ">
@@ -74,7 +74,7 @@ const AdminCoupnCard = ({ coupon }) => {
                                 height="17px"
                                 width="15px"
                             />
-                            <p className="item-delete-edit"> ازاله</p>
+                            <p className="item-delete-edit"> Remove</p>
                         </div>
                     </div>
                 </Col>
@@ -89,7 +89,7 @@ const AdminCoupnCard = ({ coupon }) => {
                             fontSize: "16px",
                         }}
                     >
-                        تاريخ الانتهاء: {formatDate(dateString)}
+                        Expiry Date: {formatDate(dateString)}
                     </div>
                 </Col>
             </Row>
@@ -103,7 +103,7 @@ const AdminCoupnCard = ({ coupon }) => {
                             fontSize: "16px",
                         }}
                     >
-                        : نسبه الخصم
+                        : Discount Percentage
                     </div>
 
                     <div
