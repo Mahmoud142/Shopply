@@ -9,7 +9,7 @@ const AdminAllOrders = () => {
 
     return (
         <div>
-            <div className="admin-content-text">ادارة جميع الطلبات</div>
+            <div className="admin-content-text">Manage All Orders</div>
             <Row className="justify-content-start">
                 {orderData.length >= 1 ? (
                     orderData.map((orderItem, index) => {
@@ -21,7 +21,7 @@ const AdminAllOrders = () => {
                         );
                     })
                 ) : (
-                    <h6>لا يوجد طلبات حتى </h6>
+                    <h6>No orders yet </h6>
                 )}
 
                 {paginate.numberOfPages >= 2 ? (
