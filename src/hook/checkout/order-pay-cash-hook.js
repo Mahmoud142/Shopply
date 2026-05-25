@@ -41,11 +41,11 @@ const OrderPayCashHook = () => {
     //when user click
     const handleCreateOrderCash = async () => {
         if (cartID === "0") {
-            notify("من فضلك اضف منتجات الى العربه اولا", "warn");
+            notify("Please add products to your cart first", "warn");
             return;
         }
         if (addressDetails.length <= 0) {
-            notify("من فضلك اختر عنوان اولا", "warn");
+            notify("Please select an address first", "warn");
             return;
         }
         setLoadingCreate(true);
@@ -70,12 +70,12 @@ const OrderPayCashHook = () => {
         console.log('resOrserCash: ', resOrserCash);
         if (loadingCreate === false) {
             if (resOrserCash && resOrserCash.status === 201) {
-                notify("تم انشاء طلبك بنجاح", "success");
+                notify("Your order has been created successfully", "success");
                 setTimeout(() => {
                     navigate("/user/allorders");
                 }, 1500);
             } else {
-                notify("فشل فى اكمال الطلب من فضلك حاول مره اخرى", "warn");
+                notify("Failed to complete the order, please try again", "warn");
             }
         }
     }, [loadingCreate, navigate, resOrserCash]);
