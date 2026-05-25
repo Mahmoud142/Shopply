@@ -40,7 +40,7 @@ const EditRateHook = (review) => {
   useEffect(() => {
     if (loading === false) {
       
-      if (res.status && res.status === 200) {
+      if (res?.status === 200) {
         notify("Review updated successfully", "success");
         setTimeout(() => {
           window.location.reload(false);

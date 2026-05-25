@@ -55,13 +55,13 @@ const AddBrandHook = () => {
       setLoading(true);
       setTimeout(() => setIsPress(false), 1000);
       
-      if (res.status === 201) {
+      if (res?.status === 201) {
         notify("Added successfully", "success");
       } else {
         notify("There was a problem during addition", "error");
       }
     }
-  }, [loading, res.status]);
+  }, [loading, res]);
 
   return [
     img,

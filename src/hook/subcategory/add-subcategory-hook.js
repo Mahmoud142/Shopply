@@ -57,7 +57,7 @@ const AddSubCategoryHook = () => {
     if (loading === false) {
       setName("");
       setID("0");       
-      if (subcategory.status === 201) {
+      if (subcategory?.status === 201) {
         notify("Added successfully", "success");
       } else if (
         subcategory === "Error Error: Request failed with status code 400"
