@@ -67,9 +67,9 @@ const ProductCardHook = (item, favProd = []) => {
     useEffect(() => {
         if (loadingAdd === false) {
             if (resAdd && resAdd.status === 200) {
-                notify("تمت اضافة المنتج للمفضلة بنجاح", "success");
+                notify("Product added to wishlist successfully", "success");
             } else if (resAdd && resAdd.status === 401) {
-                notify("انتا غير مسجل", "error");
+                notify("You are not logged in", "error");
             }
         }
     }, [loadingAdd, resAdd]);
@@ -77,9 +77,9 @@ const ProductCardHook = (item, favProd = []) => {
     useEffect(() => {
         if (loadingRemove === false) {
             if (resRemove && resRemove.status === "success") {
-                notify("تمت حذف المنتج من المفضلة بنجاح", "warn");
+                notify("Product removed from wishlist successfully", "warn");
             } else if (resRemove && resRemove.status === 401) {
-                notify("انتا غير مسجل", "error");
+                notify("You are not logged in", "error");
             }
         }
     }, [loadingRemove, resRemove]);
