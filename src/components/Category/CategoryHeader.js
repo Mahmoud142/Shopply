@@ -36,7 +36,7 @@ const CategoryHeader = () => {
                             to="/allcategory"
                             style={{ textDecoration: "none" }}
                         >
-                            <div className="cat-text-header">المزيد</div>
+                            <div className="cat-text-header">More</div>
                         </Link>
                     </Col>
                 </Row>
