@@ -115,7 +115,7 @@ body {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
 }
 .card-price {
   color: #272727;
@@ -203,7 +203,7 @@ body {
   font-family: "Almarai";
   font-size: 13px;
   font-weight: bold;
-  text-align: right;
+  text-align: left;
   cursor: pointer;
 }
 /* end footer */
@@ -216,7 +216,7 @@ body {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
 }
 .card-filter {
   background-color: #ffffff;
@@ -252,7 +252,7 @@ body {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 23px;
-  text-align: right;
+  text-align: left;
 }
 
 .cat-title {
@@ -260,7 +260,7 @@ body {
   font-family: Almarai;
   font-size: 14px;
   font-weight: normal;
-  text-align: right;
+  text-align: left;
 }
 
 .cat-rate {
@@ -270,7 +270,7 @@ body {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 19px;
-  text-align: right;
+  text-align: left;
 }
 
 .barnd-text {
@@ -295,7 +295,7 @@ body {
   font-weight: 600;
   letter-spacing: 0;
   line-height: 26px;
-  text-align: right;
+  text-align: left;
 }
 .product-price {
   height: 46px;
@@ -388,7 +388,7 @@ body {
   font-weight: 800;
   letter-spacing: 0;
   line-height: 28px;
-  text-align: right;
+  text-align: left;
 }
 .btn-login {
   height: 46px;
@@ -412,7 +412,7 @@ body {
   font-weight: 800;
   letter-spacing: 0;
   line-height: 28px;
-  text-align: right;
+  text-align: left;
 }
 .cart-item-body {
   height: 229px;
@@ -470,7 +470,7 @@ body {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
@@ -488,7 +488,7 @@ body {
   font-weight: 800;
   letter-spacing: 0;
   line-height: 28px;
-  text-align: right;
+  text-align: left;
 }
 .item-delete-edit {
   color: #979797;
@@ -496,7 +496,7 @@ body {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 30px;
-  text-align: right;
+  text-align: left;
   cursor: pointer;
 }
 
@@ -506,7 +506,7 @@ body {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
 }
 .input-form {
   height: 37px;
@@ -583,7 +583,7 @@ body {
   font-size: 14px;
   letter-spacing: 0;
   line-height: 19px;
-  text-align: right;
+  text-align: left;
 }
 /* end rate */
 
@@ -608,7 +608,7 @@ body {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 30px;
-  text-align: right;
+  text-align: left;
 }
 /* end user order */
 
@@ -651,7 +651,7 @@ body {
   font-weight: bold;
   letter-spacing: 0;
   line-height: 20px;
-  text-align: right;
+  text-align: left;
 }
 .filter-sub {
   color: #555550;
