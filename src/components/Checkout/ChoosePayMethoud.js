@@ -29,12 +29,12 @@ const ChoosePayMethoud = () => {
             console.log("order cash");
             handelCreateOrderCash();
         } else {
-            notify("من فضلك اختر طريقة دفع", "warn");
+            notify("Please select a payment method", "warn");
         }
     };
     return (
         <div>
-            <div className="admin-content-text pt-5">اختر طريقة الدفع</div>
+            <div className="admin-content-text pt-5">Select Payment Method</div>
             <div className="user-address-card my-3 px-3">
                 <Row className="d-flex justify-content-between ">
                     <Col xs="12" className="my-2">
@@ -52,7 +52,7 @@ const ChoosePayMethoud = () => {
                             className="mx-2"
                             for="group1"
                         >
-                            الدفع عن طريق البطاقه الائتمانية
+                            Pay with Credit Card
                         </label>
                     </Col>
                 </Row>
@@ -73,7 +73,7 @@ const ChoosePayMethoud = () => {
                             className="mx-2"
                             for="group2"
                         >
-                            الدفع عند الاستلام
+                            Cash on Delivery
                         </label>
                     </Col>
                 </Row>
@@ -86,7 +86,7 @@ const ChoosePayMethoud = () => {
                             className="select mt-1 px-2 "
                             onChange={handelChooseAddress}
                         >
-                            <option value="0">اختر عنوان للشحن</option>
+                            <option value="0">Select Shipping Address</option>
                             {res.data ? (
                                 res.data.map((item, index) => {
                                     return (
@@ -97,7 +97,7 @@ const ChoosePayMethoud = () => {
                                 })
                             ) : (
                                 <option key={0} value={0}>
-                                    لا يوجد عنوانين مسجلة
+                                    No addresses registered
                                 </option>
                             )}
                         </select>
@@ -109,15 +109,15 @@ const ChoosePayMethoud = () => {
                 <Col xs="12" className="d-flex justify-content-end">
                     <div className="product-price d-inline   border">
                         {totalCartPriceAfterDiscount >= 1
-                            ? `${totalCartPrice} جنيه ... بعد الخصم ${totalCartPriceAfterDiscount} `
-                            : `${totalCartPrice} جنيه`}
+                            ? `${totalCartPrice} EGP ... After Discount ${totalCartPriceAfterDiscount} `
+                            : `${totalCartPrice} EGP`}
                     </div>
                     <div
                         onClick={handelPay}
                         className="product-cart-add px-3 pt-2 d-inline me-2"
                     >
                         {" "}
-                        اتمام الشراء
+                        Checkout
                     </div>
                 </Col>
             </Row>
