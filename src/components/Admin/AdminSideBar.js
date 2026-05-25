@@ -7,7 +7,7 @@ const AdminSideBar = () => {
             <div className="d-flex flex-column">
                 <Link to="/admin/allorders" style={{ textDecoration: "none" }}>
                     <div className="admin-side-text mt-3 border-bottom p-2 mx-auto text-center">
-                        اداره الطلبات
+                        Order Management
                     </div>
                 </Link>
                 <Link
@@ -15,12 +15,12 @@ const AdminSideBar = () => {
                     style={{ textDecoration: "none" }}
                 >
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اداره المنتجات
+                        Product Management
                     </div>
                 </Link>
                 <Link to="/admin/addbrand" style={{ textDecoration: "none" }}>
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اضف ماركه
+                        Add Brand
                     </div>
                 </Link>
 
@@ -29,7 +29,7 @@ const AdminSideBar = () => {
                     style={{ textDecoration: "none" }}
                 >
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اضف تصنيف
+                        Add Category
                     </div>
                 </Link>
 
@@ -38,17 +38,17 @@ const AdminSideBar = () => {
                     style={{ textDecoration: "none" }}
                 >
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اضف تصنيف فرعي
+                        Add Subcategory
                     </div>
                 </Link>
                 <Link to="/admin/addproduct" style={{ textDecoration: "none" }}>
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اضف منتج
+                        Add Product
                     </div>
                 </Link>
                 <Link to="/admin/addcoupon" style={{ textDecoration: "none" }}>
                     <div className="admin-side-text my-1 border-bottom p-2 mx-auto text-center">
-                        اضف كوبون
+                        Add Coupon
                     </div>
                 </Link>
             </div>
