@@ -18,7 +18,7 @@ import { useUpdateDataWithImage } from "../../hooks/useUpdateData";
 // create product action
 export const createProduct = (formData) => async (dispatch) => {
     try {
-        const res = await useInsertDataWithImage("/api/v1/products", formData);
+        const res = await useInsertDataWithImage("/api/products", formData);
         dispatch({
             type: CREATE_PRODUCT,
             payload: res,
@@ -34,7 +34,19 @@ export const createProduct = (formData) => async (dispatch) => {
 // get all products action
 export const getAllProducts = (limit) => async (dispatch) => {
     try {
-        const res = await useGetData(`/api/v1/products?limit=${limit}`);
+        const url = (limit && limit !== "undefined") ? `/api/products?limit=${limit}` : `/api/products`;
+        const res = await useGetData(url);
+        if (res && res.data && res.data.products) {
+            res.data.products.forEach(p => {
+                if (p && p.name && !p.title) p.title = p.name;
+            });
+            res.paginationResult = res.pagination || {
+                currentPage: 1,
+                limit: Number(limit) || 20,
+                numberOfPages: Math.ceil(res.data.products.length / (limit || 20)) || 1
+            };
+            res.data = res.data.products;
+        }
         dispatch({
             type: GET_ALL_PRODUCTS,
             payload: res,
@@ -49,7 +61,18 @@ export const getAllProducts = (limit) => async (dispatch) => {
 };
 export const getAllProductsSearch = (queryString) => async (dispatch) => {
     try {
-        const res = await useGetData(`/api/v1/products?${queryString}`);
+        const res = await useGetData(`/api/products?${queryString}`);
+        if (res && res.data && res.data.products) {
+            res.data.products.forEach(p => {
+                if (p && p.name && !p.title) p.title = p.name;
+            });
+            res.paginationResult = res.pagination || {
+                currentPage: 1,
+                limit: 20,
+                numberOfPages: Math.ceil(res.data.products.length / 20) || 1
+            };
+            res.data = res.data.products;
+        }
         dispatch({
             type: GET_ALL_PRODUCTS_SEARCH,
             payload: res,
@@ -66,8 +89,19 @@ export const getAllProductsSearch = (queryString) => async (dispatch) => {
 export const getAllProductsPage = (page, limit) => async (dispatch) => {
     try {
         const res = await useGetData(
-            `/api/v1/products?page=${page}&limit=${limit}`,
+            `/api/products?page=${page}&limit=${limit}`,
         );
+        if (res && res.data && res.data.products) {
+            res.data.products.forEach(p => {
+                if (p && p.name && !p.title) p.title = p.name;
+            });
+            res.paginationResult = res.pagination || {
+                currentPage: Number(page) || 1,
+                limit: Number(limit) || 20,
+                numberOfPages: Math.ceil(res.data.products.length / (limit || 20)) || 1
+            };
+            res.data = res.data.products;
+        }
         dispatch({
             type: GET_ALL_PRODUCTS_SEARCH,
             payload: res,
@@ -84,7 +118,13 @@ export const getAllProductsPage = (page, limit) => async (dispatch) => {
 // get one product details action
 export const getOneProduct = (id) => async (dispatch) => {
     try {
-        const res = await useGetData(`/api/v1/products/${id}`);
+        const res = await useGetData(`/api/products/${id}`);
+        if (res && res.data && res.data.product) {
+            if (res.data.product.name && !res.data.product.title) {
+                res.data.product.title = res.data.product.name;
+            }
+            res.data = res.data.product;
+        }
         dispatch({
             type: GET_PRODUCT_DETAILS,
             payload: res,
@@ -101,7 +141,18 @@ export const getOneProduct = (id) => async (dispatch) => {
 // get product like action
 export const getProductLike = (id) => async (dispatch) => {
     try {
-        const res = await useGetData(`/api/v1/products?category=${id}`);
+        const res = await useGetData(`/api/products?category=${id}`);
+        if (res && res.data && res.data.products) {
+            res.data.products.forEach(p => {
+                if (p && p.name && !p.title) p.title = p.name;
+            });
+            res.paginationResult = res.pagination || {
+                currentPage: 1,
+                limit: 20,
+                numberOfPages: Math.ceil(res.data.products.length / 20) || 1
+            };
+            res.data = res.data.products;
+        }
         dispatch({
             type: GET_PRODUCT_LIKE,
             payload: res,
@@ -118,7 +169,7 @@ export const getProductLike = (id) => async (dispatch) => {
 // delete product action
 export const deleteProduct = (id) => async (dispatch) => {
     try {
-        const res = await useDeleteData(`/api/v1/products/${id}`);
+        const res = await useDeleteData(`/api/products/${id}`);
         dispatch({
             type: DELETE_PRODUCT,
             payload: res,
@@ -136,7 +187,7 @@ export const deleteProduct = (id) => async (dispatch) => {
 export const updateProduct = (id, formData) => async (dispatch) => {
     try {
         const res = await useUpdateDataWithImage(
-            `/api/v1/products/${id}`,
+            `/api/products/${id}`,
             formData,
         );
         dispatch({
@@ -157,8 +208,19 @@ export const getAllProductsByCategory =
     (page, limit, categoryID) => async (dispatch) => {
         try {
             const response = await useGetData(
-                `/api/v1/products?limit=${limit}&category=${categoryID}&page=${page}`,
+                `/api/products?limit=${limit}&category=${categoryID}&page=${page}`,
             );
+            if (response && response.data && response.data.products) {
+                response.data.products.forEach(p => {
+                    if (p && p.name && !p.title) p.title = p.name;
+                });
+                response.paginationResult = response.pagination || {
+                    currentPage: Number(page) || 1,
+                    limit: Number(limit) || 20,
+                    numberOfPages: Math.ceil(response.data.products.length / (limit || 20)) || 1
+                };
+                response.data = response.data.products;
+            }
             console.log(
                 "response in action getAllProductsByCategory :",
                 response,
@@ -182,8 +244,19 @@ export const getAllProductsByBrand =
     (page, limit, brandID) => async (dispatch) => {
         try {
             const response = await useGetData(
-                `/api/v1/products?limit=${limit}&brand=${brandID}&page=${page}`,
+                `/api/products?limit=${limit}&brand=${brandID}&page=${page}`,
             );
+            if (response && response.data && response.data.products) {
+                response.data.products.forEach(p => {
+                    if (p && p.name && !p.title) p.title = p.name;
+                });
+                response.paginationResult = response.pagination || {
+                    currentPage: Number(page) || 1,
+                    limit: Number(limit) || 20,
+                    numberOfPages: Math.ceil(response.data.products.length / (limit || 20)) || 1
+                };
+                response.data = response.data.products;
+            }
             dispatch({
                 type: GET_ALL_PRODUCTS_BY_BRAND,
                 payload: response,
