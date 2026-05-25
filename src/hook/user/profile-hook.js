@@ -62,7 +62,7 @@ const ProfileHook = () => {
     useEffect(() => {
         if (loading === false) {
             if (res && res.status === 200) {
-                notify("تم الحديث بنجاح", "success");
+                notify("Updated successfully", "success");
 
                 localStorage.setItem(
                     "user",
@@ -72,7 +72,7 @@ const ProfileHook = () => {
                     window.location.reload(false);
                 }, 1500);
             } else {
-                notify("فشل عملية التحديث", "warn");
+                notify("Update process failed", "warn");
             }
         }
     }, [loading, res]);
@@ -100,7 +100,7 @@ const ProfileHook = () => {
 
     const changePassword = async () => {
         if (confirmNewPassword !== newPassword) {
-            notify("تاكيد كلمة المرور غير متطابق", "warn");
+            notify("Password confirmation does not match", "warn");
             return;
         }
         setLoadingPass(true);
@@ -122,14 +122,14 @@ const ProfileHook = () => {
         if (loadingPass === false) {
 
             if (resPass && resPass.status === 200) {
-                notify("تم تغير كلمة المرور بنجاح", "success");
+                notify("Password changed successfully", "success");
                 setTimeout(() => {
                     localStorage.removeItem("user");
                     localStorage.removeItem("token");
                     navigate("/login");
                 }, 1500);
             } else {
-                notify("فشل عملية التحديث", "warn");
+                notify("Update process failed", "warn");
             }
         }
     }, [loadingPass, resPass, navigate]);
