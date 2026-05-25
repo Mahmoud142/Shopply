@@ -19,7 +19,7 @@ const ChangeOrderStatusHook = (id) => {
             await dispatch(changeOrderPay(id));
             setLoading(false);
         } else if (pay === "0") {
-            console.log("من فضلك اختر قيمة");
+            console.log("Please select a value");
         }
     };
 
@@ -29,7 +29,7 @@ const ChangeOrderStatusHook = (id) => {
             await dispatch(changeOrderDeliver(id));
             setLoadingDeliver(false);
         } else if (deliver === "0") {
-            console.log("من فضلك اختر قيمة");
+            console.log("Please select a value");
         }
     };
 
@@ -38,12 +38,12 @@ const ChangeOrderStatusHook = (id) => {
     useEffect(() => {
         if (loading === false) {
             if (resOneOrder && resOneOrder.status === 200) {
-                notify("تم تغير حالة الدفع بنجاح", "success");
+                notify("Payment status updated successfully", "success");
                 setTimeout(() => {
                     window.location.reload(false);
                 }, 1000);
             } else {
-                notify("هناك مشكله فى عملية التغير", "error");
+                notify("There was a problem during the change", "error");
             }
         }
     }, [loading, resOneOrder]);
@@ -55,12 +55,12 @@ const ChangeOrderStatusHook = (id) => {
     useEffect(() => {
         if (loadingDeliver === false) {
             if (resDeliverOrder && resDeliverOrder.status === 200) {
-                notify("تم تغير حالة التوصيل بنجاح", "success");
+                notify("Delivery status updated successfully", "success");
                 setTimeout(() => {
                     window.location.reload(false);
                 }, 1000);
             } else {
-                notify("هناك مشكله فى عملية التغير", "error");
+                notify("There was a problem during the change", "error");
             }
         }
     }, [loadingDeliver, resDeliverOrder]);
