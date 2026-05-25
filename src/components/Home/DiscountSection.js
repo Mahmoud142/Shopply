@@ -7,7 +7,7 @@ const DiscountSection = () => {
       <Row className="discount-backcolor my-3  mx-2 d-flex text-center align-items-center">
         <Col sm="6">
           <div className="discount-title">
-            خصم يصل حتي ٣٠٪ علي اجهازه اللاب توب
+            Get up to 30% off on Laptops
           </div>
         </Col>
         <Col sm="6">
