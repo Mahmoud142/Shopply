@@ -10,7 +10,7 @@ const UserAllOrder = () => {
     return (
         <div>
             <div className="admin-content-text pb-4">
-                عدد الطلبات #{results}
+                Orders Count #{results}
             </div>
             <Row className="justify-content-between">
                 {orderData.length >= 1 ? (
@@ -23,7 +23,7 @@ const UserAllOrder = () => {
                         );
                     })
                 ) : (
-                    <h6>لا يوجد طلبات حتى </h6>
+                    <h6>No orders yet </h6>
                 )}
 
                 {paginate.numberOfPages >= 2 ? (
