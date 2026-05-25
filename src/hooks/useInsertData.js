@@ -11,7 +11,10 @@ const useInsertDataWithImage = async (url, parmas) => {
 
     const res = await baseUrl.post(url, parmas, config);
 
-    return res;
+    return {
+      status: res.status,
+      data: res.data
+    };
   } catch (error) {
     console.log(error);
   }
@@ -25,7 +28,10 @@ const useInsertData = async (url, parmas) => {
   };
   const res = await baseUrl.post(url, parmas, config);
 
-  return res;
+  return {
+    status: res.status,
+    data: res.data
+  };
 };
 
 export { useInsertData, useInsertDataWithImage };
