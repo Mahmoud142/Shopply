@@ -22,11 +22,11 @@ const AdminAllProductsCard = ({ product }) => {
         <Modal.Header>
           <Modal.Title>
             {" "}
-            <div className="font">تاكيد الحذف</div>
+            <div className="font">Confirm Delete</div>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="font">هل انت متاكد من عملية الحذف للمنتج</div>
+          <div className="font">Are you sure you want to delete this product?</div>
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -34,14 +34,14 @@ const AdminAllProductsCard = ({ product }) => {
             variant="success"
             onClick={handleClose}
           >
-            تراجع
+            Cancel
           </Button>
           <Button
             className="font bg-danger"
             variant="dark"
             onClick={handleDelete}
           >
-            حذف
+            Delete
           </Button>
         </Modal.Footer>
       </Modal>
@@ -59,13 +59,13 @@ const AdminAllProductsCard = ({ product }) => {
         <Row className="d-flex justify-content-center px-2">
           <Col className=" d-flex justify-content-between">
             <div onClick={handleShow} className="d-inline item-delete-edit">
-              ازاله
+              Remove
             </div>
             <Link
               to={`/admin/editproduct/${product._id}`}
               style={{ textDecoration: "none" }}
             >
-              <div className="d-inline item-delete-edit">تعديل</div>
+              <div className="d-inline item-delete-edit">Edit</div>
             </Link>
           </Col>
         </Row>
@@ -85,7 +85,7 @@ const AdminAllProductsCard = ({ product }) => {
               <div className="d-flex justify-content-between">
                 <div className="card-rate">{product.ratingsQuantity}</div>
                 <div className="d-flex">
-                  <div className="card-currency mx-1">جنيه</div>
+                  <div className="card-currency mx-1">EGP</div>
                   <div className="card-price">{product.price}</div>
                 </div>
               </div>
