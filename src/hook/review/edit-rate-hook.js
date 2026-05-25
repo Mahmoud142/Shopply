@@ -41,11 +41,11 @@ const EditRateHook = (review) => {
     if (loading === false) {
       
       if (res.status && res.status === 200) {
-        notify("تم تعديل التقييم بنجاح", "success");
+        notify("Review updated successfully", "success");
         setTimeout(() => {
           window.location.reload(false);
         }, 1000);
-      } else notify("هناك مشكله فى عملية التعديل", "error");
+      } else notify("There was a problem during the edit process", "error");
     }
   }, [loading, res]);
 
