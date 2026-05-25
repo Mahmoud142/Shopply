@@ -16,7 +16,7 @@ const AdminAllOrdersItem = ({ orderItem }) => {
                             className=" d-flex flex-row justify-content-between"
                         >
                             <div className="d-inline pt-2 cat-text">
-                                طلب رقم #{orderItem.id}
+                                Order ID #{orderItem.id}
                             </div>
                         </Col>
                     </Row>
@@ -26,7 +26,7 @@ const AdminAllOrdersItem = ({ orderItem }) => {
                             className=" d-flex flex-row justify-content-start"
                         >
                             <div className="d-inline pt-2 cat-title">
-                                طلب من.. {orderItem.user.name || ""}
+                                Ordered by.. {orderItem.user.name || ""}
                             </div>
                             <div
                                 style={{ color: "black" }}
@@ -46,12 +46,12 @@ const AdminAllOrdersItem = ({ orderItem }) => {
                                     className="d-inline"
                                 >
                                     {" "}
-                                    التوصيل
+                                    Delivery
                                 </div>
                                 <div className="d-inline mx-2 stat">
                                     {orderItem.isDelivered === true
-                                        ? "تم التوصيل"
-                                        : "لم يتم "}
+                                        ? "Delivered"
+                                        : "Pending"}
                                 </div>
                             </div>
                             <div>
@@ -60,12 +60,12 @@ const AdminAllOrdersItem = ({ orderItem }) => {
                                     className="d-inline"
                                 >
                                     {" "}
-                                    الدفع
+                                    Payment
                                 </div>
                                 <div className="d-inline mx-2 stat">
                                     {orderItem.isPaid === true
-                                        ? "تم الدفع"
-                                        : "لم يتم "}
+                                        ? "Paid"
+                                        : "Pending"}
                                 </div>
                             </div>
 
@@ -74,19 +74,19 @@ const AdminAllOrdersItem = ({ orderItem }) => {
                                     style={{ color: "black" }}
                                     className="d-inline"
                                 >
-                                    طرقة الدفع
+                                    Payment Method
                                 </div>
                                 <div className="d-inline mx-2 stat">
                                     {orderItem.paymentMethodType === "cash"
-                                        ? "كاش"
-                                        : "بطاقة ائتمانية"}
+                                        ? "Cash"
+                                        : "Credit Card"}
                                 </div>
                             </div>
                         </Col>
                         <Col xs="6" className="d-flex justify-content-end">
                             <div>
                                 <div className="barnd-text">
-                                    {orderItem.totalOrderPrice || 0} جنية
+                                    {orderItem.totalOrderPrice || 0} EGP
                                 </div>
                             </div>
                         </Col>
