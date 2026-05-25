@@ -19,11 +19,11 @@ const ResetPasswordHook = () => {
   };
   const onSubmit = async () => {
     if (password === "") {
-      notify("من فضلك ادخل كلمة السر", "error");
+      notify("Please enter the password", "error");
       return;
     }
     if (password !== confirmPassword) {
-      notify("كلمة السر غير متطابقه مع تاكيد كلمع السر", "error");
+      notify("Passwords do not match", "error");
       return;
     }
 
@@ -32,25 +32,26 @@ const ResetPasswordHook = () => {
       resetPassword({
         email: localStorage.getItem("user-email"),
         newPassword: password,
+        resetToken: localStorage.getItem("resetToken"),
       }),
     );
     setLoading(false);
   };
 
-  const res = useSelector((state) => state.authReducer.verifyPassword);
+  const res = useSelector((state) => state.authReducer.resetPassword);
 
   useEffect(() => {
     if (loading === false) {
       if (res) {
         console.log(res);
-        if (res.data.status === "Success") {
-          notify("تم تغير كلمة السر بنجاح", "success");
+        if (res.data.status === "success") {
+          notify("Password changed successfully", "success");
           setTimeout(() => {
             navigate("/login");
           }, 1500);
         }
         if (res.data.status === "fail") {
-          notify("من فضلك اطلب كود جديد", "error");
+          notify("Please request a new code", "error");
         }
       }
     }
