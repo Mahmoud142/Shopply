@@ -13,6 +13,7 @@ import {
 
 const initialState = {
     products: [],
+    allProducts: [],
     allHomeProducts: [],
     allProductsSearch: [],
     oneProduct: [],
@@ -36,12 +37,14 @@ const productsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allHomeProducts: action.payload,
+                allProducts: action.payload,
                 loading: false,
             };
         case GET_ALL_PRODUCTS_SEARCH:
             return {
                 ...state,
                 allProductsSearch: action.payload,
+                allProducts: action.payload,
                 loading: false,
             };
         case GET_PRODUCT_DETAILS:
