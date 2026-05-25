@@ -48,18 +48,18 @@ const RateItem = ({review}) => {
           <Modal.Header>
             <Modal.Title>
               {" "}
-              <div className="font">تاكيد الحذف</div>
+              <div className="font">Confirm Delete</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <div className="font">هل انتا متاكد من حذف التقييم</div>
+            <div className="font">Are you sure you want to delete this review?</div>
           </Modal.Body>
           <Modal.Footer>
             <Button className="font" variant="success" onClick={handleClose}>
-              تراجع
+              Cancel
             </Button>
             <Button className="font" variant="dark" onClick={handelDelete}>
-              حذف
+              Delete
             </Button>
           </Modal.Footer>
         </Modal>
@@ -68,7 +68,7 @@ const RateItem = ({review}) => {
           <Modal.Header>
             <Modal.Title>
               {" "}
-              <div className="font">تعديل التقييم</div>
+              <div className="font">Edit Review</div>
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
@@ -87,10 +87,10 @@ const RateItem = ({review}) => {
               variant="success"
               onClick={handleCloseEdit}
             >
-              تراجع
+              Cancel
             </Button>
             <Button className="font" variant="dark" onClick={handelEdit}>
-              تعديل
+              Edit
             </Button>
           </Modal.Footer>
         </Modal>
