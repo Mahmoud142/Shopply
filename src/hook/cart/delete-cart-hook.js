@@ -27,7 +27,7 @@ const DeleteCartHook = (item) => {
     useEffect(() => {
         if (loading === false) {
             if (res === "") {
-                notify("تم الحذف بنجاح", "success");
+                notify("Deleted successfully", "success");
                 setTimeout(() => {
                     window.location.reload(false);
                 }, 1000);
