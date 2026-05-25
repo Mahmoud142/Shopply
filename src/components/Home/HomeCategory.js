@@ -5,12 +5,12 @@ import HomeCategoryHook from "../../hook/category/home-category-hook";
 import { Spinner } from "react-bootstrap";
 
 const HomeCategory = () => {
-  const [category, loading, colors] = HomeCategoryHook();
+  const [category, loading] = HomeCategoryHook();
 
   return (
-    <Container>
-      <Subtitle title="Categories" btntitle="More" pathText="/allcategory" />
-      <Row className="my-2 d-flex justify-content-between">
+    <Container className="py-4">
+      <Subtitle title="Shop by Category" btntitle="View All" pathText="/allcategory" />
+      <Row className="my-4 d-flex justify-content-center g-4">
         {loading === false ? (
           category && category.data && category.data.length > 0 ? (
             category.data.slice(0, 5).map((item, index) => {
@@ -20,15 +20,16 @@ const HomeCategory = () => {
                       id={item._id}
                       title={item.name}
                       img={item.image}
-                      background={colors[index]}
                   />
               );
             })
           ) : (
-            <h4>No categories found</h4>
+            <p className="text-secondaryText text-sm font-medium">No categories found</p>
           )
         ) : (
-          <Spinner animation="border" variant="primary" role="status" aria-label="Loading..." />
+          <div className="flex items-center justify-center py-12">
+            <Spinner animation="border" variant="primary" role="status" aria-label="Loading..." />
+          </div>
         )}
       </Row>
     </Container>
