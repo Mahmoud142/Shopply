@@ -14,7 +14,7 @@ import { useGetDataToken } from "../../hooks/useGetData";
 export const createReview = (prodID, body) => async (dispatch) => {
   try {
     const response = await useInsertData(
-      `/api/v1/products/${prodID}/reviews`,
+      `/api/products/${prodID}/reviews`,
       body,
     );
 
@@ -33,7 +33,7 @@ export const createReview = (prodID, body) => async (dispatch) => {
 // Update Review
 export const updateReviewOnProduct = (reviewID, body) => async (dispatch) => {
   try {
-    const response = await useUpdateData(`/api/v1/reviews/${reviewID}`, body);
+    const response = await useUpdateData(`/api/reviews/${reviewID}`, body);
     dispatch({
       type: UPDATE_REVIEW,
       payload: response,
@@ -49,7 +49,7 @@ export const updateReviewOnProduct = (reviewID, body) => async (dispatch) => {
 // Delete Review
 export const deleteReviewOnProduct = (reviewID) => async (dispatch) => {
   try {
-    const response = await useDeleteData(`/api/v1/reviews/${reviewID}`);
+    const response = await useDeleteData(`/api/reviews/${reviewID}`);
     dispatch({
       type: DELETE_REVIEW,
       payload: response,
@@ -66,7 +66,7 @@ export const deleteReviewOnProduct = (reviewID) => async (dispatch) => {
 export const allReviewProduct = (prodID, page, limit) => async (dispatch) => {
   try {
     const response = await useGetDataToken(
-      `/api/v1/products/${prodID}/reviews?page=${page}&limit=${limit}`,
+      `/api/products/${prodID}/reviews?page=${page}&limit=${limit}`,
     );
     dispatch({
       type: ALL_REVIEW_PRODUCT,
