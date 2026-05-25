@@ -1,5 +1,7 @@
-import { Col, Card } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+
 const BrandCard = ({ img, id }) => {
     return (
         <Col
@@ -7,29 +9,24 @@ const BrandCard = ({ img, id }) => {
             sm="6"
             md="4"
             lg="2"
-            className="my-2 d-flex justify-content-center"
+            className="my-3 d-flex justify-content-center"
         >
-            <Card
-                className="my-1"
-                style={{
-                    width: "100%",
-                    height: "151px",
-                    borderRadius: "40px",
-                    border: "none",
-                    backgroundColor: "#FFFFFF",
-                    overflow: "hidden"
-                }}
+            <motion.div
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="w-full"
             >
                 <Link
                     to={`/products/brand/${id}`}
-                    style={{ textDecoration: "none" }}
+                    className="block w-full h-[100px] bg-white border border-borderColor/60 rounded-premium shadow-premium hover:shadow-premium-hover transition-all duration-300 overflow-hidden flex items-center justify-center p-4 hover:border-primaryAccent/20"
                 >
-                    <Card.Img
-                        style={{ width: "100%", height: "151px", borderRadius: "40px" }}
+                    <img
+                        className="max-w-full max-h-full object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 rounded-2xl"
                         src={img}
+                        alt="Featured Brand"
                     />
                 </Link>
-            </Card>
+            </motion.div>
         </Col>
     );
 };
