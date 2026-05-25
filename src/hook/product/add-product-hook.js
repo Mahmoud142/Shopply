@@ -78,8 +78,10 @@ const AdminAddProductHook = () => {
     setColors(newColor);
   };
   const onSelectCategory = async (e) => {
-    if (e.target.value !== 0) {
+    if (e.target.value !== "0" && e.target.value !== 0) {
       await dispatch(getOneCategory(e.target.value));
+    } else {
+      setOptions([]);
     }
     setCatID(e.target.value);
   };
@@ -183,23 +185,21 @@ const AdminAddProductHook = () => {
 
   useEffect(() => {
     if (loading === false) {
-      // setCatID(0)
-      setColors([]);
-      setImages([]);
-      setProdName("");
-      setProdDesc("");
-      setProdPriceBefore("");
-      setProdPriceAfter("");
-      setQty("");
-      setBrandID(0);
-      setSelectedSubID([]);
-      setTimeout(() => setLoading(true), 1500);
-
-      if (product?.status === 201) {
+      if (product && product.status === 201) {
+        setColors([]);
+        setImages([]);
+        setProdName("");
+        setProdDesc("");
+        setProdPriceBefore("");
+        setProdPriceAfter("");
+        setQty("");
+        setBrandID(0);
+        setSelectedSubID([]);
         notify("Added successfully", "success");
       } else if (product) {
-        notify("There is a problem", "error");
+        notify("There is a problem adding the product. Please check your data.", "error");
       }
+      setTimeout(() => setLoading(true), 1500);
     }
   }, [loading, product]);
     return [
