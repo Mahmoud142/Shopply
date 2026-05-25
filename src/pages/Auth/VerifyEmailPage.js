@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
-import VerifyPasswordHook from "../../hook/auth/verify-password-hook";
+import VerifyEmailHook from "../../hook/auth/verify-email-hook";
 
-const VerifyPasswordPage = () => {
-  const [code, OnChangeCode, onSubmit] = VerifyPasswordHook();
+const VerifyEmailPage = () => {
+  const [code, onChangeCode, onSubmit] = VerifyEmailHook();
 
   return (
     <Container style={{ minHeight: "690px" }}>
@@ -13,10 +13,13 @@ const VerifyPasswordPage = () => {
 
           <div className="text-center mb-5 mt-4">
             <h1 className="font-sans text-3xl font-extrabold text-primaryText tracking-tight m-0">
-              Verify Code
+              Verify Email
             </h1>
             <p className="text-secondaryText text-sm font-medium mt-2 m-0">
-              Enter the code sent to your email address
+              Enter the 6-digit code sent to your email to complete registration.
+            </p>
+            <p className="text-primaryAccent text-xs font-semibold mt-2 m-0">
+              (If you don't see it, please check your spam folder)
             </p>
           </div>
 
@@ -25,7 +28,7 @@ const VerifyPasswordPage = () => {
               <label className="text-xs font-bold text-secondaryText uppercase tracking-wider">Verification Code</label>
               <input
                 value={code}
-                onChange={OnChangeCode}
+                onChange={onChangeCode}
                 placeholder="Enter 6-digit code"
                 type="text"
                 className="w-full h-12 px-4 bg-brandBg border border-borderColor rounded-xl text-sm font-semibold tracking-wider text-center text-primaryText placeholder-secondaryText/50 outline-none focus:border-primaryAccent focus:ring-4 focus:ring-primaryAccent/10 transition-all"
@@ -35,7 +38,7 @@ const VerifyPasswordPage = () => {
               onClick={onSubmit}
               className="w-full h-12 mt-2 bg-primaryText hover:bg-primaryAccent text-white text-sm font-bold rounded-xl transition-all duration-300 shadow-sm hover:shadow-md border-none cursor-pointer"
             >
-              Confirm Code
+              Verify & Login
             </button>
             
             <div className="text-center mt-2">
@@ -55,4 +58,4 @@ const VerifyPasswordPage = () => {
   );
 };
 
-export default VerifyPasswordPage;
+export default VerifyEmailPage;

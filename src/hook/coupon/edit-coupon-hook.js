@@ -79,7 +79,7 @@ const EditCouponHook = (id) => {
             if (res && res.status === 200) {
                 notify("Updated successfully", "success");
                 setTimeout(() => {
-                    navigate("/admin/addcoupon");
+                    navigate("/admin/add-coupon");
                 }, 1000);
             } else {
                 notify("Failed to update ", "error");

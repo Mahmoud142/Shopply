@@ -8,11 +8,11 @@ const AdminAddProductsPage = () => {
     return (
         <Container >
             <Row className='py-3'>
-                <Col sm="3" xs="2" md="2">
+                <Col sm="4" xs="12" md="3" lg="2" className="mb-4">
                     <AdminSideBar />
                 </Col>
 
-                <Col sm="9" xs="10" md="10">
+                <Col sm="8" xs="12" md="9" lg="10">
                      <AdminAddProducts />
                 </Col>
             </Row>

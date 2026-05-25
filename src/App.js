@@ -1,6 +1,7 @@
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 import HomePage from "./pages/Home/HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import NavBarLogin from "./components/utility/NavBarLogin";
 import LoginPage from "./pages/Auth/LoginPage";
 import RegisterPage from "./pages/Auth/RegisterPage";
@@ -28,21 +29,22 @@ import UserEditAddressPage from "./pages/User/UserEditAddressPage";
 import UserProfilePage from "./pages/User/UserProfilePage";
 import ForgetPasswordPage from "./pages/Auth/ForgetPasswordPage";
 import VerifyPasswordPage from "./pages/Auth/VerifyPasswordPage";
+import VerifyEmailPage from "./pages/Auth/VerifyEmailPage";
 import ResetPasswordPage from "./pages/Auth/ResetPasswordPage";
 import AdminEditCouponPage from "./pages/Admin/AdminEditCouponPage";
 import AdminAddCouponPage from "./pages/Admin/AdminAddCouponPage";
-import ProtectedRouteHook from "./hook/auth/protected-route-hook";
 import ProtectedRoute from "./components/utility/ProtectedRoute";
 import Footer from "./components/utility/Footer";
 import ProductsByCategory from "./pages/Products/ProductsByCategory";
 import ProductsByBrand from "./pages/Products/ProductsByBrand";
+import ScrollToTop from "./components/utility/ScrollToTop";
 function App() {
-    const [isUser, isAdmin] = ProtectedRouteHook();
-
     return (
         <div className="font">
-            <NavBarLogin />
+            <ToastContainer />
             <BrowserRouter>
+                <NavBarLogin />
+                <ScrollToTop />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
@@ -64,6 +66,10 @@ function App() {
                         element={<VerifyPasswordPage />}
                     />
                     <Route
+                        path="/user/verify-email"
+                        element={<VerifyEmailPage />}
+                    />
+                    <Route
                         path="/user/reset-password"
                         element={<ResetPasswordPage />}
                     />
@@ -75,9 +81,9 @@ function App() {
                         path="/products/brand/:id"
                         element={<ProductsByBrand />}
                     />
-                    <Route element={<ProtectedRoute auth={isAdmin} />}>
+                    <Route element={<ProtectedRoute allowedRole="admin" />}>
                         <Route
-                            path="/admin/allproducts"
+                            path="/admin/products-list"
                             element={<AdminAllProductsPage />}
                         />
                         <Route
@@ -85,23 +91,23 @@ function App() {
                             element={<AdminAllOrdersPage />}
                         />
                         <Route
-                            path="/admin/addproduct"
+                            path="/admin/add-product"
                             element={<AdminAddProductsPage />}
                         />
                         <Route
-                            path="/admin/editproduct/:id"
+                            path="/admin/edit-product/:id"
                             element={<AdminEditProductsPage />}
                         />
                         <Route
-                            path="/admin/addbrand"
+                            path="/admin/add-brand"
                             element={<AdminAddBrandPage />}
                         />
                         <Route
-                            path="/admin/addcategory"
+                            path="/admin/add-category"
                             element={<AdminAddCategoryPage />}
                         />
                         <Route
-                            path="/admin/addsubcategory"
+                            path="/admin/add-subcategory"
                             element={<AdminAddSubCategoryPage />}
                         />
                         <Route
@@ -109,15 +115,15 @@ function App() {
                             element={<AdminOrderDetailsPage />}
                         />
                         <Route
-                            path="/admin/addcoupon"
+                            path="/admin/add-coupon"
                             element={<AdminAddCouponPage />}
                         />
                         <Route
-                            path="/admin/editcoupon/:id"
+                            path="/admin/edit-coupon/:id"
                             element={<AdminEditCouponPage />}
                         />
                     </Route>
-                    <Route element={<ProtectedRoute auth={isUser} />}>
+                    <Route element={<ProtectedRoute allowedRole="user" />}>
                         <Route
                             path="/user/allorders"
                             element={<UserAllOrdersPage />}
@@ -147,9 +153,11 @@ function App() {
                             element={<UserProfilePage />}
                         />
                     </Route>
+                    {/* Catch-all route for non-existent pages (404 redirect) */}
+                    <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
+                <Footer />
             </BrowserRouter>
-            <Footer />
         </div>
     );
 }

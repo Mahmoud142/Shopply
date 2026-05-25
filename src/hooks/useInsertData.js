@@ -1,7 +1,6 @@
 import baseUrl from "../Api/baseURL";
 
 const useInsertDataWithImage = async (url, parmas) => {
-  try {
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
@@ -15,9 +14,6 @@ const useInsertDataWithImage = async (url, parmas) => {
       status: res.status,
       data: res.data
     };
-  } catch (error) {
-    console.log(error);
-  }
 };
 
 const useInsertData = async (url, parmas) => {

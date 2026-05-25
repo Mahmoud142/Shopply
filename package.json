@@ -11,6 +11,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.8",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.16.0",
     "react": "^19.2.0",
     "react-bootstrap": "^2.10.10",
     "react-color": "^2.19.3",
@@ -53,5 +55,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.0",
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19"
   }
 }

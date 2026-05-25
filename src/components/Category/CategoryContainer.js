@@ -2,14 +2,6 @@ import { Container, Row, Spinner } from "react-bootstrap";
 import CategoryCard from "./../Category/CategoryCard";
 
 const CategoryContainer = ({ data, loading }) => {
-    const colors = [
-        "#FFD3E8",
-        "#F4DBA5",
-        "#55CFDF",
-        "#FF6262",
-        "#0034FF",
-        "#FFD3E8",
-    ];
     return (
         <Container>
             <div className="admin-content-text mt-2 ">All Categories</div>
@@ -23,11 +15,6 @@ const CategoryContainer = ({ data, loading }) => {
                                     key={index}
                                     title={item.name}
                                     img={item.image}
-                                    background={
-                                        colors[
-                                            Math.floor(Math.random() * 5) + 1
-                                        ]
-                                    }
                                 />
                             );
                         })

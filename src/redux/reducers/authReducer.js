@@ -4,6 +4,7 @@ import {
   GET_CURRENT_USER,
   FOREGT_PASSWORD,
   VERIFY_PASSWORD,
+  VERIFY_EMAIL,
   RESET_PASSWORD,
   UPDATE_USER_PROFILE,
   UPDATE_USER_PASSWORD,
@@ -16,6 +17,7 @@ const initial = {
     currentUser: [],
     forgetPassword: [],
     verifyPassword: [],
+    verifyEmail: [],
     resetPassword: [],
     userProfile: [],
     userChangePassword: [],
@@ -49,6 +51,11 @@ const authReducer = (state = initial, action) => {
       return {
         ...state,
         verifyPassword: action.payload,
+      };
+    case VERIFY_EMAIL:
+      return {
+        ...state,
+        verifyEmail: action.payload,
       };
     case RESET_PASSWORD:
       return {

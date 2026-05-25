@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { getOneCategory } from "../../redux/actions/subcategoryAction";
 import {
   getOneProduct,
@@ -11,6 +12,7 @@ import { updateProduct } from "../../redux/actions/productAction";
 
 const AdminEditProductHook = (id) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     const run = async () => {
       await dispatch(getOneProduct(id));
@@ -28,16 +30,16 @@ const AdminEditProductHook = (id) => {
   const brand = useSelector((state) => state.allBrand.brand);
 
   //get last sub cat state from redux
-  const subCat = useSelector((state) => state.allSubCategory.subCategory);
+  const subCat = useSelector((state) => state.allSubCategory.subcategory);
 
   //values images products
   const [images, setImages] = useState([]);
   //values state
   const [prodName, setProdName] = useState("");
   const [prodDescription, setProdDescription] = useState("");
-  const [priceBefore, setPriceBefore] = useState("Price Before Discount");
-  const [priceAfter, setPriceAfter] = useState("Price After Discount");
-  const [qty, setQty] = useState("Available Quantity");
+  const [priceBefore, setPriceBefore] = useState("");
+  const [priceAfter, setPriceAfter] = useState("");
+  const [qty, setQty] = useState("");
   const [catID, setCatID] = useState("0");
   const [brandID, setBrandID] = useState("0");
   const [selectedSubID, setSelectedSubID] = useState([]);
@@ -64,9 +66,10 @@ const AdminEditProductHook = (id) => {
         data_url: url,
       }));
       setImages(formattedImages);
-      setProdName(item.data.title);
+      setProdName(item.data.title || item.data.name);
       setProdDescription(item.data.description);
       setPriceBefore(item.data.price);
+      setPriceAfter(item.data.priceAfterDiscount || "");
       setQty(item.data.quantity);
       setCatID(item.data.category);
       setBrandID(item.data.brand);
@@ -128,7 +131,7 @@ const AdminEditProductHook = (id) => {
   }, [catID, dispatch]);
 
   useEffect(() => {
-    if (subCat) {
+    if (subCat && subCat.data) {
       setOptions(subCat.data);
     }
   }, [subCat]);
@@ -224,10 +227,13 @@ const AdminEditProductHook = (id) => {
     }
 
     const formData = new FormData();
-    formData.append("title", prodName);
+    formData.append("name", prodName);
     formData.append("description", prodDescription);
     formData.append("quantity", qty);
     formData.append("price", priceBefore);
+    if (priceAfter !== "Price After Discount" && priceAfter !== "") {
+      formData.append("priceAfterDiscount", priceAfter);
+    }
 
     formData.append("category", catID);
     formData.append("brand", brandID);
@@ -248,27 +254,19 @@ const AdminEditProductHook = (id) => {
 
   useEffect(() => {
     if (loading === false) {
-      setCatID("0");
-      setColors([]);
-      setImages([]);
-      setProdName("");
-      setProdDescription("");
-      setPriceBefore("Price Before Discount");
-      setPriceAfter("Price After Discount");
-      setQty("Available Quantity");
-      setBrandID("0");
-      setSelectedSubID([]);
-      setTimeout(() => setLoading(true), 1500);
-
       if (product) {
         if (product.status === 200) {
           notify("Updated successfully", "success");
+          setTimeout(() => {
+            navigate("/admin/products-list");
+          }, 1000);
         } else {
-          notify("There is a problem", "error");
+          notify("There is a problem updating the product", "error");
         }
       }
+      setTimeout(() => setLoading(true), 1500);
     }
-  }, [loading, product]);
+  }, [loading, product, navigate]);
 
   return [
     catID,

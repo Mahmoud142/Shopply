@@ -10,12 +10,12 @@ export const addProductToWishList = (body) => async (dispatch) => {
         const response = await useInsertData("/api/wishlist", body);
         dispatch({
             type: ADD_TO_WISHLIST,
-            payload: response?.data,
+            payload: response,
         });
     } catch (e) {
         dispatch({
             type: ADD_TO_WISHLIST,
-            payload: e.response?.data,
+            payload: e.response,
         });
     }
 };
@@ -26,13 +26,13 @@ export const removeProductFromWishList = (id) => async (dispatch) => {
         const response = await useDeleteData(`/api/wishlist/${id}`);
         dispatch({
             type: REMOVE_FROM_WISHLIST,
-            payload: response?.data,
+            payload: response,
             loading: true,
         });
     } catch (e) {
         dispatch({
             type: REMOVE_FROM_WISHLIST,
-            payload: e.response?.data,
+            payload: e.response,
         });
     }
 };

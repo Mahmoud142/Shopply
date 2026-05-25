@@ -1,47 +1,24 @@
 import { Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-const CategoryCard = ({ id, title, img }) => {
+
+const CategoryCard = ({ id, title }) => {
     return (
         <Col
             xs="6"
             sm="6"
             md="4"
             lg="2"
-            className="my-3 d-flex justify-content-center"
+            className="my-2 d-flex justify-content-center"
         >
             <Link
                 to={`/products/category/${id}`}
-                className="d-flex flex-column align-items-center"
-                style={{ textDecoration: "none" }}
+                className="group w-full no-underline"
             >
-                <div
-                    style={{
-                        width: "150px",
-                        height: "110px",
-                        borderRadius: "40px",
-                        backgroundColor: "#F8F9FA",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        overflow: "hidden",
-                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
-                        transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                        border: "1px solid #EAEAEA"
-                    }}
-                    className="category-img-wrapper"
-                >
-                    <img
-                        alt={title}
-                        src={img}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            borderRadius: "40px"
-                        }}
-                    />
+                <div className="w-full h-[60px] px-3 rounded-2xl bg-white border border-borderColor/50 shadow-sm flex items-center justify-center transition-all duration-300 ease-out transform group-hover:-translate-y-1.5 group-hover:shadow-premium group-hover:border-primaryAccent/40 hover:bg-gradient-to-r hover:from-white hover:to-brandBg">
+                    <span className="font-sans font-bold text-[13px] text-primaryText group-hover:text-primaryAccent transition-colors uppercase tracking-widest text-center line-clamp-2">
+                        {title}
+                    </span>
                 </div>
-                <p className="categoty-card-text my-2">{title}</p>
             </Link>
         </Col>
     );

@@ -4,7 +4,7 @@ import {
   getOneProduct,
   getProductLike,
 } from "../../redux/actions/productAction";
-import mobile from "../../images/mobile.png";
+import premiumPlaceholder from "../../images/product-placeholder.png";
 import { getOneCategory } from "../../redux/actions/categoryAction";
 import { getOneBrand } from "../../redux/actions/brandAction";
 
@@ -36,7 +36,7 @@ const ViewProductDetailsHook = (prodID) => {
   // image views
   const images = product.images?.length
     ? product.images.map((img) => ({ original: img }))
-    : [{ original: `${mobile}` }];
+    : [{ original: `${premiumPlaceholder}` }];
   //to show category item
   const cat = oneCategory?.data || [];
 

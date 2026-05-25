@@ -129,9 +129,9 @@ const AdminEditProducts = () => {
             className="select input-form-area mt-3 px-2 "
           >
             <option value="0">Main Category</option>
-            {category.data
+            {category?.data
               ? category.data.map((item) => {
-                  return <option value={item._id}>{item.name}</option>;
+                  return <option key={item._id} value={item._id}>{item.name}</option>;
                 })
               : null}
           </select>
@@ -152,9 +152,9 @@ const AdminEditProducts = () => {
             className="select input-form-area mt-3 px-2 "
           >
             <option value="0">Select Brand</option>
-            {brand.data
+            {brand?.data
               ? brand.data.map((item) => {
-                  return <option value={item._id}>{item.name}</option>;
+                  return <option key={item._id} value={item._id}>{item.name}</option>;
                 })
               : null}
           </select>

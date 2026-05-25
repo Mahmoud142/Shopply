@@ -56,9 +56,9 @@ const SignupHook = () => {
     } else if (phone.length < 10 || phone.length > 11) {
       isValid = false;
       message = "Invalid phone number";
-    } else if (password.length < 6) {
+    } else if (password.length < 8) {
       isValid = false;
-      message = "Password must be at least 5 characters";
+      message = "Password must be at least 8 characters";
     } else if (password !== confirmPassword) {
       isValid = false;
       message = "Passwords do not match";
@@ -83,7 +83,7 @@ const SignupHook = () => {
         email: email,
         phone: phone,
         password: password,
-        passwordConfirm: confirmPassword,
+        confirmPassword: confirmPassword,
       }),
     );
   };
@@ -103,13 +103,14 @@ const SignupHook = () => {
       if (res.data) {
         if (res.status === 201 || res.data.status === "success") {
           notify("Account created successfully. Please check your email", "success");
+          localStorage.setItem("userEmail", email);
           setName("");
           setEmail("");
           setPhone("");
           setPassword("");
           setConfirmPassword("");
           setTimeout(() => {
-            navigate("/login");
+            navigate("/user/verify-email");
           }, 2000);
         } else if (res.data.errors && res.data.errors.length > 0) {
           notify(res.data.errors[0].msg, "error");
@@ -121,6 +122,7 @@ const SignupHook = () => {
         notify("An unexpected error occurred", "error");
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loading, res, navigate]);
 
   return [

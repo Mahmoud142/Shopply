@@ -17,8 +17,8 @@ const CartPage = () => {
             <Row>
                 <div className="cart-title mt-4">Shopping Cart</div>
             </Row>
-            <Row className="d-flex justify-content-center">
-                <Col xs="12" md="9">
+            <Row className="d-flex justify-content-center mt-3">
+                <Col xs="12" lg="8" xl="9">
                     {cartItems.length >= 1 ? (
                         cartItems.map((item, index) => {
                             return <CartItem key={index} item={item} />;
@@ -28,7 +28,7 @@ const CartPage = () => {
                     )}
                 </Col>
 
-                <Col xs="6" md="3">
+                <Col xs="12" lg="4" xl="3" className="mt-4 mt-lg-0">
                     <CartCheckout
                         couponNameRes={couponNameRes}
                         totalCartPriceAfterDiscount={
