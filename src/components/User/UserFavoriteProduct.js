@@ -26,10 +26,10 @@ const UserFavoriteProduct = () => {
     }, [loading, res]);
     return (
         <div>
-            <div className="admin-content-text pb-4">قائمة المفضلة</div>
+            <div className="admin-content-text pb-4">Wishlist</div>
             <Row className="justify-content-start">
                 {items?.length <= 0 ? (
-                    <h6>لا يوجد منتجات مفضله حاليا</h6>
+                    <h6>No favorite products yet</h6>
                 ) : (
                     <CardProductsContainer
                         products={res}
