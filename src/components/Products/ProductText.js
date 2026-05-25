@@ -25,7 +25,7 @@ const ProductText = () => {
             </Row>
             <Row>
                 <Col md="8" className="mt-4">
-                    <div className="cat-text d-inline">الماركة :</div>
+                    <div className="cat-text d-inline">Brand :</div>
                     <div className="barnd-text d-inline mx-1">
                         {brand.name}{" "}
                     </div>
@@ -55,7 +55,7 @@ const ProductText = () => {
             </Row>
 
             <Row className="mt-4">
-                <div className="cat-text">المواصفات :</div>
+                <div className="cat-text">Specifications :</div>
             </Row>
             <Row className="mt-2">
                 <Col md="10">
@@ -74,18 +74,18 @@ const ProductText = () => {
                                 {" "}
                                 {item.price}
                             </span>{" "}
-                            {item.priceAfterDiscount} جنية
+                            {item.priceAfterDiscount} EGP
                         </div>
                     ) : (
                         <div className="product-price d-inline px-3 py-3 border">
-                            <span> {item.price}</span> جنية{" "}
+                            <span> {item.price}</span> EGP{" "}
                         </div>
                     )}
                     <div
                         onClick={addToCartHandel}
                         className="product-cart-add px-3 py-3 d-inline mx-3"
                     >
-                        اضف للعربة
+                        Add to Cart
                     </div>
                 </Col>
             </Row>
