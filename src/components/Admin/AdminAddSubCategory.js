@@ -33,7 +33,7 @@ const AdminAddSubCategory = () => {
             onChange={onChangeCategoryId}
           >
             <option value="0">Select Main Category</option>
-            {category.data
+            {category?.data
               ? category.data.map((item) => {
                   return (
                     <option key={item._id} value={item._id}>
