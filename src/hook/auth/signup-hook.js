@@ -49,19 +49,19 @@ const SignupHook = () => {
     let message = "";
     if (name === "") {
       isValid = false;
-      message = "يرجى ادخال اسم المستخدم";
+      message = "Please enter your username";
     } else if (!validateEmail(email)) {
       isValid = false;
-      message = "الايميل غير صحيح";
+      message = "Email is invalid";
     } else if (phone.length < 10 || phone.length > 11) {
       isValid = false;
-      message = "رقم الهاتف غير صحيح";
+      message = "Invalid phone number";
     } else if (password.length < 6) {
       isValid = false;
-      message = "كلمه السر يجب ان تكون اكثر من 5 احرف";
+      message = "Password must be at least 5 characters";
     } else if (password !== confirmPassword) {
       isValid = false;
-      message = "كلمه السر غير متطابقه";
+      message = "Passwords do not match";
     }
     return [isValid, message];
   };
@@ -101,9 +101,8 @@ const SignupHook = () => {
       console.log("Response received:", res);
 
       if (res.data) {
-        if (res.data.token) {
-          localStorage.setItem("token", res.data.token);
-          notify("تم انشاء الحساب بنجاح", "success");
+        if (res.status === 201 || res.data.status === "success") {
+          notify("Account created successfully. Please check your email", "success");
           setName("");
           setEmail("");
           setPhone("");
@@ -114,10 +113,12 @@ const SignupHook = () => {
           }, 2000);
         } else if (res.data.errors && res.data.errors.length > 0) {
           notify(res.data.errors[0].msg, "error");
+        } else if (res.data.message) {
+          notify(res.data.message, "error");
         }
       } else {
         console.log("Unexpected response format:", res);
-        notify("حدث خطأ غير متوقع", "error");
+        notify("An unexpected error occurred", "error");
       }
     }
   }, [loading, res, navigate]);
