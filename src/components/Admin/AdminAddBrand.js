@@ -15,9 +15,9 @@ const AdminAddBrand = () => {
   return (
     <div>
       <Row className="justify-content-start ">
-        <div className="admin-content-text pb-4">اضافه ماركه جديده</div>
+        <div className="admin-content-text pb-4">Add New Brand</div>
         <Col sm="8">
-          <div className="text-form pb-2">صوره الماركه</div>
+          <div className="text-form pb-2">Brand Image</div>
           <div>
             <label for="upload-photo">
               <img
@@ -41,14 +41,14 @@ const AdminAddBrand = () => {
             value={name}
             type="text"
             className="input-form d-block mt-3 px-3"
-            placeholder="اسم الماركه"
+            placeholder="Brand Name"
           />
         </Col>
       </Row>
       <Row>
         <Col sm="8" className="d-flex justify-content-end ">
           <button onClick={handelSubmit} className="btn-save d-inline mt-2 ">
-            حفظ التعديلات
+            Save Changes
           </button>
         </Col>
       </Row>
@@ -57,7 +57,7 @@ const AdminAddBrand = () => {
         loading ? (
           <Spinner animation="border" variant="primary" />
         ) : (
-          <h4>تم الانتهاء</h4>
+          <h4>Done Expiry</h4>
         )
       ) : null}
       <ToastContainer />
